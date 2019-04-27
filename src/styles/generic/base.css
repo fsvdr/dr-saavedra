@@ -1,0 +1,55 @@
+/************************************************
+    Global base styles                          *
+ ***********************************************/
+
+/*
+  1) Define flexible box sizing
+  More on http://bit.ly/1A91I0J
+  2) Occupy all vertical available space
+  3) Avoid horizontal scroll
+ */
+html {
+  box-sizing: border-box; /* [1] */
+  width: 100%;
+  height: auto;
+  min-height: 100vh; /* [2] */
+  overflow-x: hidden; /* [3] */
+  font-family: sans-serif;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+/* stylelint-disable selector-max-universal */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/*
+  1)Occupy all vertical available space
+  2) Emphasize legibility over rendering speed and geometric precision
+  3) Smooth the font on the level of the pixel
+  4) Render text with grayscale antialiasing
+ */
+body {
+  width: 100%;
+  height: auto;
+  min-height: 100vh; /* [1] */
+  font-family: var(--body-font);
+  font-size: var(--text-base-size);
+  line-height: var(--body-line-height);
+  color: var(--body-text-color);
+  text-rendering: optimizeLegibility; /* [2] */
+  -webkit-font-smoothing: antialiased; /* [3] */
+  -moz-osx-font-smoothing: grayscale; /* [4] */
+  font-smoothing: antialiased; /* stylelint-disable-line */
+}
+
+[hidden] {
+  display: none !important; /* stylelint-disable-line */
+}
+
+[disabled] {
+  cursor: not-allowed;
+}

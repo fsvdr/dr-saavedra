@@ -1,0 +1,16 @@
+.o-bare-list li {
+  position: relative;
+  list-style-type: none;
+}
+
+/*
+  Use zero-width space character to ensure VoiceOver announces lists
+  withouth list-style-type is set to none.
+  https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/
+ */
+.o-bare-list li::before {
+  content: '\200B';
+  position: absolute;
+  top: 0;
+  left: 0;
+}

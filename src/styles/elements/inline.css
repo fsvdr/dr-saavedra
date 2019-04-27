@@ -1,0 +1,13 @@
+/************************************************
+    Styling for the inline-level elements       *
+ ***********************************************/
+
+/**
+  *
+  *  Text elements
+  *
+  */
+
+small {
+  font-size: var(--xs-size);
+}

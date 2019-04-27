@@ -1,0 +1,36 @@
+/************************************************
+    Global typographic styles styles            *
+ ***********************************************/
+
+:root {
+  --body-font: 'Noto Sans', sans-serif;
+  --header-font: 'Noto Serif', sans-serif;
+  --display-font: sans-serif;
+
+  /* Base values */
+  --text-base-size: 1.6rem;
+  --scale-ratio: 1.25;
+
+  /* Type scale */
+  /* stylelint-disable max-line-length */
+  --xs-size: calc(var(--text-base-size) / (2 * var(--scale-ratio)));
+  --sm-size: calc(var(--text-base-size) / var(--scale-ratio));
+  --md-size: calc(var(--text-base-size) * var(--scale-ratio));
+  --lg-size: calc(var(--text-base-size) * (var(--scale-ratio) * var(--scale-ratio)));
+  --xl-size: calc(var(--text-base-size) * (var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio)));
+  --xxl-size: calc(var(--text-base-size) * (var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio)));
+
+  /* Line height */
+  --body-line-height: 1.2;
+  --heading-line-height: 1.4;
+
+  /* Font weights */
+  --regular-weight: 400;
+  --bold-weight: 700;
+}
+
+@media (--medium-viewport) {
+  :root {
+    --text-base-size: 1.8rem;
+  }
+}

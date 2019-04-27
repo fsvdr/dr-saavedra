@@ -1,0 +1,12 @@
+/************************************************
+    Global spacing system                       *
+ ***********************************************/
+
+:root {
+  --base-space: 2em;
+  --xs-space: calc(var(--base-space) / 3);
+  --sm-space: calc(var(--base-space) / 2);
+  --md-space: --base-space;
+  --lg-space: calc(var(--base-space) * 2);
+  --xl-space: calc(var(--base-space) * 3);
+}

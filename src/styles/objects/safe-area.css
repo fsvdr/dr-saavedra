@@ -1,0 +1,18 @@
+/************************************************
+    Viewport safe area wrapper                  *
+ ***********************************************/
+
+/* stylelint-disable declaration-no-important */
+.o-safe-area-wrapper {
+  padding-top: env(safe-area-inset-top);
+}
+
+@media screen and (orientation: landscape) {
+  .o-safe-area-wrapper {
+    /* stylelint-disable declaration-block-no-redundant-longhand-properties */
+    padding-top: initial;
+    padding-right: env(safe-area-inset-right) !important;
+    padding-bottom: env(safe-area-inset-bottom) !important;
+    padding-left: env(safe-area-inset-left) !important;
+  }
+}

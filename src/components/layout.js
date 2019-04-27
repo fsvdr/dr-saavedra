@@ -10,7 +10,22 @@ import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 
 import Header from './header';
-import './layout.css';
+
+import '../styles/settings/breakpoints.css';
+import '../styles/settings/typography.css';
+import '../styles/settings/font-face.css';
+import '../styles/settings/color.css';
+import '../styles/settings/spacing.css';
+
+import '../styles/generic/reset.css';
+import '../styles/generic/base.css';
+
+import '../styles/elements/block.css';
+import '../styles/elements/inline.css';
+
+import '../styles/objects/flex-grid.css';
+import '../styles/objects/safe-area.css';
+import '../styles/objects/lists.css';
 
 const Layout = ({ children }) => (
   <StaticQuery
