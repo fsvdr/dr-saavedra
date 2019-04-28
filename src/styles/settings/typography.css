@@ -13,7 +13,7 @@
 
   /* Type scale */
   /* stylelint-disable max-line-length */
-  --xs-size: calc(var(--text-base-size) / (2 * var(--scale-ratio)));
+  --xs-size: calc(var(--text-base-size) / (1.4 * var(--scale-ratio)));
   --sm-size: calc(var(--text-base-size) / var(--scale-ratio));
   --md-size: calc(var(--text-base-size) * var(--scale-ratio));
   --lg-size: calc(var(--text-base-size) * (var(--scale-ratio) * var(--scale-ratio)));
@@ -29,7 +29,7 @@
   --bold-weight: 700;
 }
 
-@media (--medium-viewport) {
+@media (--portrait-tablet) {
   :root {
     --text-base-size: 1.8rem;
   }

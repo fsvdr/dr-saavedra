@@ -11,3 +11,8 @@
 small {
   font-size: var(--xs-size);
 }
+
+a,
+a:visited {
+  color: inherit;
+}

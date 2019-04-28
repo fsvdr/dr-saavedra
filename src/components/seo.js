@@ -33,8 +33,12 @@ function SEO({ description, lang, meta, keywords, title }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`${site.siteMetadata.title} | %s`}
       meta={[
+        {
+          name: `viewport`,
+          content: `width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover`
+        },
         {
           name: `description`,
           content: metaDescription,

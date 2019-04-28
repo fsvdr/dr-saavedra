@@ -12,7 +12,7 @@
   font-family: 'Noto Sans';
   font-display: swap;
   font-weight: var(--bold-weight);
-  src: local('Noto Sans'), url('../../fonts/NotoSans/NotoSans-Bold.ttf') format('truetype');
+  src: local('Noto Sans Bold'), url('../../fonts/NotoSans/NotoSans-Bold.ttf') format('truetype');
 }
 
 @font-face {

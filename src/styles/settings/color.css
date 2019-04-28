@@ -5,32 +5,24 @@
 :root {
   /* Generic */
   --white: hsl(0, 0%, 100%);
-  --green: hsl(80, 55%, 50%);
   --black: hsl(0, 0%, 0%);
 
   /* Brand */
-  --primary-color: #4AA8FF;
-  --accent-color: #11BA7D;
-  --background-color: #EBF0F6;
-  --darker-background-color: #DCE5EF;
+  --primary-color: hsl(208.8, 100%, 64.5%);
+  --accent-color: hsl(158.3, 83.3%, 39.8%);
+  --background-color: hsl(212.7, 37.9%, 94.3%);
+  --darker-background-color: hsl(211.6, 37.3%, 90%);
 
   /* Text */
-  --body-text-color: hsl(0, 0%, 50%);
+  --body-text-color: hsl(0, 0%, 32.2%);
   --header-color: var(--black);
-  --subheader-color: hsl(0, 0%, 71.8%);
-  --subtle-text-color: hsl(0, 100%, 94%);
-  --index-link-color: hsl(0, 0%, 78%);
-  --shadow-color: rgba(0, 0, 0, 0.12);
+  --subtle-text-color: hsl(0, 0%, 67.5%);
 
   /* Form controls */
   --field-background-color: hsl(180, 4%, 95%);
   --darker-field-background-color: hsl(180, 4%, 90%);
 
-  /* Social networks */
-  --facebook-color: hsl(221.7, 38.7%, 41.6%);
-  --twitter-color: hsl(208.1, 81%, 60.8%);
-  --instagram-color: hsl(341.8, 60.2%, 53.7%);
-
   /* Functional */
-  --overlay-color: rgba(0, 0, 0, 0.42);
+  --accent-shadow-color: hsl(158.3, 63.3%, 89.8%);
+  --darker-accent-shadow-color: hsl(158.3, 43.3%, 79.8%);
 }

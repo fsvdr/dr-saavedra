@@ -1,0 +1,11 @@
+.o-subtitle {
+  font-size: var(--xs-size);
+  font-weight: var(--bold-weight);
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 0.16rem;
+
+  &.-accent {
+    color: var(--accent-color);
+  }
+}
