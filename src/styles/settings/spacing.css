@@ -9,4 +9,14 @@
   --md-space: --base-space;
   --lg-space: calc(var(--base-space) * 2);
   --xl-space: calc(var(--base-space) * 3);
+
+  /* Global constraints */
+  --width-constraint: 140rem;
+  --horizontal-inset: 1.6rem;
+}
+
+@media (--portrait-tablet) {
+  :root {
+    --horizontal-inset: 4rem;
+  }
 }

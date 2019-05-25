@@ -1,11 +1,15 @@
 import React from 'react';
 
 import Layout from '../components/layout';
-import PortraitImage from '../components/portrait-image';
 import SEO from '../components/seo';
-import CTA from '../components/cta';
 
 import styles from './index.module.css';
+import PortraitImage from '../components/Image/portrait-image';
+import UNAMLogo from '../components/Image/unam-logo';
+import IMSSLogo from '../components/Image/imss-logo';
+import ISSTELogo from '../components/Image/issste-logo';
+import CTA from '../components/CTA';
+import InstitutionCard from '../components/InstitutionCard';
 
 const IndexPage = () => (
   <Layout>
@@ -43,6 +47,44 @@ const IndexPage = () => (
         />
       </div>
     </header>
+
+    <section className={styles.section}>
+      <header>
+        <h2>Carrera de vocación</h2>
+        <p>Tras más de 28 años de servicio en instituciones de salud, el Dr. Saavedra continúa su carrera ofreciendo consulta privada</p>
+      </header>
+
+      <div className={`${styles.section__content} ${styles.with__detail}`}>
+        <div className={styles.section__content__primary}>
+          <span className="o-subtitle">Educación</span>
+          <p>Títulado por la Universidad Nacional Autónoma de México en la Licenciatura de Médico Cirujano, el Dr. Saavedra se especializó en traumatología y ortopédia</p>
+
+          <span className="o-subtitle">Profesión</span>
+          <p>Desarrolló su carrera profesional a la par en el Instituto Mexicano del Seguro Social y en el Instituto de Seguridad y Servicios de los Trabajadores del Estado.</p>
+          <p>Hoy, tras 28 años de servicio continua su práctica profesional en el hospital HMG.</p>
+        </div>
+
+        <div className={styles.section__content__detail}>
+          <InstitutionCard
+            logo={<UNAMLogo />}
+            institution="Universidad Nacional Autónoma de México"
+            timeframe="1979 — 1984"
+          />
+
+          <InstitutionCard
+            logo={<IMSSLogo />}
+            institution="Instituto Mexicano del Seguro Social"
+            timeframe="1989 — 2018"
+          />
+
+          <InstitutionCard
+            logo={<ISSTELogo />}
+            institution="Instituto de Seguridad y Servicios de los Trabajadores del Estado"
+            timeframe="1989 — 2018"
+          />
+        </div>
+      </div>
+    </section>
   </Layout>
 );
 

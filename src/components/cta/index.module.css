@@ -1,35 +1,30 @@
 .container {
-  background-color: var(--white);
-  border-radius: 0.8rem;
-  padding: 0.8rem 1.6rem;
-  margin: 1.6rem 0;
-  box-shadow: 0 0.5rem 2.2rem 0 var(--accent-shadow-color);
-  transition: all 0.3s;
-
-  &:hover {
-    transform: scale(0.98);
-    box-shadow: 0 0.5rem 1rem 0 var(--darker-accent-shadow-color);
-  }
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 
   & h1 {
-    font-size: var(--md-size);
-    margin-bottom: 0.8rem;
+    font-size: var(--text-base-size);
+    margin-top: 0.2rem;
+    margin-bottom: 0.6rem;
   }
 
   & p {
     font-size: var(--sm-size);
     color: var(--subtle-text-color);
+    margin-bottom: 0.8rem;
   }
 }
 
 @media (--portrait-tablet) {
   .container {
+    width: auto;
     margin: 0;
     margin-left: 1.6rem;
 
     & h1 {
       font-size: var(--sm-size);
-      margin-bottom: 0.4rem;
     }
 
     & p {

@@ -1,0 +1,21 @@
+.o-card {
+  --idle-state-color: var(--primary-shadow-color);
+  --active-state-color: var(--darker-primary-shadow-color);
+
+  background-color: var(--white);
+  border-radius: 0.8rem;
+  padding: 0.8rem 1.6rem;
+  margin: 1.6rem 0;
+  box-shadow: 0 0.5rem 2.2rem 0 var(--idle-state-color);
+  transition: all 0.3s;
+
+  &:hover {
+    transform: scale(0.98);
+    box-shadow: 0 0.5rem 1rem 0 var(--active-state-color);
+  }
+
+  &.-accent {
+    --idle-state-color: var(--accent-shadow-color);
+    --active-state-color: var(--darker-accent-shadow-color);
+  }
+}

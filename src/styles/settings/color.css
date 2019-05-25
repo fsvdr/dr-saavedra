@@ -14,15 +14,17 @@
   --darker-background-color: hsl(211.6, 37.3%, 90%);
 
   /* Text */
-  --body-text-color: hsl(0, 0%, 32.2%);
+  --body-text-color: hsl(0, 0%, 35%);
   --header-color: var(--black);
-  --subtle-text-color: hsl(0, 0%, 67.5%);
+  --subtle-text-color: hsl(0, 0%, 60%);
 
   /* Form controls */
   --field-background-color: hsl(180, 4%, 95%);
   --darker-field-background-color: hsl(180, 4%, 90%);
 
   /* Functional */
+  --primary-shadow-color: hsl(208.8, 53.3%, 89.8%);
+  --darker-primary-shadow-color: hsl(208.8, 43.3%, 79.8%);
   --accent-shadow-color: hsl(158.3, 63.3%, 89.8%);
   --darker-accent-shadow-color: hsl(158.3, 43.3%, 79.8%);
 }

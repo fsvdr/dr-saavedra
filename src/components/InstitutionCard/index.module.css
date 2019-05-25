@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  padding: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.container div:not(.details) {
+  width: 4rem;
+  margin: 0 0.8rem;
+}
+
+.details {
+  flex: 2 1 0;
+  padding-left: 2rem;
+
+  & p {
+    font-size: var(--sm-size);
+    font-weight: var(--bold-weight);
+    color: var(--primary-color);
+    margin-bottom: 0.2rem;
+  }
+
+  & span {
+    font-size: var(--sm-size);
+    color: var(--subtle-text-color);
+  }
+}
