@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -10,8 +11,9 @@ import IMSSLogo from '../components/Image/imss-logo';
 import ISSTELogo from '../components/Image/issste-logo';
 import CTA from '../components/CTA';
 import InstitutionCard from '../components/InstitutionCard';
+import BlogPost from '../components/BlogPost';
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Layout>
     <SEO lang="es" title="Traumatología y ortopédia" keywords={[`doctor`, `traumatología`, `ortopédia`, `consulta privada`, `cirugía de rodilla`, `dolor de rodilla`]} />
 
@@ -85,7 +87,51 @@ const IndexPage = () => (
         </div>
       </div>
     </section>
+
+    <section className={`${styles.section} ${styles.blog__section}`}>
+          <header>
+            <h2>Artículos Médicos</h2>
+            <p>De la mano del Dr. Saavedra, encuentra una variedad de artículos explicando términos, enfermedades y tratamientos</p>
+          </header>
+
+          <div className={`${styles.section__content} ${styles.blog}`}>
+            {data.allMarkdownRemark.edges.map(({ node }) => (
+              <BlogPost
+                id={node.id}
+                title={node.frontmatter.title}
+                date={node.frontmatter.date}
+                prettyDate={node.frontmatter.prettyDate}
+                excerpt={node.excerpt}
+                key={node.id}
+              />
+            ))}
+          </div>
+    </section>
   </Layout>
 );
+
+export const query = graphql`
+  query {
+    allMarkdownRemark (
+      limit: 5,
+      sort: {fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date
+            prettyDate: date(
+              formatString: "MMMM DD, YYYY",
+              locale: "es"
+            )
+          }
+          excerpt
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;
