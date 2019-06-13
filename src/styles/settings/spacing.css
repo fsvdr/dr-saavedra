@@ -17,6 +17,6 @@
 
 @media (--portrait-tablet) {
   :root {
-    --horizontal-inset: 4rem;
+    --horizontal-inset: 6rem;
   }
 }

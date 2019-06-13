@@ -13,6 +13,7 @@ import '../styles/settings/typography.css';
 import '../styles/settings/font-face.css';
 import '../styles/settings/color.css';
 import '../styles/settings/spacing.css';
+import '../styles/settings/z-index.css'
 
 import '../styles/generic/reset.css';
 import '../styles/generic/base.css';

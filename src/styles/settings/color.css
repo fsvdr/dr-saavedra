@@ -16,7 +16,7 @@
   /* Text */
   --body-text-color: hsl(0, 0%, 35%);
   --header-color: var(--black);
-  --subtle-text-color: hsl(0, 0%, 60%);
+  --subtle-text-color: hsl(0, 0%, 42%);
 
   /* Form controls */
   --field-background-color: hsl(180, 4%, 95%);

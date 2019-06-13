@@ -12,6 +12,7 @@ import ISSTELogo from '../components/Image/issste-logo';
 import CTA from '../components/CTA';
 import InstitutionCard from '../components/InstitutionCard';
 import BlogPost from '../components/BlogPost';
+import ContactForm from '../components/ContactForm';
 
 const IndexPage = ({ data }) => (
   <Layout>
@@ -50,7 +51,7 @@ const IndexPage = ({ data }) => (
       </div>
     </header>
 
-    <section className={styles.section}>
+    <section className={`${styles.section} ${styles.experience__section}`}>
       <header>
         <h2>Carrera de vocación</h2>
         <p>Tras más de 28 años de servicio en instituciones de salud, el Dr. Saavedra continúa su carrera ofreciendo consulta privada</p>
@@ -106,6 +107,17 @@ const IndexPage = ({ data }) => (
               />
             ))}
           </div>
+    </section>
+
+    <section className={`${styles.section} ${styles.contact__section}`}>
+      <header>
+        <h2>¿Tienes alguna duda?</h2>
+        <p>Llena los siguientes campos y el Dr. Saavedra se pondra en contacto contigo.</p>
+      </header>
+
+      <div className={styles.section__content}>
+        <ContactForm />
+      </div>
     </section>
   </Layout>
 );
