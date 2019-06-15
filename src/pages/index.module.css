@@ -229,7 +229,7 @@
   }
 
   .contact__section .section__content::before {
-    top: 60%;
+    top: 0%;
     right: -40%;
     left: auto;
   }
@@ -267,6 +267,10 @@
 
 /* stylelint-disable-next-line length-zero-no-unit */
 @supports (padding: max(0px)) {
+  :root {
+    --horizontal-inset: max(var(--horizontal-inset), env(safe-area-inset-left));
+  }
+
   .hero,
   section {
     padding-left: max(var(--horizontal-inset), env(safe-area-inset-left));

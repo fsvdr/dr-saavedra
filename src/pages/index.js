@@ -13,8 +13,9 @@ import CTA from '../components/CTA';
 import InstitutionCard from '../components/InstitutionCard';
 import BlogPost from '../components/BlogPost';
 import ContactForm from '../components/ContactForm';
+import Footer from '../components/Footer';
 
-const IndexPage = ({ data }) => (
+const IndexPage = ({ data: { site: { siteMetadata: { contact } }, allMarkdownRemark} }) => (
   <Layout>
     <SEO lang="es" title="Traumatología y ortopédia" keywords={[`doctor`, `traumatología`, `ortopédia`, `consulta privada`, `cirugía de rodilla`, `dolor de rodilla`]} />
 
@@ -36,17 +37,17 @@ const IndexPage = ({ data }) => (
         <CTA
           label="Consulta Privada"
           action={(
-            <a href="https://goo.gl/maps/WAgbfa7Pdip47SVK6" tagret="_blank">HMG Hospital Coyoacán, Consultorio 512</a>
+            <a href={contact.address.link} tagret="_blank">{contact.address.title}</a>
           )}
-          description="División del Norte #3395, Colonia El Rosario, Ciudad de México"
+          description={contact.address.description}
         />
 
         <CTA
           label="Agenda tu Cita"
           action={(
-            <a href="tel:5536837578">(55) 3683 7578</a>
+            <a href={contact.phone.link}>{contact.phone.title}</a>
           )}
-          description="Teléfono del consultorio"
+          description={contact.phone.description}
         />
       </div>
     </header>
@@ -96,7 +97,7 @@ const IndexPage = ({ data }) => (
           </header>
 
           <div className={`${styles.section__content} ${styles.blog}`}>
-            {data.allMarkdownRemark.edges.map(({ node }) => (
+            {allMarkdownRemark.edges.map(({ node }) => (
               <BlogPost
                 id={node.id}
                 title={node.frontmatter.title}
@@ -119,11 +120,29 @@ const IndexPage = ({ data }) => (
         <ContactForm />
       </div>
     </section>
+
+    <Footer contact={contact}/>
   </Layout>
 );
 
 export const query = graphql`
   query {
+    site {
+      siteMetadata {
+        contact {
+          address {
+            title
+            link
+            description
+          },
+          phone {
+            title
+            link
+            description
+          }
+        }
+      }
+    },
     allMarkdownRemark (
       limit: 5,
       sort: {fields: [frontmatter___date], order: DESC }

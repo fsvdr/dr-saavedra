@@ -1,0 +1,77 @@
+.container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  padding: 0 var(--horizontal-inset);
+
+
+  & span {
+    font-size: var(--sm-size);
+  }
+
+  & small {
+    width: 100%;
+    text-align: center;
+    font-size: var(--xs-size);
+    color: var(--subtle-text-color);
+    margin-bottom: 0.8rem;
+  }
+}
+
+.master {
+  width: 100%;
+  margin-bottom: 3.2rem;
+
+  & h3 {
+    font-size: var(--text-base-size);
+  }
+
+  & p {
+    font-size: var(--sm-size);
+  }
+}
+
+.contact {
+  width: 100%;
+  margin-bottom: 3.2rem;
+
+  & a {
+    display: block;
+    margin-bottom: 1.6rem;
+  }
+
+  & h4 {
+    font-size: var(--sm-size);
+    margin-bottom: 0;
+  }
+}
+
+@media (--portrait-tablet) {
+  .container {
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 6rem;
+  }
+
+  .master,
+  .contact {
+    width: 50%;
+  }
+
+  .contact {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+    text-align: right;
+    padding-top: 1rem;
+  }
+}
+
+@media (--medium-viewport) {
+  .container small {
+    margin-top: 2rem;
+  }
+}
