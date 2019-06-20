@@ -1,11 +1,12 @@
 .container {
   position: relative;
   width: 100%;
+  max-width: var(--width-constraint);
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
   padding: 0 var(--horizontal-inset);
-
+  margin: 0 auto;
 
   & span {
     font-size: var(--sm-size);

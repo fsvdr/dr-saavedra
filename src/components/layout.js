@@ -23,8 +23,8 @@ import '../styles/elements/inline.css';
 
 import '../styles/objects/flex-grid.css';
 import '../styles/objects/lists.css';
-import '../styles/objects/branding.css';
 import '../styles/objects/cards.css';
+import '../styles/objects/branding.css';
 
 const Layout = ({ children }) => (
   <>

@@ -14,3 +14,34 @@
   line-height: 1.4;
   letter-spacing: 0.06rem;
 }
+
+.o-cta {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.4rem 2rem;
+
+  & .o-cta__title {
+    font-family: var(--header-font);
+    font-size: var(--text-base-size);
+    color: var(--black);
+    margin-top: 0.4rem;
+    margin-bottom: 0.6rem;
+  }
+
+  & .o-cta__description {
+    font-size: var(--sm-size);
+    color: var(--subtle-text-color);
+  }
+}
+
+@media (--portrait-tablet) {
+  .o-cta {
+    width: auto;
+    margin: 0;
+    margin-left: 1.6rem;
+  }
+}

@@ -1,5 +1,7 @@
 .container {
   width: 100%;
+  max-width: var(--width-constraint);
+  padding: 0 1.6rem;
 }
 
 .form {
@@ -71,8 +73,6 @@
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  font-family: var(--header-font);
-  font-size: var(--sm-size);
   font-weight: var(--bold-weight);
   min-width: 12rem;
   min-height: 3.6rem;
@@ -81,7 +81,7 @@
   & i {
     font-size: var(--md-size);
     margin-top: -0.4rem;
-    margin-left: 0.8rem;
+    margin-left: 2.8rem;
   }
 }
 

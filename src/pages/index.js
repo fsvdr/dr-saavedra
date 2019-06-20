@@ -9,7 +9,6 @@ import PortraitImage from '../components/Image/portrait-image';
 import UNAMLogo from '../components/Image/unam-logo';
 import IMSSLogo from '../components/Image/imss-logo';
 import ISSTELogo from '../components/Image/issste-logo';
-import CTA from '../components/CTA';
 import InstitutionCard from '../components/InstitutionCard';
 import BlogPost from '../components/BlogPost';
 import ContactForm from '../components/ContactForm';
@@ -34,21 +33,17 @@ const IndexPage = ({ data: { site: { siteMetadata: { contact } }, allMarkdownRem
       </div>
 
       <div className={styles.hero__cta}>
-        <CTA
-          label="Consulta Privada"
-          action={(
-            <a href={contact.address.link} tagret="_blank">{contact.address.title}</a>
-          )}
-          description={contact.address.description}
-        />
+        <a href={contact.address.link} className={`o-card o-cta -accent`}>
+          <span className="o-subtitle -accent">Consulta privada</span>
+          <span className="o-cta__title">{contact.address.title}</span>
+          <span className="o-cta__description">{contact.address.description}</span>
+        </a>
 
-        <CTA
-          label="Agenda tu Cita"
-          action={(
-            <a href={contact.phone.link}>{contact.phone.title}</a>
-          )}
-          description={contact.phone.description}
-        />
+        <a href={contact.phone.link} className={`o-card o-cta -accent`}>
+          <span className="o-subtitle -accent">Agenda tu cita</span>
+          <span className="o-cta__title">{contact.phone.title}</span>
+          <span className="o-cta__description">{contact.phone.description}</span>
+        </a>
       </div>
     </header>
 
@@ -58,8 +53,8 @@ const IndexPage = ({ data: { site: { siteMetadata: { contact } }, allMarkdownRem
         <p>Tras más de 28 años de servicio en instituciones de salud, el Dr. Saavedra continúa su carrera ofreciendo consulta privada</p>
       </header>
 
-      <div className={`${styles.section__content} ${styles.with__detail}`}>
-        <div className={styles.section__content__primary}>
+      <div className={styles.section__content}>
+        <div>
           <span className="o-subtitle">Educación</span>
           <p>Títulado por la Universidad Nacional Autónoma de México en la Licenciatura de Médico Cirujano, el Dr. Saavedra se especializó en traumatología y ortopédia</p>
 
@@ -68,7 +63,7 @@ const IndexPage = ({ data: { site: { siteMetadata: { contact } }, allMarkdownRem
           <p>Hoy, tras 28 años de servicio continua su práctica profesional en el hospital HMG.</p>
         </div>
 
-        <div className={styles.section__content__detail}>
+        <div className={styles.experience__section__details}>
           <InstitutionCard
             logo={<UNAMLogo />}
             institution="Universidad Nacional Autónoma de México"
@@ -96,7 +91,7 @@ const IndexPage = ({ data: { site: { siteMetadata: { contact } }, allMarkdownRem
             <p>De la mano del Dr. Saavedra, encuentra una variedad de artículos explicando términos, enfermedades y tratamientos</p>
           </header>
 
-          <div className={`${styles.section__content} ${styles.blog}`}>
+      <div className={`${styles.posts__list}`}>
             {allMarkdownRemark.edges.map(({ node }) => (
               <BlogPost
                 id={node.id}
@@ -116,9 +111,7 @@ const IndexPage = ({ data: { site: { siteMetadata: { contact } }, allMarkdownRem
         <p>Llena los siguientes campos y el Dr. Saavedra se pondra en contacto contigo.</p>
       </header>
 
-      <div className={styles.section__content}>
-        <ContactForm />
-      </div>
+      <ContactForm />
     </section>
 
     <Footer contact={contact}/>
