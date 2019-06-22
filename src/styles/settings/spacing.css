@@ -17,6 +17,18 @@
 
 @media (--portrait-tablet) {
   :root {
-    --horizontal-inset: 6rem;
+    --horizontal-inset: 2rem;
+  }
+}
+
+@supports (padding: max(0px)) {
+  :root {
+    --horizontal-inset: max(1.6rem, env(safe-area-inset-left));
+  }
+
+  @media (--portrait-tablet) {
+    :root {
+      --horizontal-inset: max(2rem, env(safe-area-inset-left));
+    }
   }
 }

@@ -13,7 +13,7 @@ import '../styles/settings/typography.css';
 import '../styles/settings/font-face.css';
 import '../styles/settings/color.css';
 import '../styles/settings/spacing.css';
-import '../styles/settings/z-index.css'
+import '../styles/settings/z-index.css';
 
 import '../styles/generic/reset.css';
 import '../styles/generic/base.css';
@@ -26,11 +26,7 @@ import '../styles/objects/lists.css';
 import '../styles/objects/cards.css';
 import '../styles/objects/branding.css';
 
-const Layout = ({ children }) => (
-  <>
-    {children}
-  </>
-);
+const Layout = ({ children }) => <>{children}</>;
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
