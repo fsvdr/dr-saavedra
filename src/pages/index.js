@@ -6,11 +6,8 @@ import styles from './index.module.css';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Hero from '../components/Hero';
+import { UNAMLogo, IMSSLogo, ISSSTELogo, HMGLogo } from '../components/Image';
 
-import UNAMLogo from '../components/Image/unam-logo';
-import IMSSLogo from '../components/Image/imss-logo';
-import ISSTELogo from '../components/Image/issste-logo';
-import InstitutionCard from '../components/InstitutionCard';
 import BlogPost from '../components/BlogPost';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
@@ -39,78 +36,66 @@ const IndexPage = ({
 
     <Hero />
 
-    <section className={`${styles.section} ${styles.experience__section}`}>
-      <header>
-        <h2>Carrera de vocación</h2>
-        <p>
-          Tras más de 28 años de servicio en instituciones de salud, el Dr.
-          Saavedra continúa su carrera ofreciendo consulta privada
-        </p>
-      </header>
+    <section className={styles.experience}>
+      <div className={styles.experience__wrapper}>
+        <div className={styles.experience__card}>
+          <div className={styles.experience__card__decorator}>
+            <UNAMLogo />
+          </div>
 
-      <div className={styles.section__content}>
-        <div>
-          <span className="o-subtitle">Educación</span>
-          <p>
-            Títulado por la Universidad Nacional Autónoma de México en la
-            Licenciatura de Médico Cirujano, el Dr. Saavedra se especializó en
-            traumatología y ortopédia
-          </p>
-
-          <span className="o-subtitle">Profesión</span>
-          <p>
-            Desarrolló su carrera profesional a la par en el Instituto Mexicano
-            del Seguro Social y en el Instituto de Seguridad y Servicios de los
-            Trabajadores del Estado.
-          </p>
-          <p>
-            Hoy, tras 28 años de servicio continua su práctica profesional en el
-            hospital HMG.
-          </p>
+          <div className={styles.experience__card__details}>
+            <span className="o-subtitle">Educación</span>
+            <h2>Universidad Nacional Autónoma de México</h2>
+            <p>
+              Titulado en la Licenciatura de Médico Cirujano, se especializó en
+              traumatología y ortopédia
+            </p>
+          </div>
         </div>
 
-        <div className={styles.experience__section__details}>
-          <InstitutionCard
-            logo={<UNAMLogo />}
-            institution="Universidad Nacional Autónoma de México"
-            timeframe="1979 — 1984"
-          />
+        <div className={styles.experience__card}>
+          <div className={styles.experience__card__decorator}>
+            <IMSSLogo />
+          </div>
 
-          <InstitutionCard
-            logo={<IMSSLogo />}
-            institution="Instituto Mexicano del Seguro Social"
-            timeframe="1989 — 2018"
-          />
-
-          <InstitutionCard
-            logo={<ISSTELogo />}
-            institution="Instituto de Seguridad y Servicios de los Trabajadores del Estado"
-            timeframe="1989 — 2018"
-          />
+          <div className={styles.experience__card__details}>
+            <span className="o-subtitle">Profesión</span>
+            <h2>Instituto Mexicano del Seguro Social</h2>
+            <p>Desarrolló su carrera profesional en el Hospital Regional 2</p>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <section className={`${styles.section} ${styles.blog__section}`}>
-      <header>
-        <h2>Artículos Médicos</h2>
-        <p>
-          De la mano del Dr. Saavedra, encuentra una variedad de artículos
-          explicando términos, enfermedades y tratamientos
-        </p>
-      </header>
+        <div className={styles.experience__card}>
+          <div className={styles.experience__card__decorator}>
+            <ISSSTELogo />
+          </div>
 
-      <div className={`${styles.posts__list}`}>
-        {allMarkdownRemark.edges.map(({ node }) => (
-          <BlogPost
-            id={node.id}
-            title={node.frontmatter.title}
-            date={node.frontmatter.date}
-            prettyDate={node.frontmatter.prettyDate}
-            excerpt={node.excerpt}
-            key={node.id}
-          />
-        ))}
+          <div className={styles.experience__card__details}>
+            <span className="o-subtitle">Profesión</span>
+            <h2>
+              Instituto de Seguridad y Servicios de los Trabajadores del Estado
+            </h2>
+            <p>
+              Desarrolló su carrera profesional en el Hospital General Ignacio
+              Zaragoza
+            </p>
+          </div>
+        </div>
+
+        <div className={styles.experience__card}>
+          <div className={styles.experience__card__decorator}>
+            <HMGLogo />
+          </div>
+
+          <div className={styles.experience__card__details}>
+            <span className="o-subtitle">Profesión</span>
+            <h2>HMG Hospital Coyoacán</h2>
+            <p>
+              Tras 28 años de servicio continua su práctica profesional en
+              consulta privada
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
