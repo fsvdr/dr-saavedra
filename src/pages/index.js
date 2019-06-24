@@ -36,8 +36,10 @@ const IndexPage = ({
 
     <Hero />
 
-    <section className={styles.experience}>
-      <div className={styles.experience__wrapper}>
+    <section className={`${styles.section} ${styles.experience}`}>
+      <div
+        className={`${styles.section__wrapper} ${styles.experience__wrapper}`}
+      >
         <div className={styles.experience__card}>
           <div className={styles.experience__card__decorator}>
             <UNAMLogo />
@@ -99,18 +101,20 @@ const IndexPage = ({
       </div>
     </section>
 
-    <section className={styles.blog}>
-      <div className={styles.blog__wrapper}>
+    <section className={styles.section}>
+      <header className={styles.section__wrapper}>
         <span className="o-subtitle -accent">Blog</span>
-        <h2>Artículos Médicos</h2>
-        <p>
+        <h2 className={styles.section__title}>Artículos Médicos</h2>
+        <p className={styles.section__copy}>
           De la mano del Dr. Saavedra, encuentra una variedad de artículos
           explicando términos, enfermedades y tratamientos
         </p>
+      </header>
 
-        <article className={styles.blog__post__list}>
+      <div className={styles.section__wrapper}>
+        <div className={styles.blog}>
           {allMarkdownRemark.edges.map(({ node }) => (
-            <div className={styles.blog__post} key={node.frontmatter.title}>
+            <article className={styles.blog__post} key={node.frontmatter.title}>
               <h3>{node.frontmatter.title}</h3>
               <time dateTime={node.date} className="o-subtitle">
                 {node.frontmatter.prettyDate}
@@ -118,25 +122,11 @@ const IndexPage = ({
               <p>{node.excerpt}</p>
 
               <a href="#">Leer más</a>
-            </div>
+            </article>
           ))}
-        </article>
+        </div>
       </div>
     </section>
-
-    <section className={`${styles.section} ${styles.contact__section}`}>
-      <header>
-        <h2>¿Tienes alguna duda?</h2>
-        <p>
-          Llena los siguientes campos y el Dr. Saavedra se pondra en contacto
-          contigo.
-        </p>
-      </header>
-
-      <ContactForm />
-    </section>
-
-    <Footer contact={contact} />
   </Layout>
 );
 
