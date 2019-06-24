@@ -13,6 +13,7 @@
   /* Global constraints */
   --width-constraint: 140rem;
   --horizontal-inset: 1.6rem;
+  --vertical-inset: 1.6rem;
 }
 
 @media (--portrait-tablet) {
@@ -24,11 +25,13 @@
 @supports (padding: max(0px)) {
   :root {
     --horizontal-inset: max(1.6rem, env(safe-area-inset-left));
+    --vertical-inset: max(1.6rem, env(safe-area-inset-bottom));
   }
 
   @media (--portrait-tablet) {
     :root {
       --horizontal-inset: max(2rem, env(safe-area-inset-left));
+      --vertical-inset: max(2rem, env(safe-area-inset-bottom));
     }
   }
 }

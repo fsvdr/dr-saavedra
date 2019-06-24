@@ -126,6 +126,8 @@ const IndexPage = ({
     </section>
 
     <Contact />
+
+    <Footer {...contact} />
   </Layout>
 );
 

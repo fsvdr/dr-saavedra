@@ -1,12 +1,14 @@
-.container {
-  position: relative;
-  width: 100%;
-  max-width: var(--width-constraint);
+.footer {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.footer__wrapper {
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
-  padding: 0 var(--horizontal-inset);
-  margin: 0 auto;
+  padding-bottom: var(--vertical-inset);
+  text-align: left;
 
   & span {
     font-size: var(--sm-size);
@@ -50,11 +52,10 @@
 }
 
 @media (--portrait-tablet) {
-  .container {
+  .footer__wrapper {
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: flex-start;
-    padding-top: 6rem;
   }
 
   .master,
