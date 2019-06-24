@@ -99,6 +99,31 @@ const IndexPage = ({
       </div>
     </section>
 
+    <section className={styles.blog}>
+      <div className={styles.blog__wrapper}>
+        <span className="o-subtitle -accent">Blog</span>
+        <h2>Artículos Médicos</h2>
+        <p>
+          De la mano del Dr. Saavedra, encuentra una variedad de artículos
+          explicando términos, enfermedades y tratamientos
+        </p>
+
+        <article className={styles.blog__post__list}>
+          {allMarkdownRemark.edges.map(({ node }) => (
+            <div className={styles.blog__post} key={node.frontmatter.title}>
+              <h3>{node.frontmatter.title}</h3>
+              <time dateTime={node.date} className="o-subtitle">
+                {node.frontmatter.prettyDate}
+              </time>
+              <p>{node.excerpt}</p>
+
+              <a href="#">Leer más</a>
+            </div>
+          ))}
+        </article>
+      </div>
+    </section>
+
     <section className={`${styles.section} ${styles.contact__section}`}>
       <header>
         <h2>¿Tienes alguna duda?</h2>
