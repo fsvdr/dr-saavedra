@@ -127,6 +127,21 @@ const IndexPage = ({
         </div>
       </div>
     </section>
+
+    <section className={styles.section}>
+      <header className={styles.section__wrapper}>
+        <span className="o-subtitle -accent">Contacto</span>
+        <h2 className={styles.section__title}>¿Tienes alguna duda?</h2>
+        <p className={styles.section__copy}>
+          Llena los siguientes campos y el Dr. Saavedra se pondrá en contacto
+          contigo
+        </p>
+      </header>
+
+      <div className={styles.contact__form}>
+        <ContactForm />
+      </div>
+    </section>
   </Layout>
 );
 

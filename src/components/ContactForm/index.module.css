@@ -1,7 +1,11 @@
 .container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
   width: 100%;
-  max-width: var(--width-constraint);
-  padding: 0 1.6rem;
+  padding: 4.6rem 1.6rem;
+  background-color: var(--background-color);
+  overflow: hidden;
 }
 
 .form {
@@ -10,22 +14,49 @@
   flex-flow: column nowrap;
   align-items: stretch;
   width: 100%;
-  max-width: 100rem;
-  margin: 0 auto;
+  max-width: var(--width-constraint);
 
-  & .submit {
-    width: 100%;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0%;
+    left: 00%;
+    display: block;
+    width: 150vw;
+    max-width: 900px;
+    height: 150vw;
+    max-height: 900px;
+    background-color: var(--darker-background-color);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: var(--background-z-index);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 120%;
+    left: 120%;
+    display: block;
+    width: 150vw;
+    max-width: 900px;
+    height: 150vw;
+    max-height: 900px;
+    background-color: var(--darker-background-color);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: var(--background-z-index);
   }
 }
 
 .control {
   position: relative;
-  display: block;
-  margin-bottom: 1.6rem;
   background-color: var(--white);
+  margin-bottom: 1.6rem;
   border: 0.2rem solid transparent;
   border-radius: 0.8rem;
   transition: border-color 0.3s;
+  z-index: var(--body-z-index);
 
   &:hover {
     border-color: var(--darker-background-color);
@@ -43,6 +74,7 @@
     font-size: var(--xs-size);
     color: var(--black);
     text-transform: uppercase;
+    text-align: left;
     letter-spacing: 0.12rem;
     padding-left: 0.8rem;
     cursor: pointer;
@@ -68,15 +100,22 @@
   }
 }
 
-.submitBtn {
+.submit {
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 2rem;
+  z-index: var(--body-z-index);
+}
+.submit__btn {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
+  font-size: var(--sm-size);
   font-weight: var(--bold-weight);
-  min-width: 12rem;
-  min-height: 3.6rem;
-  margin-top: 2rem;
 
   & i {
     font-size: var(--md-size);
@@ -86,10 +125,15 @@
 }
 
 @media (--portrait-tablet) {
+  .container {
+    width: 95%;
+    border-radius: 0.8rem;
+  }
+
   .form {
     flex-flow: row wrap;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .control {
@@ -102,9 +146,13 @@
 }
 
 @media (--medium-viewport) {
-  .control input,
-  .control select,
-  .control textarea {
-    font-size: var(--text-base-size);
+  .container {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+
+  .form::after {
+    top: 100%;
+    left: 90%;
   }
 }

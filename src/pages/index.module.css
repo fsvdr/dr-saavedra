@@ -107,7 +107,20 @@
   }
 }
 
+.contact__form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  margin-top: 8rem;
+}
+
 @media (--portrait-tablet) {
+  .section {
+    padding: 8rem 0;
+  }
+
   .section__wrapper {
     width: 95%;
     padding-left: 0;

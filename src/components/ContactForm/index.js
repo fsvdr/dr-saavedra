@@ -4,25 +4,55 @@ import styles from './index.module.css';
 
 const ContactForm = () => (
   <div className={styles.container}>
-    <form name="contact" method="POST" className={styles.form} data-netlify="true">
+    <form
+      name="contact"
+      method="POST"
+      className={styles.form}
+      data-netlify="true"
+    >
       <label className={styles.control} for="name">
         <span>Nombre</span>
-        <input type="text" name="name" placeholder="Ex. Juan Pérez" required id="name"/>
+        <input
+          type="text"
+          name="name"
+          placeholder="Ex. Juan Pérez"
+          required
+          id="name"
+        />
       </label>
 
       <label className={styles.control} for="email">
         <span>Correo</span>
-        <input type="email" name="email" placeholder="Ex. tu@email.com" required id="email"/>
+        <input
+          type="email"
+          name="email"
+          placeholder="Ex. tu@email.com"
+          required
+          id="email"
+        />
       </label>
 
       <label className={styles.control} for="occupation">
         <span>Ocupación</span>
-        <input type="text" name="occupation" placeholder="Ex. Deportista" id="occupation"/>
+        <input
+          type="text"
+          name="occupation"
+          placeholder="Ex. Deportista"
+          id="occupation"
+        />
       </label>
 
       <label className={styles.control} for="age">
         <span>Edad</span>
-        <input type="number" min="1" max="100" name="age" placeholder="Ex. 32" required id="age"/>
+        <input
+          type="number"
+          min="1"
+          max="100"
+          name="age"
+          placeholder="Ex. 32"
+          required
+          id="age"
+        />
       </label>
 
       <label className={styles.control} for="referral">
@@ -36,11 +66,18 @@ const ContactForm = () => (
 
       <label className={styles.control} for="message">
         <span>¿Cuál es tu duda?</span>
-        <textarea name="message" placeholder="Ex. Tengo dolor..." required id="message"></textarea>
+        <textarea
+          name="message"
+          placeholder="Ex. Tengo dolor..."
+          required
+          id="message"
+        />
       </label>
 
       <div className={`${styles.submit} o-flex -justify-end`}>
-        <button type="submit" className={`${styles.submitBtn} o-card`}>Enviar <i>&#8594;</i></button>
+        <button type="submit" className={`${styles.submit__btn} o-card`}>
+          Enviar <i>&#8594;</i>
+        </button>
       </div>
     </form>
   </div>
