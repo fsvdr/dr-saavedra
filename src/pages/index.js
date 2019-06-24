@@ -8,8 +8,7 @@ import SEO from '../components/seo';
 import Hero from '../components/Hero';
 import { UNAMLogo, IMSSLogo, ISSSTELogo, HMGLogo } from '../components/Image';
 
-import BlogPost from '../components/BlogPost';
-import ContactForm from '../components/ContactForm';
+import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 
 const IndexPage = ({
@@ -36,10 +35,8 @@ const IndexPage = ({
 
     <Hero />
 
-    <section className={`${styles.section} ${styles.experience}`}>
-      <div
-        className={`${styles.section__wrapper} ${styles.experience__wrapper}`}
-      >
+    <section className={`o-section ${styles.experience}`}>
+      <div className={`o-section__wrapper ${styles.experience__wrapper}`}>
         <div className={styles.experience__card}>
           <div className={styles.experience__card__decorator}>
             <UNAMLogo />
@@ -101,17 +98,17 @@ const IndexPage = ({
       </div>
     </section>
 
-    <section className={styles.section}>
-      <header className={styles.section__wrapper}>
+    <section className="o-section">
+      <header className="o-section__wrapper">
         <span className="o-subtitle -accent">Blog</span>
-        <h2 className={styles.section__title}>Artículos Médicos</h2>
-        <p className={styles.section__copy}>
+        <h2 className="o-section-title">Artículos Médicos</h2>
+        <p className="o-section-copy">
           De la mano del Dr. Saavedra, encuentra una variedad de artículos
           explicando términos, enfermedades y tratamientos
         </p>
       </header>
 
-      <div className={styles.section__wrapper}>
+      <div className="o-section__wrapper">
         <div className={styles.blog}>
           {allMarkdownRemark.edges.map(({ node }) => (
             <article className={styles.blog__post} key={node.frontmatter.title}>
@@ -128,20 +125,7 @@ const IndexPage = ({
       </div>
     </section>
 
-    <section className={styles.section}>
-      <header className={styles.section__wrapper}>
-        <span className="o-subtitle -accent">Contacto</span>
-        <h2 className={styles.section__title}>¿Tienes alguna duda?</h2>
-        <p className={styles.section__copy}>
-          Llena los siguientes campos y el Dr. Saavedra se pondrá en contacto
-          contigo
-        </p>
-      </header>
-
-      <div className={styles.contact__form}>
-        <ContactForm />
-      </div>
-    </section>
+    <Contact />
   </Layout>
 );
 

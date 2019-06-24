@@ -1,0 +1,37 @@
+.o-section {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
+  padding: 4rem 0;
+}
+
+.o-section__wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
+  max-width: var(--width-constraint);
+  text-align: center;
+  padding: 0 var(--horizontal-inset);
+
+  & .o-section-title {
+    font-size: var(--lg-size);
+  }
+
+  & .o-section-copy {
+    color: var(--subtle-text-color);
+  }
+}
+
+@media (--portrait-tablet) {
+  .o-section {
+    padding: 8rem 0;
+  }
+
+  .o-section__wrapper {
+    width: 95%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

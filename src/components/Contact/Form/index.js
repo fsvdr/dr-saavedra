@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './index.module.css';
 
-const ContactForm = () => (
+const Form = () => (
   <div className={styles.container}>
     <form
       name="contact"
@@ -83,4 +83,4 @@ const ContactForm = () => (
   </div>
 );
 
-export default ContactForm;
+export default Form;
