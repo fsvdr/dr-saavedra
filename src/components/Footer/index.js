@@ -1,9 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { StaticQuery, graphql } from 'gatsby';
 
 import styles from './index.module.css';
 
-const Footer = ({ address, phone }) => (
+const Footer = ({
+  site: {
+    siteMetadata: {
+      contact: { address, phone },
+    },
+  },
+}) => (
   <footer className={`o-section ${styles.footer}`}>
     <div className={`o-section__wrapper ${styles.footer__wrapper}`}>
       <div className={styles.master}>
@@ -36,17 +42,28 @@ const Footer = ({ address, phone }) => (
   </footer>
 );
 
-Footer.propTypes = {
-  address: PropTypes.shape({
-    title: PropTypes.string,
-    link: PropTypes.string,
-    description: PropTypes.string,
-  }).isRequired,
-  phone: PropTypes.shape({
-    title: PropTypes.string,
-    link: PropTypes.string,
-    description: PropTypes.string,
-  }).isRequired,
-};
-
-export default Footer;
+export default () => (
+  <StaticQuery
+    query={graphql`
+      query {
+        site {
+          siteMetadata {
+            contact {
+              address {
+                title
+                link
+                description
+              }
+              phone {
+                title
+                link
+                description
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={Footer}
+  />
+);

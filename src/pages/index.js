@@ -8,17 +8,7 @@ import SEO from '../components/seo';
 import Hero from '../components/Hero';
 import { UNAMLogo, IMSSLogo, ISSSTELogo, HMGLogo } from '../components/Image';
 
-import Contact from '../components/Contact';
-import Footer from '../components/Footer';
-
-const IndexPage = ({
-  data: {
-    site: {
-      siteMetadata: { contact },
-    },
-    allMarkdownRemark,
-  },
-}) => (
+const IndexPage = ({ data: { allMarkdownRemark } }) => (
   <Layout>
     <SEO
       lang="es"
@@ -124,31 +114,11 @@ const IndexPage = ({
         </div>
       </div>
     </section>
-
-    <Contact />
-
-    <Footer {...contact} />
   </Layout>
 );
 
 export const query = graphql`
   query {
-    site {
-      siteMetadata {
-        contact {
-          address {
-            title
-            link
-            description
-          }
-          phone {
-            title
-            link
-            description
-          }
-        }
-      }
-    }
     allMarkdownRemark(
       limit: 5
       sort: { fields: [frontmatter___date], order: DESC }

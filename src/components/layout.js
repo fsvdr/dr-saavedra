@@ -27,7 +27,18 @@ import '../styles/objects/cards.css';
 import '../styles/objects/branding.css';
 import '../styles/objects/section.css';
 
-const Layout = ({ children }) => <>{children}</>;
+import Contact from './Contact';
+import Footer from './Footer';
+
+const Layout = ({ children }) => (
+  <>
+    {children}
+
+    <Contact />
+
+    <Footer />
+  </>
+);
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

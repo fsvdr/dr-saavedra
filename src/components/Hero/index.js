@@ -1,10 +1,17 @@
 import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
 
 import styles from './index.module.css';
 
 import { PortraitImage } from '../Image';
 
-const Hero = () => (
+const Hero = ({
+  site: {
+    siteMetadata: {
+      contact: { address, phone },
+    },
+  },
+}) => (
   <header className={styles.hero}>
     <div className={styles.hero__card}>
       <div className={styles.hero__card__wrapper}>
@@ -27,11 +34,9 @@ const Hero = () => (
             className={`${styles.hero__cta__card} o-card -accent`}
           >
             <span className="o-subtitle -accent">Consulta Privada</span>
-            <span className={styles.cta__title}>
-              HMG Hospital Coyoacán, Consultorio 512
-            </span>
+            <span className={styles.cta__title}>{address.title}</span>
             <span className={styles.cta__description}>
-              División del Norte #3395, Colonia El Rosario, Ciudad de México
+              {address.description}
             </span>
           </a>
 
@@ -40,10 +45,8 @@ const Hero = () => (
             className={`${styles.hero__cta__card} o-card -accent`}
           >
             <span className="o-subtitle -accent">Agenda tu Cita</span>
-            <span className={styles.cta__title}>(55) 3683 7578</span>
-            <span className={styles.cta__description}>
-              Teléfono del consultorio
-            </span>
+            <span className={styles.cta__title}>{phone.title}</span>
+            <span className={styles.cta__description}>{phone.description}</span>
           </a>
         </div>
       </div>
@@ -51,4 +54,28 @@ const Hero = () => (
   </header>
 );
 
-export default Hero;
+export default () => (
+  <StaticQuery
+    query={graphql`
+      query {
+        site {
+          siteMetadata {
+            contact {
+              address {
+                title
+                link
+                description
+              }
+              phone {
+                title
+                link
+                description
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={Hero}
+  />
+);
