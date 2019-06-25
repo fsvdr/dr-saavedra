@@ -1,0 +1,147 @@
+.hero {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
+}
+
+.hero__card {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
+  background-color: var(--background-color);
+  overflow: hidden;
+}
+
+.hero__card__wrapper {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
+  max-width: var(--width-constraint);
+  text-align: center;
+  padding: 6rem var(--horizontal-inset);
+  border-radius: 0.8rem;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 120vw;
+    max-width: 600px;
+    height: 120vw;
+    max-height: 600px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    background-color: var(--darker-background-color);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: var(--background-z-index);
+  }
+}
+
+.hero__card__details {
+  z-index: var(--body-z-index);
+
+  & h1 {
+    font-size: var(--hero-size);
+    line-height: 1.12;
+    margin-bottom: 1.6rem;
+  }
+
+  & time {
+    font-size: var(--sm-size);
+    font-style: italic;
+    text-transform: capitalize;
+    color: var(--subtle-text-color);
+  }
+}
+
+.post__content {
+  align-items: stretch;
+  text-align: left;
+  padding-top: 2rem;
+
+  & h1 {
+    font-size: var(--md-size);
+    text-align: center;
+    margin-bottom: 3.2rem;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -0.6rem;
+      left: 50%;
+      display: block;
+      width: 20%;
+      height: 0.3rem;
+      background-color: var(--primary-color);
+      border-radius: 0.8rem;
+      transform: translateX(-50%);
+    }
+  }
+
+  & p {
+    text-align: justify;
+    line-height: 1.6;
+    margin-bottom: 6rem;
+  }
+}
+
+@media (--portrait-tablet) {
+  .hero {
+    padding: 2rem 0;
+  }
+
+  .hero__card {
+    justify-content: center;
+    width: 95%;
+    min-height: 45vh;
+    border-radius: 0.8rem;
+  }
+
+  .post {
+    margin-top: -4rem;
+    margin-bottom: -8rem;
+
+    & .post__content {
+      width: auto;
+      align-items: stretch;
+    }
+  }
+
+  .post__content h1 {
+    text-align: left;
+    padding: 1rem 2rem;
+
+    &::before {
+      top: 0;
+      left: 0;
+      width: 0.4rem;
+      height: 100%;
+    }
+  }
+}
+
+@supports (padding: max(0px)) {
+  @media (--portrait-tablet) {
+    .hero__card__wrapper {
+      /* 2.5vw accounts for the 95% wrapper width */
+      --best-fit-inset: max(
+        calc(2.5vw + var(--horizontal-inset)),
+        env(safe-area-inset-left)
+      );
+
+      padding-left: calc(var(--best-fit-inset) - 2.5vw);
+      padding-right: calc(var(--best-fit-inset) - 2.5vw);
+    }
+
+    .post {
+      padding-left: max(var(--horizontal-inset), env(safe-area-inset-left));
+      padding-right: max(var(--horizontal-inset), env(safe-area-inset-right));
+    }
+  }
+}

@@ -17,6 +17,8 @@ html {
   font-family: sans-serif;
   font-size: 62.5%;
   scroll-behavior: smooth;
+  /* Prevent Safari from scaling text blocks on landscape */
+  text-size-adjust: 100%;
 }
 
 /* stylelint-disable selector-max-universal */
