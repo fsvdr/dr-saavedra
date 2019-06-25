@@ -3,11 +3,11 @@ import React from 'react';
 import styles from './index.module.css';
 
 const Form = () => (
-  <div className={styles.container}>
+  <div className={`o-section ${styles.container}`}>
     <form
       name="contact"
       method="POST"
-      className={styles.form}
+      className={`o-section__wrapper ${styles.form}`}
       data-netlify="true"
     >
       <label className={styles.control} for="name">

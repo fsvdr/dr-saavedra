@@ -98,8 +98,8 @@ const IndexPage = ({ data: { allMarkdownRemark } }) => (
         </p>
       </header>
 
-      <div className="o-section__wrapper">
-        <div className={styles.blog}>
+      <div className={`o-section__wrapper ${styles.blog}`}>
+        <div className={styles.blog__post__list}>
           {allMarkdownRemark.edges.map(({ node }) => (
             <article className={styles.blog__post} key={node.frontmatter.title}>
               <h3>{node.frontmatter.title}</h3>

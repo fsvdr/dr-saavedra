@@ -197,3 +197,29 @@
     margin-right: -35%;
   }
 }
+
+@supports (padding: max(0px)) {
+  @media (--portrait-tablet) {
+    .hero__card__wrapper {
+      /* 2.5vw accounts for the 95% wrapper width */
+      --best-fit-inset: max(
+        calc(2.5vw + var(--horizontal-inset)),
+        env(safe-area-inset-left)
+      );
+
+      padding-left: calc(var(--best-fit-inset) - 2.5vw);
+      padding-right: calc(var(--best-fit-inset) - 2.5vw);
+    }
+
+    .hero__cta {
+      /* 2.5vw accounts for the 95% wrapper width */
+      --best-fit-inset: max(
+        calc(2.5vw + var(--horizontal-inset)),
+        env(safe-area-inset-left)
+      );
+
+      padding-left: calc(var(--best-fit-inset) - 2.5vw);
+      padding-right: calc(var(--best-fit-inset) - 2.5vw);
+    }
+  }
+}

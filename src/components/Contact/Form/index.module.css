@@ -1,20 +1,14 @@
 .container {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  width: 100%;
-  padding: 4.6rem 1.6rem;
-  background-color: var(--background-color);
-  overflow: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .form {
   position: relative;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: stretch;
-  width: 100%;
-  max-width: var(--width-constraint);
+  padding-top: 4.6rem;
+  padding-bottom: 4.6rem;
+  background-color: var(--background-color);
+  overflow: hidden;
 
   &::before {
     content: '';
@@ -51,6 +45,7 @@
 
 .control {
   position: relative;
+  width: 100%;
   background-color: var(--white);
   margin-bottom: 1.6rem;
   border: 0.2rem solid transparent;
@@ -125,15 +120,11 @@
 }
 
 @media (--portrait-tablet) {
-  .container {
-    width: 95%;
-    border-radius: 0.8rem;
-  }
-
   .form {
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: flex-start;
+    border-radius: 0.8rem;
   }
 
   .control {
@@ -146,13 +137,27 @@
 }
 
 @media (--medium-viewport) {
-  .container {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
-  }
+  .form {
+    padding: 10rem 4.6rem;
 
-  .form::after {
-    top: 100%;
-    left: 90%;
+    &::after {
+      top: 100%;
+      left: 90%;
+    }
+  }
+}
+
+@supports (padding: max(0px)) {
+  @media (--portrait-tablet) {
+    .form {
+      /* 2.5vw accounts for the 95% wrapper width */
+      --best-fit-inset: max(
+        calc(2.5vw + var(--horizontal-inset)),
+        env(safe-area-inset-left)
+      );
+
+      padding-left: calc(var(--best-fit-inset) - 2.5vw);
+      padding-right: calc(var(--best-fit-inset) - 2.5vw);
+    }
   }
 }
