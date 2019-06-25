@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 
 import styles from './index.module.css';
 
@@ -101,14 +101,16 @@ const IndexPage = ({ data: { allMarkdownRemark } }) => (
       <div className={`o-section__wrapper ${styles.blog}`}>
         <div className={styles.blog__post__list}>
           {allMarkdownRemark.edges.map(({ node }) => (
-            <article className={styles.blog__post} key={node.frontmatter.title}>
-              <h3>{node.frontmatter.title}</h3>
-              <time dateTime={node.date} className="o-subtitle">
-                {node.frontmatter.prettyDate}
-              </time>
+            <article className={styles.blog__post} key={node.fields.slug}>
+              <Link to={`blog/${node.fields.slug}`}>
+                <h3>{node.frontmatter.title}</h3>
+                <time dateTime={node.date} className="o-subtitle">
+                  {node.frontmatter.prettyDate}
+                </time>
+              </Link>
               <p>{node.excerpt}</p>
 
-              <a href="#">Leer más</a>
+              <Link to={`blog/${node.fields.slug}`}>Leer más</Link>
             </article>
           ))}
         </div>
@@ -132,6 +134,9 @@ export const query = graphql`
             prettyDate: date(formatString: "MMMM DD, YYYY", locale: "es")
           }
           excerpt
+          fields {
+            slug
+          }
         }
       }
     }

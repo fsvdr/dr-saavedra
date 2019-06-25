@@ -80,8 +80,11 @@
     width: 100%;
     font-size: var(--sm-size);
     font-weight: var(--bold-weight);
-    text-align: right;
     color: var(--primary-color);
+
+    &:last-of-type {
+      text-align: right;
+    }
   }
 }
 
