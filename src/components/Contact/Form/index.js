@@ -10,7 +10,7 @@ const Form = () => (
       className={`o-section__wrapper ${styles.form}`}
       data-netlify="true"
     >
-      <label className={styles.control} for="name">
+      <label className={styles.control} htmlFor="name">
         <span>Nombre</span>
         <input
           type="text"
@@ -21,7 +21,7 @@ const Form = () => (
         />
       </label>
 
-      <label className={styles.control} for="email">
+      <label className={styles.control} htmlFor="email">
         <span>Correo</span>
         <input
           type="email"
@@ -32,7 +32,7 @@ const Form = () => (
         />
       </label>
 
-      <label className={styles.control} for="occupation">
+      <label className={styles.control} htmlFor="occupation">
         <span>Ocupación</span>
         <input
           type="text"
@@ -42,7 +42,7 @@ const Form = () => (
         />
       </label>
 
-      <label className={styles.control} for="age">
+      <label className={styles.control} htmlFor="age">
         <span>Edad</span>
         <input
           type="number"
@@ -55,7 +55,7 @@ const Form = () => (
         />
       </label>
 
-      <label className={styles.control} for="referral">
+      <label className={styles.control} htmlFor="referral">
         <span>¿Quién te refirió con el Dr. Saavedra?</span>
         <select name="referral" required id="referral">
           <option value="human">Un conocido</option>
@@ -64,7 +64,7 @@ const Form = () => (
         </select>
       </label>
 
-      <label className={styles.control} for="message">
+      <label className={styles.control} htmlFor="message">
         <span>¿Cuál es tu duda?</span>
         <textarea
           name="message"
