@@ -5,7 +5,7 @@ import styles from './index.module.css';
 import Form from './Form';
 
 const Contact = () => (
-  <section className="o-section">
+  <section className="o-section" id="contact">
     <header className="o-section__wrapper">
       <span className="o-subtitle -accent">Contacto</span>
       <h2 className="o-section-title">¿Tienes alguna duda?</h2>

@@ -1,8 +1,24 @@
 .hero {
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   width: 100%;
+}
+
+.navigation {
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: var(--width-constraint);
+  padding: 0 var(--horizontal-inset);
+  margin-bottom: 2rem;
+  z-index: var(--body-z-index);
 }
 
 .hero__card {
@@ -22,7 +38,7 @@
   width: 100%;
   max-width: var(--width-constraint);
   text-align: center;
-  padding: 6rem var(--horizontal-inset);
+  padding: 10rem var(--horizontal-inset) 6rem;
   border-radius: 0.8rem;
 
   &::before {
@@ -84,10 +100,15 @@
     }
   }
 
-  & p {
+  & p,
+  & ul {
     text-align: justify;
     line-height: 1.6;
     margin-bottom: 6rem;
+  }
+
+  & li {
+    padding: 1rem 0;
   }
 }
 
@@ -96,11 +117,22 @@
     padding: 2rem 0;
   }
 
+  .navigation {
+    position: static;
+    top: auto;
+    left: auto;
+    width: 95%;
+  }
+
   .hero__card {
     justify-content: center;
     width: 95%;
     min-height: 45vh;
     border-radius: 0.8rem;
+  }
+
+  .hero__card__wrapper {
+    padding-top: 6rem;
   }
 
   .post {

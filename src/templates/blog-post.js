@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 
 import styles from './blog-post.module.css';
 import Layout from '../components/layout';
@@ -19,10 +19,20 @@ export default ({
     />
 
     <header className={styles.hero}>
+      <nav className={styles.navigation}>
+        <Link to="/" className="o-logo" title="Página principal">
+          Dr. Saavedra
+        </Link>
+
+        <a href="#contact" className="o-contact-btn">
+          Contacto
+        </a>
+      </nav>
+
       <div className={styles.hero__card}>
         <div className={styles.hero__card__wrapper}>
           <div className={styles.hero__card__details}>
-            <span className="o-subtitle">Del Blog del Dr. Saavedra</span>
+            <span className="o-subtitle">Del Blog</span>
             <h1>{frontmatter.title}</h1>
             <time dateTime={frontmatter.date}>{frontmatter.prettyDate}</time>
           </div>

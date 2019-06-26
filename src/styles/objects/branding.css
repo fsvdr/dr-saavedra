@@ -1,3 +1,27 @@
+.o-logo {
+  font-family: var(--header-font);
+  font-size: var(--text-base-size);
+  font-weight: var(--bold-weight);
+  color: var(--black);
+
+  &:visited {
+    color: var(--black);
+  }
+}
+
+.o-contact-btn {
+  font-size: var(--sm-size);
+  font-weight: var(--bold-weight);
+  background-color: var(--accent-color);
+  color: var(--white);
+  padding: 0.8rem 1.6rem;
+  border-radius: 2rem;
+
+  &:visited {
+    color: var(--white);
+  }
+}
+
 .o-subtitle {
   font-size: var(--xs-size);
   font-weight: var(--bold-weight);

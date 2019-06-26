@@ -45,7 +45,8 @@ h6 {
   font-size: var(--xs-size);
 }
 
-p {
+p,
+li {
   font-weight: var(--regular-weight);
   line-height: var(--body-line-height);
   max-width: 80ch;
