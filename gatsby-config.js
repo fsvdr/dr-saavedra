@@ -46,12 +46,12 @@ Cirjuía de rodilla, artroscopía y remplazos articulares.`,
       options: {
         postCssPlugins: [
           require(`postcss-preset-env`)({
-            "features": {
-              "environment-variables": true,
-              "nesting-rules": true,
-              "custom-media-queries": true,
-              "custom-selectors": true,
-            }
+            features: {
+              'environment-variables': true,
+              'nesting-rules': true,
+              'custom-media-queries': true,
+              'custom-selectors': true,
+            },
           }),
           require(`autoprefixer`),
           require(`css-mqpacker`),
@@ -63,4 +63,4 @@ Cirjuía de rodilla, artroscopía y remplazos articulares.`,
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

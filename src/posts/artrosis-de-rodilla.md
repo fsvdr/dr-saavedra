@@ -1,6 +1,8 @@
 ---
 title: "Prótesis Total en Artrosis de Rodilla"
 date: "2019-04-08"
+tags: ["artrosis de rodilla", "prótesis total", "dolor severo de rodilla", "desgaste artícular"]
+description: "Cuando el desgaste del cartílago de la rodilla es severo esta indicada la colocación de prótesis, un implante metal-plastico que substituye al cartilago gastado"
 ---
 
 # Gonartrosis

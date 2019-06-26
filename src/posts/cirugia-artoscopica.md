@@ -1,6 +1,8 @@
 ---
 title: "Cirugía Artroscópica"
 date: "2019-04-02"
+tags: ["cirugía artroscópica", "lesión de meniscos", "desgaste de cartílago", "lesión de ligamentos", "infecciones de rodilla"]
+description: "La cirugía artroscópica es una técnica quirúrgica para tratar enfermedades de la rodilla usando equipo especial que evita grandes heridas"
 ---
 
 Es una técnica quirúrgica mediante la cual se tratan enfermedades de las articulaciones usando una cámara de televisión, que se introduce a través de pequeñas insiciones de un centímetro, con el uso de instrumental especializado evitando así heridas de gran tamaño como las que se realizaba hace algunos años. De esta manera se permite una recuperación más rápida.
