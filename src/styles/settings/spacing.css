@@ -16,7 +16,7 @@
   --vertical-inset: 1.6rem;
 }
 
-@media (--portrait-tablet) {
+@media screen and (min-width: 768px) {
   :root {
     --horizontal-inset: 2rem;
   }

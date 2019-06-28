@@ -89,7 +89,7 @@
   }
 }
 
-@media (--portrait-tablet) {
+@media screen and (min-width: 768px) {
   .experience {
     padding: 4rem 0;
   }
@@ -142,7 +142,7 @@
   }
 }
 
-@media (--medium-viewport) {
+@media screen and (min-width: 1024px) {
   .blog__post {
     width: calc((100% / 3) - 1rem);
 
@@ -157,7 +157,7 @@
 }
 
 @supports (padding: max(0px)) {
-  @media (--portrait-tablet) {
+  @media screen and (min-width: 768px) {
     .blog__post:nth-child(odd) {
       /* 2.5vw accounts for the 95% wrapper width */
       --best-fit-inset: max(

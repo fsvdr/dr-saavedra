@@ -41,7 +41,7 @@
   --bold-weight: 700;
 }
 
-@media (--medium-viewport) {
+@media screen and (min-width: 1024px) {
   :root {
     --text-base-size: 2rem;
   }

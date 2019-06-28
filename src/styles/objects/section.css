@@ -24,7 +24,7 @@
   }
 }
 
-@media (--portrait-tablet) {
+@media screen and (min-width: 768px) {
   .o-section {
     padding: 8rem 0;
   }
@@ -35,7 +35,7 @@
 }
 
 @supports (padding: max(0px)) {
-  @media (--portrait-tablet) {
+  @media screen and (min-width: 768px) {
     .o-section__wrapper {
       /* 2.5vw accounts for the 95% wrapper width */
       --best-fit-inset: max(

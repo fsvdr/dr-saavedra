@@ -2,5 +2,7 @@
     Media Query Breakpoints                     *
  ***********************************************/
 
-@custom-media --portrait-tablet screen and (width >= 768px);
-@custom-media --medium-viewport screen and (width >= 1024px);
+:root {
+  --portrait-tablet: 768px;
+  --medium-viewport: 1024px;
+}

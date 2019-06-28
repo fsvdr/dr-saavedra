@@ -144,7 +144,7 @@
   }
 }
 
-@media (--portrait-tablet) {
+@media screen and (min-width: 768px) {
   .hero {
     padding: 2rem 0;
   }
@@ -199,7 +199,7 @@
   }
 }
 
-@media (--medium-viewport) {
+@media screen and (min-width: 1024px) {
   .post__content p > span {
     /* max-width: 450px !important;
     max-height: 450px; */
@@ -207,7 +207,7 @@
 }
 
 @supports (padding: max(0px)) {
-  @media (--portrait-tablet) {
+  @media screen and (min-width: 768px) {
     .hero__card__wrapper {
       /* 2.5vw accounts for the 95% wrapper width */
       --best-fit-inset: max(
