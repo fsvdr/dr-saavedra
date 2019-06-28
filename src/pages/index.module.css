@@ -5,6 +5,7 @@
 }
 
 .experience__wrapper {
+  align-items: stretch;
   text-align: left;
 }
 
@@ -62,7 +63,7 @@
   padding: 2.4rem 1.6rem;
   margin-bottom: 2rem;
   border-radius: 0.8rem;
-  background-color: var(--grey);
+  background-color: var(--lighter-background-color);
 
   & h3 {
     font-size: var(--md-size);
