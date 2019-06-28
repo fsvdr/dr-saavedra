@@ -8,6 +8,9 @@ description: "Cuando el desgaste del cartílago de la rodilla es severo esta ind
 # Gonartrosis
 Desgaste artícular de rodilla — es una enfermedad frecuente en pacientes adultos mayores. Generalmente degenerativa, esta enfermedad esta condicionada por la edad, el sobrepeso y enfermedades como la artritis reumatoide y puede también tener origen traumático.
 
+![](../images/posts/post-ar-1.jpeg)
+![](../images/posts/post-ar-2.jpeg)
+
 # Síntomas
 Condiciona dificultad para la marcha, dolor al subir y bajar escaleras, tronidos articulares, limitación de la movilidad y aumento de volumen de la rodilla.
 
@@ -15,6 +18,9 @@ Cuando el desgaste articular es severo condiona deformidades de la rodilla y dol
 
 # Diagnostico
 Los Rayos X (RX) y la exploración física nos indican cuando hay que colocar una prótesis total de rodilla.
+
+![](../images/posts/post-ar-3.jpeg)
+![](../images/posts/post-ar-4.jpeg)
 
 # Tratamiento
 La prótesis total de rodilla es un implante metálico pegado al hueso que sistituye el cartílado articular gastado y favorece la movilidad de rodilla sin dolor.

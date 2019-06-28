@@ -9,6 +9,9 @@ Es una técnica quirúrgica mediante la cual se tratan enfermedades de las art
 
 Generalmente es una cirugía ambulatoria (alta el mismo día de la cirugía).
 
+![](../images/posts/post-ca-1.jpeg)
+![](../images/posts/post-ca-2.jpeg)
+
 # Inficaciones
 - Enfermedades del cartílago articular secundarias a artritis reumatoide, osteoartritis, ácido úrico (gota) o secundaria a fracturas articulares.
 - Lesiones meniscales
