@@ -5,9 +5,9 @@ import styles from './index.module.css';
 const Form = () => (
   <div className={`o-section ${styles.container}`}>
     <form
+      className={`o-section__wrapper ${styles.form}`}
       name="contact"
       method="POST"
-      className={`o-section__wrapper ${styles.form}`}
       data-netlify="true"
     >
       <label className={styles.control} htmlFor="name">

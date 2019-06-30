@@ -13,7 +13,7 @@
 
   /* Type scale */
   /* stylelint-disable max-line-length */
-  --xs-size: calc(var(--text-base-size) / (1.3 * var(--scale-ratio)));
+  --xs-size: calc(var(--text-base-size) / (1.25 * 1.3));
   --sm-size: calc(var(--text-base-size) / var(--scale-ratio));
   --md-size: calc(var(--text-base-size) * var(--scale-ratio));
   --lg-size: calc(
