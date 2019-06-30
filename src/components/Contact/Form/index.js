@@ -10,6 +10,7 @@ const Form = () => (
       method="POST"
       data-netlify="true"
     >
+      <input type="hidden" name="form-name" value="contact" />
       <label className={styles.control} htmlFor="name">
         <span>Nombre</span>
         <input
