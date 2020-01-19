@@ -19,7 +19,7 @@ const Footer = ({
           Médico especialista en traumatología y ortopédia.
         </p>
         <p className="o-lead-paragraph">
-          Cirjuía de rodilla, artroscopía y remplazos articulares.
+          Cirugía de rodilla, artroscopía y remplazos articulares.
         </p>
       </div>
 
