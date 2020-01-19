@@ -19,7 +19,7 @@ const Hero = ({
           <span className="o-subtitle -primary">Cédula Profesional 987510</span>
           <h1>Dr. Benito Saavedra Alvarado </h1>
           <p className="o-lead-paragraph">
-            Médico especialista en trumatología y ortopédia. Cirugía de rodilla,
+            Médico especialista en traumatología y ortopédia. Cirugía de rodilla,
             artroscopía y remplazos articulares.
           </p>
         </div>
