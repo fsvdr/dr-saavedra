@@ -86,7 +86,8 @@ section {
   display: block;
 }
 
-* { /* stylelint-disable-line */
+* {
+  /* stylelint-disable-line */
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;

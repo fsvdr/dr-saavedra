@@ -5,19 +5,22 @@
 @font-face {
   font-family: 'Noto Serif';
   font-display: swap;
-  src: local('Noto Serif'), url('../../fonts/NotoSerif/NotoSerif-Bold.ttf') format('truetype');
+  src: local('Noto Serif'),
+    url('../../fonts/NotoSerif/NotoSerif-Bold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Noto Sans';
   font-display: swap;
   font-weight: var(--bold-weight);
-  src: local('Noto Sans Bold'), url('../../fonts/NotoSans/NotoSans-Bold.ttf') format('truetype');
+  src: local('Noto Sans Bold'),
+    url('../../fonts/NotoSans/NotoSans-Bold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Noto Sans';
   font-display: swap;
   font-weight: var(--regular-weight);
-  src: local('Noto Sans'), url('../../fonts/NotoSans/NotoSans.ttf') format('truetype');
+  src: local('Noto Sans'),
+    url('../../fonts/NotoSans/NotoSans.ttf') format('truetype');
 }

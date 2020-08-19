@@ -26,7 +26,9 @@ const PortraitImage = () => (
         }
       }
     `}
-    render={data => <Img fluid={data.placeholderImage.childImageSharp.fluid} />}
+    render={(data) => (
+      <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+    )}
   />
 );
 export default PortraitImage;

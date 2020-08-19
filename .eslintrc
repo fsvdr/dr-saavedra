@@ -1,11 +1,3 @@
 {
-	"plugins": ["prettier"],
-	"rules": {
-		"prettier/prettier": ["error"]
-	},
-	"parserOptions": {
-		"ecmaVersion": 10,
-		"sourceType": "module"
-	},
-	"extends": ["eslint-config-react-app", "prettier"]
+	"extends": ["react-app", "plugin:prettier/recommended"]
 }
