@@ -1,21 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: `Dr. Benito Saavedra Alvarado`,
-    description: `Médico especialista en traumatología y ortopédia.
-Cirjuía de rodilla, artroscopía y remplazos articulares.`,
-    author: `@fsvdr`,
-    contact: {
-      address: {
-        title: `HMG Hospital Coyoacán, Consultorio 512`,
-        link: `https://goo.gl/maps/WAgbfa7Pdip47SVK6`,
-        description: `División del Norte #3395, Colonia El Rosario, Ciudad de México`,
-      },
-      phone: {
-        title: `(55) 3683 7578`,
-        link: `tel:5536837578`,
-        description: `Teléfono del consultorio`,
-      },
-    },
+    description:
+      'Médico especialista en traumatología y ortopédia. Cirugía de rodilla, artroscopía y remplazos articulares. Consulta privada HMG Hóspital Coyoacán',
+    siteUrl: 'https://drsaavedra.mx',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
