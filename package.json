@@ -30,16 +30,12 @@
     "eslint-plugin-react-hooks": "^4.1.0",
     "gatsby-plugin-eslint": "^2.0.8",
     "gatsby-plugin-postcss": "^2.1.0",
-    "gatsby-plugin-stylelint": "^3.2.0",
     "gatsby-remark-images": "^3.1.2",
     "gatsby-transformer-remark": "^2.5.0",
     "husky": ">=4",
     "lint-staged": "^10.2.11",
     "postcss-preset-env": "^6.6.0",
-    "prettier": "^2.0.5",
-    "stylelint": "^13.6.1",
-    "stylelint-config-prettier": "^8.0.2",
-    "stylelint-prettier": "^1.1.1"
+    "prettier": "^2.0.5"
   },
   "license": "MIT",
   "scripts": {
