@@ -6,7 +6,7 @@ import { es } from 'date-fns/locale';
 const StyledTable = styled.table`
   min-width: 32rem;
   width: 100%;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   margin-block-end: 1.6rem;
 
   & caption {

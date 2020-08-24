@@ -54,7 +54,7 @@ export const Portrait = styled.div`
     width: 6rem;
     height: 6rem;
     font-size: var(--font-size-xs);
-    color: var(--color-white);
+    color: rgb(34, 34, 34);
     background-color: var(--color-accent);
     border-radius: 50%;
     margin-inline-end: 2.5%;
@@ -147,11 +147,9 @@ export const OfficeAddress = styled(OfficeDetail)`
 
   & button {
     font-weight: var(--font-weight-demi-bold);
-    color: var(--color-accent);
-    text-decoration: underline;
-    text-decoration-style: dotted;
-    text-decoration-thickness: 2px;
-    padding: 0;
+    padding: 0.2rem 0;
+    border-bottom: 0.3rem dotted var(--color-accent);
+    border-radius: 0;
   }
 `;
 

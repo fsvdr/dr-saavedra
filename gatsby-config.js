@@ -2,8 +2,9 @@ module.exports = {
   siteMetadata: {
     title: `Dr. Benito Saavedra Alvarado`,
     description:
-      'Médico especialista en traumatología y ortopédia. Cirugía de rodilla, artroscopía y remplazos articulares. Consulta privada HMG Hóspital Coyoacán',
+      'Médico especialista en traumatología y ortopédia. Cirugía de rodilla, artroscopía y remplazos articulares. Consulta privada HMG Hospital Coyoacán',
     siteUrl: 'https://drsaavedra.mx',
+    author: '@drsaavedramx',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -62,5 +63,6 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     'gatsby-plugin-styled-components',
+    'gatsby-plugin-react-axe',
   ],
 };

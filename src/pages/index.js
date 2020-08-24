@@ -6,9 +6,11 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import Image from '../components/image';
 import OfficeAvailability from '../components/office-availability';
+import SEO from '../components/seo';
 
 const IndexPage = ({ data: { portrait, unam, imss, issste } }) => (
   <Layout>
+    <SEO />
     <Hero>
       <Title>
         Médico especialista en traumatología y ortopédia. Cirugía de rodilla, artroscopía y remplazos articulares.
@@ -26,7 +28,7 @@ const IndexPage = ({ data: { portrait, unam, imss, issste } }) => (
         <p className="office__card">
           <span>Consulta Privada</span>
           <a href="https://goo.gl/maps/WAgbfa7Pdip47SVK6" target="_blank" rel="noopener noreferrer">
-            HMG Hóspital Coyoacán, Consultorio 512
+            HMG Hospital Coyoacán, Consultorio 512
           </a>
         </p>
 
@@ -141,6 +143,9 @@ export const query = graphql`
 IndexPage.propTypes = {
   data: PropTypes.shape({
     portrait: PropTypes.object.isRequired,
+    unam: PropTypes.object.isRequired,
+    imss: PropTypes.object.isRequired,
+    issste: PropTypes.object.isRequired,
   }).isRequired,
 };
 
