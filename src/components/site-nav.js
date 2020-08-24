@@ -19,17 +19,12 @@ const StyledNav = styled.nav`
   padding-inline-start: calc(env(safe-area-inset-left) + 1.6rem);
   padding-inline-end: calc(env(safe-area-inset-left) + 1.6rem);
 
-  & .icon {
-    width: 2rem;
-    height: 2rem;
-    margin-inline-end: 0.6rem;
-    transition: stroke 0.3s;
-  }
-
   @media screen and (min-width: 768px) {
     grid-template:
       'logo nav cta' auto
       / auto minmax(0, 1fr) auto;
+    padding-inline-start: calc(env(safe-area-inset-left) + 4vw);
+    padding-inline-end: calc(env(safe-area-inset-left) + 4vw);
   }
 
   @media screen and (min-width: 1600px) {
@@ -62,20 +57,20 @@ const StyledList = styled.ul`
     flex-flow: row nowrap;
     align-items: center;
     font-size: var(--font-size-sm);
+
+    & .icon {
+      margin-inline-end: 0.6rem;
+    }
   }
 
   & a:hover .icon {
     stroke: var(--color-accent);
   }
 
-  & .icon--offset-fix {
-    margin-block-start: -5px;
-  }
-
   @media screen and (min-width: 768px) {
     padding-inline-start: 2.4rem;
     padding-inline-end: 2.4rem;
-    padding-block-end: 0.2rem;
+    padding-block-end: 0.3rem;
   }
 `;
 
@@ -84,6 +79,7 @@ const Logo = styled(Link)`
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-demi-bold);
 
   & > div {
@@ -93,6 +89,7 @@ const Logo = styled(Link)`
 
 const AppointmentLink = styled.a`
   grid-area: cta;
+  font-size: var(--font-size-base);
   text-align: right;
 
   & .title {
@@ -107,6 +104,10 @@ const AppointmentLink = styled.a`
     align-items: center;
     font-weight: var(--font-weight-demi-bold);
     color: var(--color-accent);
+  }
+
+  & .icon {
+    margin-inline-end: 0.8rem;
   }
 `;
 
@@ -126,7 +127,7 @@ const SiteNav = () => {
   return (
     <StyledNav>
       <Logo to="/">
-        <Image fluid={false} src={images.logo} alt="" ariaHidden="true" />
+        <Image fluid={false} src={images.logo} alt="" aria-hidden="true" />
         Dr. Saavedra
       </Logo>
 
@@ -144,7 +145,7 @@ const SiteNav = () => {
                 strokeLinejoin="round"
                 className="icon"
                 focusable="false"
-                ariaHidden="true"
+                aria-hidden="true"
               >
                 <circle cx="12" cy="8" r="7"></circle>
                 <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
@@ -162,9 +163,9 @@ const SiteNav = () => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                class="icon"
+                className="icon"
                 focusable="false"
-                ariaHidden="true"
+                aria-hidden="true"
               >
                 <path d="M12 20h9"></path>
                 <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
@@ -185,9 +186,9 @@ const SiteNav = () => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                class="icon icon--offset-fix"
+                className="icon icon--offset-fix"
                 focusable="false"
-                ariaHidden="true"
+                aria-hidden="true"
               >
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                 <rect x="2" y="9" width="4" height="12"></rect>
@@ -206,9 +207,9 @@ const SiteNav = () => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                class="icon"
+                className="icon"
                 focusable="false"
-                ariaHidden="true"
+                aria-hidden="true"
               >
                 <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
               </svg>
@@ -229,9 +230,9 @@ const SiteNav = () => {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            class="icon"
+            className="icon"
             focusable="false"
-            ariaHidden="true"
+            aria-hidden="true"
           >
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
           </svg>

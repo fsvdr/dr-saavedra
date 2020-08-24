@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "dependencies": {
     "babel-plugin-styled-components": "^1.11.1",
+    "date-fns": "^2.15.0",
     "gatsby": "^2.3.25",
     "gatsby-image": "^2.0.39",
     "gatsby-plugin-manifest": "^2.0.29",
@@ -41,7 +42,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop -H 0.0.0.0",
-		"clean": "gatsby clean",
+    "clean": "gatsby clean",
     "serve": "gatsby serve",
     "lint": "eslint --ignore-path .gitignore .",
     "check-format": "prettier *.js --list-different",

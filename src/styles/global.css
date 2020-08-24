@@ -1,5 +1,6 @@
 :root {
     --color-black: #000000;
+    --color-white: #ffffff;
     --color-green: #069B7A;
     --color-sand: #F6F3F0;
     --color-grey: #93918F;
@@ -7,15 +8,15 @@
     --color-background: var(--color-sand);
     --color-accent: var(--color-green);
     --color-text: var(--color-black);
-    --color-text-subtle: var(--color-gray);
+    --color-text-subtle: var(--color-grey);
 
     --font-family-display: 'Greycliff CF', Avenir Next, sans-serif;
     --font-family-base: 'Greycliff CF', Avenir Next, sans-serif;
 
-    --font-size-xs: 1rem;
-    --font-size-sm: 1.333rem;
-    --font-size-base: 1.777rem;
-    --font-size-lg: 2.369rem;
+    --font-size-xs: 1.2rem;
+    --font-size-sm: 1.44rem;
+    --font-size-base: 1.728rem;
+    --font-size-lg: 2.986rem;
     
     --font-weight-medium: 500;
     --font-weight-demi-bold: 600;
@@ -223,4 +224,19 @@
 
   small {
     font-size: var(--font-size-sm);
+  }
+
+  .icon {
+    inline-size: 2rem;
+    block-size: 2rem;
+    transition: stroke 0.3s;
+  }
+  
+  .icon--offset-fix {
+    margin-block-start: -5px;
+  }
+
+  .icon--offset-size {
+    inline-size: 2.2rem;
+    block-size: 2.2rem;
   }
