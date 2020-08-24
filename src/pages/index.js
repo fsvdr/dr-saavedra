@@ -1,13 +1,13 @@
 import React from 'react';
 import Layout from '../components/layout';
-import { Hero, Portrait, Office, OfficeAddress, OfficeHours } from '../styles/index.styles';
+import { Hero, Portrait, Office, OfficeAddress, OfficeHours, Experience, Work } from '../styles/index.styles';
 import { Title } from '../styles/section';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import Image from '../components/image';
 import OfficeAvailability from '../components/office-availability';
 
-const IndexPage = ({ data: { portrait } }) => (
+const IndexPage = ({ data: { portrait, unam, imss, issste } }) => (
   <Layout>
     <Hero>
       <Title>
@@ -83,6 +83,25 @@ const IndexPage = ({ data: { portrait } }) => (
         </OfficeHours>
       </Office>
     </Hero>
+
+    <Experience>
+      <Title as="h2">Una carrera respaldada por las principales instituciones del país</Title>
+
+      <div>
+        <Work>
+          <Image fluid={false} src={unam} alt="" focusable="false" aria-hidden="true" />
+          <p>Licenciatura y especialización por parte de la UNAM</p>
+        </Work>
+        <Work>
+          <Image fluid={false} src={imss} alt="" focusable="false" aria-hidden="true" />
+          <p>28 años de servicio en el Hospital Regional 2</p>
+        </Work>
+        <Work>
+          <Image fluid={false} src={issste} alt="" focusable="false" aria-hidden="true" />
+          <p>28 años de servicio en el Hospital General Ignacio Zaragoza</p>
+        </Work>
+      </div>
+    </Experience>
   </Layout>
 );
 
@@ -90,8 +109,29 @@ export const query = graphql`
   query {
     portrait: file(relativePath: { eq: "portrait.png" }) {
       childImageSharp {
-        fluid(maxWidth: 500) {
+        fluid(maxWidth: 600) {
           ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    unam: file(relativePath: { eq: "unam.png" }) {
+      childImageSharp {
+        fixed(width: 80) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    imss: file(relativePath: { eq: "imss.png" }) {
+      childImageSharp {
+        fixed(width: 80) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    issste: file(relativePath: { eq: "issste.png" }) {
+      childImageSharp {
+        fixed(width: 80) {
+          ...GatsbyImageSharpFixed
         }
       }
     }

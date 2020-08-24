@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { Section, Title } from './section';
 
-import KneePattern from '../images/background-pattern.png';
-
 export const Hero = styled(Section)`
   display: grid;
   grid-template-columns: min(100%, 60rem);
@@ -177,6 +175,72 @@ export const OfficeHours = styled(OfficeDetail)`
   @media screen and (min-width: 768px) {
     & small {
       margin-block-start: 1.6rem;
+    }
+  }
+`;
+
+export const Experience = styled(Section)`
+  inline-size: 95%;
+  background-color: var(--color-white);
+
+  & ${Title} {
+    padding-inline-start: 1.6rem;
+    margin-block-end: 4rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    & > div {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: stretch;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    & ${Title} {
+      margin-block-end: 0;
+    }
+
+    & > div {
+      min-width: 70rem;
+      margin-inline-start: 1.6rem;
+    }
+  }
+`;
+
+export const Work = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  font-size: var(--font-size-sm);
+  padding-inline-start: 2rem;
+  padding-inline-end: 2rem;
+  margin-block-end: 4rem;
+
+  &:last-child {
+    margin-block-end: 0;
+  }
+
+  & p {
+    flex: 1 1 0;
+    margin-inline-start: 2rem;
+    margin-block-end: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    margin-block-end: 0;
+
+    & p {
+      margin-block-start: 0;
+      margin-inline-start: 1rem;
     }
   }
 `;

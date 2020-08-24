@@ -21,4 +21,8 @@ export const Section = styled.section`
 export const Title = styled.h1`
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-medium);
+
+  &:not(h1) {
+    font-size: var(--font-size-md);
+  }
 `;
