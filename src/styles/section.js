@@ -1,20 +1,20 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
+  --inline-inset: calc(env(safe-area-inset-left) + 1.6rem);
+
   width: 100%;
   padding-block-start: 4rem;
   padding-block-end: 4rem;
-  padding-inline-start: calc(env(safe-area-inset-left) + 1.6rem);
-  padding-inline-end: calc(env(safe-area-inset-left) + 1.6rem);
+  padding-inline-start: var(--inline-inset);
+  padding-inline-end: var(--inline-inset);
 
   @media screen and (min-width: 768px) {
-    padding-inline-start: calc(env(safe-area-inset-left) + 4vw);
-    padding-inline-end: calc(env(safe-area-inset-left) + 4vw);
+    --inline-inset: calc(env(safe-area-inset-left) + 4vw);
   }
 
   @media screen and (min-width: 1600px) {
-    padding-inline-start: calc((100vw - 1600px) / 2 + 4vw);
-    padding-inline-end: calc((100vw - 1600px) / 2 + 4vw);
+    --inline-inset: calc((100vw - 1600px) / 2 + 4vw);
   }
 `;
 

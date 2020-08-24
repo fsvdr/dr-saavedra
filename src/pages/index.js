@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../components/layout';
-import { Hero, Portrait, Office, OfficeAddress, OfficeHours, Experience, Work } from '../styles/index.styles';
+import { Hero, Portrait, Office, OfficeAddress, OfficeHours, Experience, Work, About } from '../styles/index.styles';
 import { Title } from '../styles/section';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
@@ -104,6 +104,60 @@ const IndexPage = ({ data: { portrait, unam, imss, issste } }) => (
         </Work>
       </div>
     </Experience>
+
+    <About>
+      <div className="about__message">
+        <Title as="h2">
+          ¡Hola! Soy el Dr. Benito Saavedra, especialista en ortopedia y traumatología. Enfocado durante muchos años a
+          las enfermedades de rodilla.
+        </Title>
+
+        <p>
+          Mi especialidad se encarga de atender enfermedades degenerativas o traumáticas del sistema músculo
+          esquelético.
+        </p>
+        <p>
+          Mi objetivo principal es darle el tratamiento adecuado a las enfermedades del paciente, siendo responsable y
+          honesto.
+        </p>
+        <p>Te invito a visitarme para ayudarte a tratar tu enfermedad. ¡Espero ser digno de tu confianza!</p>
+      </div>
+
+      <div className="about__services">
+        <Title as="h2">Especialidades del Dr. Saavedra:</Title>
+
+        <ul>
+          <li>Artroscopia de hombro y rodilla</li>
+          <li>Colocación de prótesis de cadera y rodilla</li>
+        </ul>
+
+        <div className="about__conditions">
+          <Title as="h2">Algunas de las enfermedades y condiciones con las que te puedo ayudar:</Title>
+
+          <ul>
+            <li>Cervicalgias</li>
+            <li>Codo de tenista</li>
+            <li>Dedos en gatillo de mano </li>
+            <li>Desgaste articular o artrosis de cadera</li>
+            <li>Desgaste articular o artrosis de hombro</li>
+            <li>Desgaste o Artrosis de rodilla</li>
+            <li>Enfermedades de la columna vertebral</li>
+            <li>Enfermedades del mango rotador en hombro</li>
+            <li>Espolón calcaneo</li>
+            <li>Fracturas y luxaciones de hombro, codo, muñeca,</li>
+            <li>cadera,rodilla, tobillo y pie</li>
+            <li>Lesiones de ligamentos de rodilla</li>
+            <li>Lesiones de meniscos</li>
+            <li>Lumbalgias </li>
+            <li>Osteoartritis</li>
+            <li>Pie plano</li>
+            <li>Pinzamiento de hombro </li>
+            <li>Sinovitis</li>
+            <li>Túnel del carpo</li>
+          </ul>
+        </div>
+      </div>
+    </About>
   </Layout>
 );
 
