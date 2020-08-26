@@ -1,14 +1,25 @@
 import React from 'react';
 import Layout from '../components/layout';
-import { Hero, Portrait, Office, OfficeAddress, OfficeHours, Experience, Work, About } from '../styles/index.styles';
+import {
+  Hero,
+  Portrait,
+  Office,
+  OfficeAddress,
+  OfficeHours,
+  Experience,
+  Work,
+  About,
+  Testimonials,
+} from '../styles/index.styles';
 import { Title } from '../styles/section';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import Image from '../components/image';
 import OfficeAvailability from '../components/office-availability';
 import SEO from '../components/seo';
+import Testimonial from '../components/testimonial';
 
-const IndexPage = ({ data: { portrait, unam, imss, issste } }) => (
+const IndexPage = ({ data: { portrait, unam, imss, issste, testimonials } }) => (
   <Layout>
     <SEO />
     <Hero>
@@ -158,6 +169,55 @@ const IndexPage = ({ data: { portrait, unam, imss, issste } }) => (
         </div>
       </div>
     </About>
+
+    <Testimonials>
+      <Title as="h2">
+        Confianza que se traduce en trato humano, profesional y respetuoso asi como transparencia en todo momento
+      </Title>
+
+      <div className="testimonials__wrapper">
+        <Testimonial
+          testimonial={{
+            rate: 3,
+            content: 'Muy buena atención, todo lo explica de manera detallada, muy cuidadoso y respetuoso.',
+            author: 'Daniel Silva',
+            datetime: '2020-07-15',
+          }}
+        />
+        <Testimonial
+          testimonial={{
+            rate: 3,
+            content: 'Muy buena atención, todo lo explica de manera detallada, muy cuidadoso y respetuoso.',
+            author: 'Daniel Silva',
+            datetime: '2020-07-15',
+          }}
+        />
+        <Testimonial
+          testimonial={{
+            rate: 3,
+            content: 'Muy buena atención, todo lo explica de manera detallada, muy cuidadoso y respetuoso.',
+            author: 'Daniel Silva',
+            datetime: '2020-07-15',
+          }}
+        />
+        <Testimonial
+          testimonial={{
+            rate: 3,
+            content: 'Muy buena atención, todo lo explica de manera detallada, muy cuidadoso y respetuoso.',
+            author: 'Daniel Silva',
+            datetime: '2020-07-15',
+          }}
+        />
+        <Testimonial
+          testimonial={{
+            rate: 3,
+            content: 'Muy buena atención, todo lo explica de manera detallada, muy cuidadoso y respetuoso.',
+            author: 'Daniel Silva',
+            datetime: '2020-07-15',
+          }}
+        />
+      </div>
+    </Testimonials>
   </Layout>
 );
 
@@ -200,7 +260,21 @@ IndexPage.propTypes = {
     unam: PropTypes.object.isRequired,
     imss: PropTypes.object.isRequired,
     issste: PropTypes.object.isRequired,
+    testimonials: PropTypes.arrayOf(
+      PropTypes.shape({
+        rate: PropTypes.number.isRequired,
+        content: PropTypes.string.isRequired,
+        author: PropTypes.string.isRequired,
+        datetime: PropTypes.string.isRequired,
+      })
+    ),
   }).isRequired,
+};
+
+IndexPage.defaultProps = {
+  data: {
+    testimonials: [],
+  },
 };
 
 export default IndexPage;
