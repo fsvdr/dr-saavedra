@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { format } from 'date-fns';
 import { es } from 'date-fns/locale';
+import capitalize from '../utils/capitalize';
 
 const Container = styled.article`
   display: flex;
@@ -73,7 +74,7 @@ const Testimonial = ({ testimonial: { rate, content, author, datetime } }) => {
 
       <p className="testimonial__author">
         — {author}
-        <time>{format(new Date(datetime), 'LLLL d, y', { locale: es }).replace(/^\w/, (c) => c.toUpperCase())}</time>
+        <time>{capitalize(format(new Date(datetime), 'LLLL d, y', { locale: es }))}</time>
       </p>
     </Container>
   );

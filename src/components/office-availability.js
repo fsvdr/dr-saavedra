@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { addDays, eachDayOfInterval, isToday, isTomorrow, format, isSunday } from 'date-fns';
 import { es } from 'date-fns/locale';
+import capitalize from '../utils/capitalize';
 
 const StyledTable = styled.table`
   min-width: 32rem;
@@ -72,13 +73,23 @@ const OfficeHours = [
 
 const getTimetableDateJSX = (day) => {
   // eslint-disable-next-line prettier/prettier
-  if (isToday(day)) return (<th scope="row" key={day}>Hoy</th>);
+  if (isToday(day))
+    return (
+      <th scope="row" key={day}>
+        Hoy
+      </th>
+    );
   // eslint-disable-next-line prettier/prettier
-  if (isTomorrow(day)) return (<th scope="row" key={day}>Mañana</th>);
+  if (isTomorrow(day))
+    return (
+      <th scope="row" key={day}>
+        Mañana
+      </th>
+    );
 
   return (
     <th scope="row" key={day}>
-      {format(day, 'EEE d', { locale: es }).replace(/^\w/, (c) => c.toUpperCase())}
+      {capitalize(format(day, 'EEE d', { locale: es }))}
     </th>
   );
 };

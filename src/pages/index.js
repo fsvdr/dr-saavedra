@@ -10,6 +10,7 @@ import {
   Work,
   About,
   Testimonials,
+  Blog,
 } from '../styles/index.styles';
 import { Title } from '../styles/section';
 import { graphql } from 'gatsby';
@@ -18,6 +19,7 @@ import Image from '../components/image';
 import OfficeAvailability from '../components/office-availability';
 import SEO from '../components/seo';
 import Testimonial from '../components/testimonial';
+import Post from '../components/post';
 
 const IndexPage = ({ data: { portrait, unam, imss, issste, testimonials } }) => (
   <Layout>
@@ -218,6 +220,27 @@ const IndexPage = ({ data: { portrait, unam, imss, issste, testimonials } }) => 
         />
       </div>
     </Testimonials>
+
+    <Blog>
+      <Title as="h2">Procedimientos quirurgicos explicados por el Dr. Saavedra</Title>
+
+      <div className="blog__index">
+        <Post
+          post={{
+            slug: 'protesis-total-en-artrosis-de-rodilla',
+            title: 'Prótesis Total en Artrosis de Rodilla',
+            datetime: '2019-04-08',
+            timeToRead: 2,
+            extract:
+              'Gonartrosis desgaste artícular de rodilla — es una enfermedad frecuente en pacientes adultos mayores. Generalmente degenerativa, esta…',
+          }}
+        />
+
+        <div className="blog__pagination">
+          <p>Se muestran 5 de 5 artículos</p>
+        </div>
+      </div>
+    </Blog>
   </Layout>
 );
 
