@@ -444,6 +444,7 @@ export const Blog = styled(Section)`
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
+    margin-block-end: 8rem;
 
     & > ${Title} {
       margin-block-start: 8rem;

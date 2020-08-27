@@ -1,6 +1,7 @@
 import React from 'react';
 import SiteNav from './site-nav';
 import { PropTypes } from 'prop-types';
+import Footer from './footer';
 
 const Layout = ({ children }) => {
   return (
@@ -8,6 +9,8 @@ const Layout = ({ children }) => {
       <SiteNav />
 
       <main>{children}</main>
+
+      <Footer />
     </>
   );
 };
