@@ -146,13 +146,6 @@ export const OfficeAddress = styled(OfficeDetail)`
     font-style: normal;
     margin-block-end: 0.8rem;
   }
-
-  & button {
-    font-weight: var(--font-weight-demi-bold);
-    padding: 0.2rem 0;
-    border-bottom: 0.3rem dotted var(--color-accent);
-    border-radius: 0;
-  }
 `;
 
 export const OfficeHours = styled(OfficeDetail)`

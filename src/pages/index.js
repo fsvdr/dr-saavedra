@@ -20,6 +20,7 @@ import OfficeAvailability from '../components/office-availability';
 import SEO from '../components/seo';
 import Testimonial from '../components/testimonial';
 import Post from '../components/post';
+import DistanceToLocation from '../components/distance-to-location';
 
 const IndexPage = ({ data: { portrait, unam, imss, issste, testimonials } }) => (
   <Layout>
@@ -65,9 +66,7 @@ const IndexPage = ({ data: { portrait, unam, imss, issste, testimonials } }) => 
           <div>
             <address>División del Norte #3395, Colonia El Rosario, Ciudad de México</address>
 
-            <button aria-label="Calcular la distancia desde mi posición actual" type="button">
-              ¿Qué tan lejos estoy?
-            </button>
+            <DistanceToLocation />
           </div>
         </OfficeAddress>
 
