@@ -9,6 +9,7 @@ import {
   isSunday,
   areIntervalsOverlapping,
   addMinutes,
+  isPast,
 } from 'date-fns';
 import { es } from 'date-fns/locale';
 import capitalize from '../utils/capitalize';
@@ -136,6 +137,8 @@ const getAvailabilityTimetable = (timetable, appointments) => {
       const [hours, minutes] = time.split(':');
       datetime.setHours(hours);
       datetime.setMinutes(minutes);
+
+      if (isPast(datetime)) return { time, busy: true };
 
       const overlappedAppointment = appointments[dateIndex].find((appointment) =>
         areIntervalsOverlapping(
