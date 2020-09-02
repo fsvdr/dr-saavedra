@@ -38,5 +38,13 @@ exports.handler = async (event) => {
 
   const calendar = response.data.calendars[calendarID];
 
-  return { statusCode: 200, body: JSON.stringify(calendar.busy || []) };
+  // Group appointments by date
+  const appointments = calendar.busy.reduce((acc, appointment) => {
+    const appointmentDate = appointment.start.split('T')[0];
+    acc[appointmentDate] = appointmentDate in acc ? [...acc[appointmentDate], appointment] : [appointment];
+
+    return acc;
+  }, {});
+
+  return { statusCode: 200, body: JSON.stringify(Object.values(appointments)) };
 };
