@@ -43,7 +43,7 @@ const Star = ({ active }) => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    class="icon"
+    className="icon"
     focusable="false"
     aria-hidden="true"
   >
