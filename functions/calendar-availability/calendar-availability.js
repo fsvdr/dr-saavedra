@@ -1,4 +1,5 @@
 const { google } = require('googleapis');
+const { eachDayOfInterval } = require('date-fns');
 
 /**
  *  Get the calendar's busy time slots within the provided frame using the
@@ -36,15 +37,21 @@ exports.handler = async (event) => {
   if (response.data.calendars[calendarID].errors)
     return { statusCode: 500, body: JSON.stringify({ errors: response.data.calendars[calendarID].errors }) };
 
-  const calendar = response.data.calendars[calendarID];
+  const appointments = response.data.calendars[calendarID].busy;
+  const appointmentsPerDateMap = new Map();
 
-  // Group appointments by date
-  const appointments = calendar.busy.reduce((acc, appointment) => {
-    const appointmentDate = appointment.start.split('T')[0];
-    acc[appointmentDate] = appointmentDate in acc ? [...acc[appointmentDate], appointment] : [appointment];
+  // We are requested with the appointments (if any) for each day within the interval provided
+  // so here we'll make sure to initialize an empty array for each of those dates
+  eachDayOfInterval({ start: new Date(start), end: new Date(end) }).forEach((date) => {
+    const key = date.toISOString().split('T')[0];
+    appointmentsPerDateMap.set(key, []);
+  });
 
-    return acc;
-  }, {});
+  // No we organize all our appointments in their corresponding date
+  appointments.forEach((appointment) => {
+    const key = appointment.start.split('T')[0];
+    appointmentsPerDateMap.set(key, [...appointmentsPerDateMap.get(key), appointment]);
+  });
 
-  return { statusCode: 200, body: JSON.stringify(Object.values(appointments)) };
+  return { statusCode: 200, body: JSON.stringify([...appointmentsPerDateMap.values()]) };
 };
