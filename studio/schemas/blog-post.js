@@ -30,7 +30,7 @@ export default {
       name: 'summary',
       type: 'text',
       rows: 2,
-      validation: (Rule) => Rule.required().max(140),
+      validation: (Rule) => Rule.required().max(280),
     },
     {
       title: 'Tags',
