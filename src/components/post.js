@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Title } from '../styles/section';
 import { Link } from 'gatsby';
-import { format } from 'date-fns';
-import { es } from 'date-fns/locale';
 
 import capitalize from '../utils/capitalize';
 
@@ -63,12 +61,12 @@ const Post = ({ post }) => {
         </Title>
 
         <p className="post__metadata">
-          {capitalize(format(new Date(post.datetime), 'MMMM d, y', { locale: es }))}
-          <span>Lectura de {`${post.timeToRead} minuto${post.timeToRead > 1 ? 's' : ''}`}</span>
+          {capitalize(post.releaseDate)}
+          {/* <span>Lectura de {`${post.timeToRead} minuto${post.timeToRead > 1 ? 's' : ''}`}</span> */}
         </p>
       </header>
 
-      <p>{post.extract}</p>
+      <p>{post.summary}</p>
 
       <Link to={post.slug} className="post__link">
         <svg
@@ -97,9 +95,9 @@ Post.propTypes = {
   post: PropTypes.shape({
     slug: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    datetime: PropTypes.string.isRequired,
-    timeToRead: PropTypes.number.isRequired,
-    extract: PropTypes.string.isRequired,
+    releaseDate: PropTypes.string.isRequired,
+    timeToRead: PropTypes.number,
+    summary: PropTypes.string.isRequired,
   }).isRequired,
 };
 

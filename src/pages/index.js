@@ -29,6 +29,7 @@ const IndexPage = ({
     imss,
     issste,
     allSanityTestimonial: { edges: testimonials },
+    allSanityBlogPost: { pageInfo: pagination, edges: posts },
   },
 }) => (
   <Layout>
@@ -191,23 +192,18 @@ const IndexPage = ({
       </div>
     </Testimonials>
 
-    <Blog>
+    <Blog id="articulos">
       <Title as="h2">Procedimientos quirurgicos explicados por el Dr. Saavedra</Title>
 
       <div className="blog__index">
-        <Post
-          post={{
-            slug: 'protesis-total-en-artrosis-de-rodilla',
-            title: 'Prótesis Total en Artrosis de Rodilla',
-            datetime: '2019-04-08',
-            timeToRead: 2,
-            extract:
-              'Gonartrosis desgaste artícular de rodilla — es una enfermedad frecuente en pacientes adultos mayores. Generalmente degenerativa, esta…',
-          }}
-        />
+        {posts.map(({ node: post }) => (
+          <Post post={{ ...post, slug: post.slug.current }} key={post.id} />
+        ))}
 
         <div className="blog__pagination">
-          <p>Se muestran 5 de 5 artículos</p>
+          <p>
+            Se muestra la página {pagination.currentPage} de {pagination.pageCount}
+          </p>
         </div>
       </div>
     </Blog>
@@ -255,6 +251,24 @@ export const query = graphql`
         }
       }
     }
+    allSanityBlogPost(limit: 5, sort: { fields: releaseDate, order: DESC }) {
+      pageInfo {
+        currentPage
+        pageCount
+      }
+      edges {
+        node {
+          id
+          releaseDate(formatString: "MMMM d, y", locale: "es")
+          slug {
+            current
+          }
+          summary
+          tags
+          title
+        }
+      }
+    }
   }
 `;
 
@@ -281,6 +295,24 @@ IndexPage.propTypes = {
             submissionDate: PropTypes.string.isRequired,
             author: PropTypes.string.isRequired,
             content: PropTypes.string.isRequired,
+          }).isRequired,
+        })
+      ).isRequired,
+    }).isRequired,
+    allSanityBlogPost: PropTypes.shape({
+      pageInfo: PropTypes.shape({
+        currentPage: PropTypes.number.isRequired,
+        pageCount: PropTypes.number.isRequired,
+      }).isRequired,
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            slug: PropTypes.shape({ current: PropTypes.string.isRequired }),
+            releaseDate: PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired,
+            summary: PropTypes.string.isRequired,
+            tags: PropTypes.arrayOf(PropTypes.string).isRequired,
           }).isRequired,
         })
       ).isRequired,
