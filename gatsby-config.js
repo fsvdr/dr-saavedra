@@ -64,5 +64,13 @@ module.exports = {
     // `gatsby-plugin-offline`,
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-axe',
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: '34yh9fgc',
+        dataset: 'production',
+        token: process.env.SANITY_ACCESS_TOKEN,
+      },
+    },
   ],
 };
