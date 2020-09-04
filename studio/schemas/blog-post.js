@@ -58,20 +58,7 @@ export default {
           },
         },
         {
-          title: 'Imagen',
-          type: 'image',
-          fields: [
-            {
-              title: 'Leyenda',
-              description: '¿Qué se muestra en esta imagen?',
-              name: 'alt',
-              type: 'string',
-              options: {
-                isHighlighted: true,
-              },
-              validation: (Rule) => Rule.required(),
-            },
-          ],
+          type: 'inlinePostImage',
         },
       ],
       validation: (Rule) => Rule.required(),
