@@ -42,23 +42,6 @@ module.exports = {
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: `gatsby-plugin-postcss`,
-      options: {
-        postCssPlugins: [
-          require(`postcss-preset-env`)({
-            features: {
-              'environment-variables': true,
-              'nesting-rules': true,
-              'custom-media-queries': true,
-              'custom-selectors': true,
-            },
-          }),
-          require(`autoprefixer`),
-          require(`css-mqpacker`),
-        ],
-      },
-    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
