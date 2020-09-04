@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { format } from 'date-fns';
-import { es } from 'date-fns/locale';
 import capitalize from '../utils/capitalize';
 
 const Container = styled.article`
@@ -59,22 +57,22 @@ Star.defaultProps = {
   active: false,
 };
 
-const Testimonial = ({ testimonial: { rate, content, author, datetime } }) => {
+const Testimonial = ({ testimonial: { rating, content, author, submissionDate } }) => {
   return (
     <Container>
-      <Rating aria-label={`${author} calificó su consulta con ${rate} de 5 estrellas`}>
-        <Star active={rate >= 1} />
-        <Star active={rate >= 2} />
-        <Star active={rate >= 3} />
-        <Star active={rate >= 4} />
-        <Star active={rate === 5} />
+      <Rating aria-label={`${author} calificó su consulta con ${rating} de 5 estrellas`}>
+        <Star active={rating >= 1} />
+        <Star active={rating >= 2} />
+        <Star active={rating >= 3} />
+        <Star active={rating >= 4} />
+        <Star active={rating === 5} />
       </Rating>
 
       <p className="testimonial__content">{content}</p>
 
       <p className="testimonial__author">
         — {author}
-        <time>{capitalize(format(new Date(datetime), 'LLLL d, y', { locale: es }))}</time>
+        <time>{capitalize(submissionDate)}</time>
       </p>
     </Container>
   );
@@ -82,10 +80,10 @@ const Testimonial = ({ testimonial: { rate, content, author, datetime } }) => {
 
 Testimonial.propTypes = {
   testimonial: PropTypes.shape({
-    rate: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
     content: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
-    datetime: PropTypes.string.isRequired,
+    submissionDate: PropTypes.string.isRequired,
   }).isRequired,
 };
 

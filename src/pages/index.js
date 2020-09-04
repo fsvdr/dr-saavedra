@@ -22,7 +22,15 @@ import Testimonial from '../components/testimonial';
 import Post from '../components/post';
 import DistanceToLocation from '../components/distance-to-location';
 
-const IndexPage = ({ data: { portrait, unam, imss, issste, testimonials } }) => (
+const IndexPage = ({
+  data: {
+    portrait,
+    unam,
+    imss,
+    issste,
+    allSanityTestimonial: { edges: testimonials },
+  },
+}) => (
   <Layout>
     <SEO />
     <Hero>
@@ -171,52 +179,15 @@ const IndexPage = ({ data: { portrait, unam, imss, issste, testimonials } }) => 
       </div>
     </About>
 
-    <Testimonials>
+    <Testimonials id="testimonios">
       <Title as="h2">
         Confianza que se traduce en trato humano, profesional y respetuoso asi como transparencia en todo momento
       </Title>
 
       <div className="testimonials__wrapper">
-        <Testimonial
-          testimonial={{
-            rate: 3,
-            content: 'Muy buena atención, todo lo explica de manera detallada, muy cuidadoso y respetuoso.',
-            author: 'Daniel Silva',
-            datetime: '2020-07-15',
-          }}
-        />
-        <Testimonial
-          testimonial={{
-            rate: 3,
-            content: 'Muy buena atención, todo lo explica de manera detallada, muy cuidadoso y respetuoso.',
-            author: 'Daniel Silva',
-            datetime: '2020-07-15',
-          }}
-        />
-        <Testimonial
-          testimonial={{
-            rate: 3,
-            content: 'Muy buena atención, todo lo explica de manera detallada, muy cuidadoso y respetuoso.',
-            author: 'Daniel Silva',
-            datetime: '2020-07-15',
-          }}
-        />
-        <Testimonial
-          testimonial={{
-            rate: 3,
-            content: 'Muy buena atención, todo lo explica de manera detallada, muy cuidadoso y respetuoso.',
-            author: 'Daniel Silva',
-            datetime: '2020-07-15',
-          }}
-        />
-        <Testimonial
-          testimonial={{
-            rate: 3,
-            content: 'Muy buena atención, todo lo explica de manera detallada, muy cuidadoso y respetuoso.',
-            author: 'Daniel Silva',
-            datetime: '2020-07-15',
-          }}
-        />
+        {testimonials.map(({ node: testimonial }) => (
+          <Testimonial testimonial={testimonial} key={testimonial.id} />
+        ))}
       </div>
     </Testimonials>
 
@@ -273,6 +244,17 @@ export const query = graphql`
         }
       }
     }
+    allSanityTestimonial(limit: 5, filter: { approved: { eq: true } }, sort: { fields: submissionDate, order: DESC }) {
+      edges {
+        node {
+          id
+          rating
+          submissionDate(formatString: "MMMM d, y", locale: "es")
+          author
+          content
+        }
+      }
+    }
   }
 `;
 
@@ -290,6 +272,19 @@ IndexPage.propTypes = {
         datetime: PropTypes.string.isRequired,
       })
     ),
+    allSanityTestimonial: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            rating: PropTypes.number.isRequired,
+            submissionDate: PropTypes.string.isRequired,
+            author: PropTypes.string.isRequired,
+            content: PropTypes.string.isRequired,
+          }).isRequired,
+        })
+      ).isRequired,
+    }).isRequired,
   }).isRequired,
 };
 
