@@ -180,17 +180,19 @@ const IndexPage = ({
       </div>
     </About>
 
-    <Testimonials id="testimonios">
-      <Title as="h2">
-        Confianza que se traduce en trato humano, profesional y respetuoso asi como transparencia en todo momento
-      </Title>
+    {testimonials.length ? (
+      <Testimonials id="testimonios">
+        <Title as="h2">
+          Confianza que se traduce en trato humano, profesional y respetuoso asi como transparencia en todo momento
+        </Title>
 
-      <div className="testimonials__wrapper">
-        {testimonials.map(({ node: testimonial }) => (
-          <Testimonial testimonial={testimonial} key={testimonial.id} />
-        ))}
-      </div>
-    </Testimonials>
+        <div className="testimonials__wrapper">
+          {testimonials.map(({ node: testimonial }) => (
+            <Testimonial testimonial={testimonial} key={testimonial.id} />
+          ))}
+        </div>
+      </Testimonials>
+    ) : null}
 
     <Blog id="articulos">
       <Title as="h2">Procedimientos quirurgicos explicados por el Dr. Saavedra</Title>
