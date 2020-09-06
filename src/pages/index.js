@@ -21,6 +21,7 @@ import SEO from '../components/seo';
 import Testimonial from '../components/testimonial';
 import Post from '../components/post';
 import DistanceToLocation from '../components/distance-to-location';
+import readingTimeForPortableTextContent from '../utils/readingTimeForPortableTextContent';
 
 const IndexPage = ({
   data: {
@@ -199,7 +200,10 @@ const IndexPage = ({
 
       <div className="blog__index">
         {posts.map(({ node: post }) => (
-          <Post post={{ ...post, slug: post.slug.current }} key={post.id} />
+          <Post
+            post={{ ...post, slug: post.slug.current, timeToRead: readingTimeForPortableTextContent(post.textContent) }}
+            key={post.id}
+          />
         ))}
 
         <div className="blog__pagination">
@@ -267,6 +271,11 @@ export const query = graphql`
           }
           summary
           title
+          textContent: content {
+            children {
+              text
+            }
+          }
         }
       }
     }
@@ -313,6 +322,7 @@ IndexPage.propTypes = {
             releaseDate: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
             summary: PropTypes.string.isRequired,
+            textContent: PropTypes.arrayOf(PropTypes.object).isRequired,
           }).isRequired,
         })
       ).isRequired,

@@ -39,6 +39,10 @@ export const Header = styled.header`
   padding-inline-end: var(--inline-inset);
   margin-block-end: 2.4rem;
 
+  & span {
+    margin-inline-start: 1.6rem;
+  }
+
   @media screen and (min-width: 768px) {
     margin-block-end: 0;
     padding-inline-end: 0;
@@ -55,11 +59,14 @@ export const Author = styled.div`
   padding-inline-end: var(--inline-inset);
   margin-block-end: 2rem;
 
-  & > div:first-of-type {
-    inline-size: 4rem;
-    block-size: 4rem;
+  & .gatsby-image-wrapper {
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.24);
+    background-color: rgba(0, 0, 0, 0.12);
+
+    & img,
+    & picture {
+      margin-block-start: 0.8rem;
+    }
   }
 
   & > div:last-of-type {

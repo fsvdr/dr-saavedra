@@ -23,6 +23,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^6.1.0",
+    "reading-time": "^1.2.0",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {

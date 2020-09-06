@@ -62,7 +62,7 @@ const Post = ({ post }) => {
 
         <p className="post__metadata">
           {capitalize(post.releaseDate)}
-          {/* <span>Lectura de {`${post.timeToRead} minuto${post.timeToRead > 1 ? 's' : ''}`}</span> */}
+          <span>Lectura de {`${post.timeToRead} minuto${post.timeToRead > 1 ? 's' : ''}`}</span>
         </p>
       </header>
 

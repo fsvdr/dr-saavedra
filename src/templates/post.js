@@ -10,6 +10,7 @@ import { Title } from '../styles/section';
 import capitalize from '../utils/capitalize';
 import { Article, Author, Body, Aside, Header, Figure } from './post.styles';
 import Image from '../components/image';
+import readingTimeForPortableTextContent from '../utils/readingTimeForPortableTextContent';
 
 const portableTextSerializer = {
   types: {
@@ -42,11 +43,13 @@ const Post = ({
   location: { pathname },
   data: {
     portrait,
-    sanityBlogPost: { slug, title, tags, rawReleaseDate, releaseDate, summary, content },
+    sanityBlogPost: { slug, title, tags, rawReleaseDate, releaseDate, summary, content, textContent },
     previous,
     next,
   },
 }) => {
+  const readingTime = readingTimeForPortableTextContent(textContent);
+
   return (
     <Layout isHome={pathname === ''}>
       <SEO
@@ -64,11 +67,16 @@ const Post = ({
       <Article>
         <Header>
           <Title>{title}</Title>
-          <time dateTime={rawReleaseDate}>{capitalize(releaseDate)}</time>
+          <p>
+            <time dateTime={rawReleaseDate}>{capitalize(releaseDate)}</time>
+            <span>
+              Lectura de {readingTime} minuto{readingTime > 1 ? 's' : ''}
+            </span>
+          </p>
         </Header>
 
         <Author>
-          <Image src={portrait} fluid={true} alt="Fotografía del Dr. Saavedra" />
+          <Image src={portrait} fluid={false} alt="Fotografía del Dr. Saavedra" />
 
           <div>
             <h3>Dr. Benito Saavedra Alvarado</h3>
@@ -139,8 +147,8 @@ export const query = graphql`
   query($id: String!, $previous: String, $next: String) {
     portrait: file(relativePath: { eq: "portrait.png" }) {
       childImageSharp {
-        fluid(maxWidth: 200) {
-          ...GatsbyImageSharpFluid
+        fixed(width: 50) {
+          ...GatsbyImageSharpFixed
         }
       }
     }
@@ -154,6 +162,11 @@ export const query = graphql`
       releaseDate(formatString: "MMMM d, y", locale: "es")
       summary
       content: _rawContent(resolveReferences: { maxDepth: 10 })
+      textContent: content {
+        children {
+          text
+        }
+      }
     }
     previous: sanityBlogPost(id: { eq: $previous }) {
       title
@@ -184,6 +197,7 @@ Post.propTypes = {
       releaseDate: PropTypes.string.isRequired,
       summary: PropTypes.string.isRequired,
       content: PropTypes.arrayOf(PropTypes.object).isRequired,
+      textContent: PropTypes.arrayOf(PropTypes.object).isRequired,
     }).isRequired,
     previous: PropTypes.shape({
       title: PropTypes.string.isRequired,
