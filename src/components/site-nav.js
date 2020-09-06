@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import Image from './image';
+import PropTypes from 'prop-types';
 
 const StyledNav = styled.nav`
   position: sticky;
@@ -112,7 +113,52 @@ const AppointmentLink = styled.a`
   }
 `;
 
-const SiteNav = () => {
+const InternalLinks = () => (
+  <ul>
+    <li>
+      <Link to="/#testimonios">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="icon"
+          focusable="false"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="8" r="7"></circle>
+          <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+        </svg>
+        Testimonios
+      </Link>
+    </li>
+    <li>
+      <Link to="/#articulos">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="icon"
+          focusable="false"
+          aria-hidden="true"
+        >
+          <path d="M12 20h9"></path>
+          <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+        </svg>
+        Artículos
+      </Link>
+    </li>
+  </ul>
+);
+
+const SiteNav = ({ showInternalLinks }) => {
   const images = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { eq: "favicon.png" }) {
@@ -133,50 +179,7 @@ const SiteNav = () => {
       </Logo>
 
       <StyledList>
-        <li>
-          <ul>
-            <li>
-              <Link to="/#testimonios">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="icon"
-                  focusable="false"
-                  aria-hidden="true"
-                >
-                  <circle cx="12" cy="8" r="7"></circle>
-                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                </svg>
-                Testimonios
-              </Link>
-            </li>
-            <li>
-              <Link to="/#articulos">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="icon"
-                  focusable="false"
-                  aria-hidden="true"
-                >
-                  <path d="M12 20h9"></path>
-                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                </svg>
-                Artículos
-              </Link>
-            </li>
-          </ul>
-        </li>
+        <li>{showInternalLinks ? <InternalLinks /> : null}</li>
 
         <li>
           <ul>
@@ -246,6 +249,14 @@ const SiteNav = () => {
       </AppointmentLink>
     </StyledNav>
   );
+};
+
+SiteNav.propTypes = {
+  showInternalLinks: PropTypes.bool,
+};
+
+SiteNav.defaultProps = {
+  showInternalLinks: true,
 };
 
 export default SiteNav;

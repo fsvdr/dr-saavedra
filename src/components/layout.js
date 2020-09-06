@@ -3,10 +3,10 @@ import SiteNav from './site-nav';
 import { PropTypes } from 'prop-types';
 import Footer from './footer';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, isHome }) => {
   return (
     <>
-      <SiteNav />
+      <SiteNav showInternalLinks={isHome} />
 
       <main>{children}</main>
 
@@ -17,6 +17,7 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: PropTypes.node,
+  isHome: PropTypes.bool,
 };
 
 Layout.defaultProps = {

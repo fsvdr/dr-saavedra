@@ -29,7 +29,7 @@ function SEO({ lang, title, description, canonical, image, imageAlt, og }) {
       <link rel="canonical" href={`${site.siteMetadata.siteUrl}${canonical}`} />
 
       <meta property="og:type" content={og.type || 'website'} />
-      <meta property="og:site_name" content="FSVDR" />
+      <meta property="og:site_name" content="Dr. Benito Saavedra Alvarado" />
       <meta property="og:title" content={title || site.siteMetadata.title} />
       <meta property="og:description" content={description || site.siteMetadata.description} />
       <meta property="og:image" content={`${site.siteMetadata.siteUrl}${image}`} />
@@ -42,12 +42,12 @@ function SEO({ lang, title, description, canonical, image, imageAlt, og }) {
       {og.type === 'article' && (
         <meta property="article:published_time" content={new Date(og.published_time).toISOString()} />
       )}
-      {og.type === 'article' && <meta property="article:author" content={site.author} />}
+      {og.type === 'article' && <meta property="article:author" content={site.siteMetadata.author} />}
       {og.type === 'article' && <meta property="og:section" content={og.section} />}
       {og.type === 'article' && og.tag.map((t, i) => <meta property="og:tag" content={t} key={i} />)}
 
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site:id" content="@drsaavedramx" />
+      <meta name="twitter:site:id" content={site.siteMetadata.author} />
       <meta name="twitter:creator" content={site.author} />
       <meta name="twitter:title" content={title || site.siteMetadata.title} />
       <meta name="twitter:description" content={description || site.siteMetadata.description} />

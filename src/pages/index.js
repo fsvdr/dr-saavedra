@@ -264,7 +264,6 @@ export const query = graphql`
             current
           }
           summary
-          tags
           title
         }
       }
@@ -312,7 +311,6 @@ IndexPage.propTypes = {
             releaseDate: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
             summary: PropTypes.string.isRequired,
-            tags: PropTypes.arrayOf(PropTypes.string).isRequired,
           }).isRequired,
         })
       ).isRequired,

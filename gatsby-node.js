@@ -1,43 +1,41 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  return;
-  const { createNodeField } = actions;
-
-  if (node.internal.type === 'MarkdownRemark') {
-    const slug = createFilePath({ node, getNode, basePath: `posts` });
-    createNodeField({ node, name: `slug`, value: slug });
-  }
-};
-
-exports.createPages = ({ graphql, actions }) => {
-  return;
+exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
-  return graphql(`
+  const result = await graphql(`
     {
-      allMarkdownRemark {
+      allSanityBlogPost {
         edges {
           node {
-            fields {
-              slug
+            id
+            slug {
+              current
             }
+          }
+          next {
+            id
+          }
+          previous {
+            id
           }
         }
       }
     }
-  `).then((result) => {
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      createPage({
-        path: `blog${node.fields.slug}`,
-        component: path.resolve(`./src/templates/blog-post.js`),
-        context: {
-          // Data passed to context is available
-          // in page queries as GraphQL variables.
-          slug: node.fields.slug,
-        },
-      });
+  `);
+
+  if (result.errors) console.error(result.errors);
+
+  result.data.allSanityBlogPost.edges.forEach(({ node: post, next, previous }) => {
+    createPage({
+      path: post.slug.current,
+      component: path.resolve('src/templates/post.js'),
+      context: {
+        id: post.id,
+        previous: previous ? previous.id : null,
+        next: next ? next.id : null,
+      },
     });
   });
 };
