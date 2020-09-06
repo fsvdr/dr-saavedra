@@ -1,13 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
+import Img from 'gatsby-image';
 import BlockContent from '@sanity/block-content-to-react';
+import { getFixedGatsbyImage } from 'gatsby-source-sanity';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { Title } from '../styles/section';
 import capitalize from '../utils/capitalize';
-import { Article, Author, Body, Aside, Header } from './post.styles';
+import { Article, Author, Body, Aside, Header, Figure } from './post.styles';
 import Image from '../components/image';
+
+const portableTextSerializer = {
+  types: {
+    inlinePostImage: ({
+      // eslint-disable-next-line react/prop-types
+      node: {
+        // eslint-disable-next-line react/prop-types
+        asset: { id },
+        // eslint-disable-next-line react/prop-types
+        alt,
+      },
+    }) => (
+      <Figure>
+        <Img
+          fixed={getFixedGatsbyImage(
+            id,
+            { maxWidth: 600 },
+            { projectId: '34yh9fgc', dataset: 'production', token: process.env.SANITY_ACCESS_TOKEN }
+          )}
+          alt={alt}
+        />
+
+        <figcaption>{alt}</figcaption>
+      </Figure>
+    ),
+  },
+};
 
 const Post = ({
   location: { pathname },
@@ -18,7 +47,6 @@ const Post = ({
     next,
   },
 }) => {
-  console.log(previous, next);
   return (
     <Layout isHome={pathname === ''}>
       <SEO
@@ -48,7 +76,7 @@ const Post = ({
           </div>
         </Author>
 
-        <Body as={BlockContent} blocks={content} serializers={{ types: { inlinePostImage: () => <div /> } }} />
+        <Body as={BlockContent} blocks={content} serializers={portableTextSerializer} />
 
         <Aside>
           <p>Consulta privada en HMG Hóspital Coyoacán</p>

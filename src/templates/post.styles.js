@@ -95,15 +95,15 @@ export const Body = styled.div`
   padding-inline-end: var(--inline-inset);
   padding-block-start: 4rem;
   padding-block-end: 4rem;
-  margin-block-end: 6rem;
+  margin-block-end: 4rem;
 
   & h2 {
     font-size: var(--font-size-md);
     font-weight: var(--font-weight-medium);
     margin-block-end: 4rem;
 
-    &:not(::first-of-type) {
-      margin-block-start: 4rem;
+    &:not(:first-of-type) {
+      margin-block-start: 8rem;
     }
   }
 
@@ -117,10 +117,43 @@ export const Body = styled.div`
     }
   }
 
+  & p {
+    max-width: none;
+  }
+
   @media screen and (min-width: 768px) {
-    padding-inline-end: 2.4rem;
     padding-block-start: 6rem;
     padding-block-end: 6rem;
+  }
+
+  @media screen and (min-width: 1600px) {
+    padding-inline-end: 4vw;
+  }
+`;
+
+export const Figure = styled.figure`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-block-start: 8rem;
+  margin-block-end: 8rem;
+
+  & .gatsby-image-wrapper {
+    border: 1.6rem solid var(--color-background);
+    border-radius: 0.8rem;
+    background-color: var(--color-background);
+    margin-block-end: 1.6rem;
+
+    & img,
+    & picture {
+      border-radius: 0.8rem;
+    }
+  }
+
+  & figcaption {
+    font-style: italic;
+    font-size: var(--font-size-sm);
   }
 `;
 
