@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import './src/styles/global.css';
+import './src/styles/typeface-greycliff.css';
 
 export const wrapRootElement = ({ element }) => (
   <>

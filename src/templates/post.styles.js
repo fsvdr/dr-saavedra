@@ -107,7 +107,7 @@ export const Body = styled.div`
   & h2 {
     font-size: var(--font-size-md);
     font-weight: var(--font-weight-medium);
-    margin-block-end: 4rem;
+    margin-block-end: 2rem;
 
     &:not(:first-of-type) {
       margin-block-start: 8rem;
@@ -147,6 +147,7 @@ export const Figure = styled.figure`
   margin-block-end: 8rem;
 
   & .gatsby-image-wrapper {
+    inline-size: min(90%, 400px);
     border: 1.6rem solid var(--color-background);
     border-radius: 0.8rem;
     background-color: var(--color-background);

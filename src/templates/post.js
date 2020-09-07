@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import BlockContent from '@sanity/block-content-to-react';
-import { getFixedGatsbyImage } from 'gatsby-source-sanity';
+import { getFluidGatsbyImage } from 'gatsby-source-sanity';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { Title } from '../styles/section';
@@ -25,9 +25,9 @@ const portableTextSerializer = {
     }) => (
       <Figure>
         <Img
-          fixed={getFixedGatsbyImage(
+          fluid={getFluidGatsbyImage(
             id,
-            { maxWidth: 600 },
+            { maxWidth: 400 },
             { projectId: '34yh9fgc', dataset: 'production', token: process.env.SANITY_ACCESS_TOKEN }
           )}
           alt={alt}
