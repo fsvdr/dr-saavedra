@@ -55,7 +55,7 @@ const DistanceToLocation = () => {
 
   // If there's no geolocation service on the user's device we'll go right ahead and
   // not show the button
-  if (!('geolocation' in navigator)) return null;
+  if (typeof window === 'undefined' || !('geolocation' in navigator)) return null;
 
   const handleClick = async () => {
     dispatch({ type: 'REQUEST_LOCATION' });
