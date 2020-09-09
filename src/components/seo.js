@@ -78,8 +78,9 @@ SEO.defaultProps = {
   canonical: '',
   title: '',
   description: '',
-  image: ``,
-  imageAlt: '',
+  image: `/site-thumbnail.png`,
+  imageAlt:
+    'Lee: Médico especialista en traumatología y ortopédia. Cirugía de rodilla, artroscopía y remplazos articulares.',
   og: { type: 'website' },
 };
 

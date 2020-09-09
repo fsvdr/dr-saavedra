@@ -45,6 +45,7 @@ const Post = ({
   },
 }) => {
   const readingTime = readingTimeForPortableTextContent(textContent);
+  const thumbnailParams = new URLSearchParams(`title=${title}`);
 
   return (
     <Layout isHome={pathname === ''}>
@@ -52,6 +53,8 @@ const Post = ({
         title={`${title} . Dr. Benito Saavedra Alvarado`}
         description={summary}
         canonical={`/${slug.current}`}
+        image={`/.netlify/functions/share-thumbnail?${thumbnailParams.toString()}`}
+        imageAlt={`Lee: ${title}`}
         og={{
           type: 'article',
           published_time: rawReleaseDate,
