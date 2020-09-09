@@ -8,6 +8,7 @@ const StyledFooter = styled(Section)`
   & ${Title} {
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-demi-bold);
+    margin-block-end: 0;
   }
 
   & nav ul {
