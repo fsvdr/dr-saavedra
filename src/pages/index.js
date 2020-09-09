@@ -223,6 +223,15 @@ const IndexPage = ({
           <p>
             Se muestra la página {pagination.currentPage} de {pagination.pageCount}
           </p>
+
+          <a
+            href="/rss.xml"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Archivo RSS de los artículos médicos"
+          >
+            Feed RSS
+          </a>
         </div>
       </div>
     </Blog>

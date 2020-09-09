@@ -1,3 +1,5 @@
+const portableTextToHtml = require('@sanity/block-content-to-html');
+
 module.exports = {
   siteMetadata: {
     title: `Dr. Benito Saavedra Alvarado`,
@@ -51,6 +53,74 @@ module.exports = {
         projectId: '34yh9fgc',
         dataset: 'production',
         token: process.env.SANITY_ACCESS_TOKEN,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-feed',
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allSanityBlogPost } }) => {
+              return allSanityBlogPost.edges.map(({ node: post }) => {
+                // Because our content is in Portable Text we need to render it in plain HTML
+                // before we can use it on the feed
+                const html = portableTextToHtml({
+                  blocks: post.content,
+                  serializers: {
+                    types: {
+                      inlinePostImage: ({
+                        node: {
+                          asset: { url },
+                          alt,
+                        },
+                      }) => `<img src="${url}" alt="${alt}" />`,
+                    },
+                  },
+                });
+
+                return {
+                  title: post.title,
+                  date: post.date,
+                  description: post.description,
+                  url: `${site.siteMetadata.siteUrl}/${post.slug.current}`,
+                  guid: `${site.siteMetadata.siteUrl}/${post.slug.current}`,
+                  custom_elements: [{ 'content:encoded': html }],
+                };
+              });
+            },
+            query: `
+              {
+                allSanityBlogPost(sort: { fields: releaseDate, order: DESC }) {
+                  edges {
+                    node {
+                      slug {
+                        current
+                      }
+                      date: releaseDate
+                      description: summary
+                      title
+                      content: _rawContent(resolveReferences: { maxDepth: 10 })
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'Artículos médicos del Dr. Saavedra',
+          },
+        ],
       },
     },
   ],

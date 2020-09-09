@@ -429,9 +429,17 @@ export const Blog = styled(Section)`
   }
 
   & .blog__pagination {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-end;
     font-size: var(--font-size-sm);
     text-align: right;
     padding-block-start: 4rem;
+
+    & a {
+      padding-block-end: 0.2rem;
+      border-bottom: 0.2rem solid var(--color-accent);
+    }
   }
 
   @media screen and (min-width: 768px) {
@@ -447,6 +455,17 @@ export const Blog = styled(Section)`
 
     & .blog__index {
       padding-block-start: 0;
+    }
+
+    & .blog__pagination {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      & p {
+        order: 1;
+        margin-block-end: 0;
+      }
     }
   }
 `;
