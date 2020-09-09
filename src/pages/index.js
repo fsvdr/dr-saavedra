@@ -35,26 +35,37 @@ const IndexPage = ({
 }) => (
   <Layout>
     <SEO />
-    <Hero>
+    <Hero aria-label="Principal">
       <Title>
         Médico especialista en traumatología y ortopédia. Cirugía de rodilla, artroscopía y remplazos articulares.
       </Title>
 
       <Portrait>
-        <p>Cédula 987510</p>
+        <p aria-label="Cédula Profesional 987510">Cédula 987510</p>
 
         <div className="portrait__image">
-          <Image src={portrait} alt="Fotografía del Dr. Saaverdra" />
+          <Image src={portrait} alt="" focusable="false" aria-hidden="true" />
         </div>
       </Portrait>
 
       <Office>
-        <p className="office__card">
+        <div className="office__card" aria-labelledby="office-location">
           <span>Consulta Privada</span>
-          <a href="https://goo.gl/maps/WAgbfa7Pdip47SVK6" target="_blank" rel="noopener noreferrer">
-            HMG Hospital Coyoacán, Consultorio 512
-          </a>
-        </p>
+          <address aria-label="Consulta privada">
+            <a
+              href="https://goo.gl/maps/WAgbfa7Pdip47SVK6"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ubicación del consultorio en Google Maps"
+            >
+              HMG Hospital Coyoacán, Consultorio 512
+            </a>
+          </address>
+
+          <p className="sr-only" aria-hidden="true" id="office-location">
+            Consulta privada en HMG Hospital Coyoacán, Consultorio 512
+          </p>
+        </div>
 
         <OfficeAddress className="office__address">
           <svg
@@ -74,7 +85,9 @@ const IndexPage = ({
           </svg>
 
           <div>
-            <address>División del Norte #3395, Colonia El Rosario, Ciudad de México</address>
+            <address aria-label="Dirección del hospital">
+              División del Norte #3395, Colonia El Rosario, Ciudad de México
+            </address>
 
             <DistanceToLocation />
           </div>
@@ -108,7 +121,7 @@ const IndexPage = ({
       </Office>
     </Hero>
 
-    <Experience>
+    <Experience aria-label="Experiencia">
       <Title as="h2">Una carrera respaldada por las principales instituciones del país</Title>
 
       <div>
@@ -127,7 +140,7 @@ const IndexPage = ({
       </div>
     </Experience>
 
-    <About>
+    <About aria-label="Acerca de">
       <div className="about__message">
         <Title as="h2">
           ¡Hola! Soy el Dr. Benito Saavedra, especialista en ortopedia y traumatología. Enfocado durante muchos años a
@@ -146,7 +159,7 @@ const IndexPage = ({
       </div>
 
       <div className="about__services">
-        <Title as="h2">Especialidades del Dr. Saavedra:</Title>
+        <Title as="h3">Especialidades del Dr. Saavedra:</Title>
 
         <ul>
           <li>Artroscopia de hombro y rodilla</li>
@@ -154,7 +167,7 @@ const IndexPage = ({
         </ul>
 
         <div className="about__conditions">
-          <Title as="h2">Algunas de las enfermedades y condiciones con las que te puedo ayudar:</Title>
+          <Title as="h3">Algunas de las enfermedades y condiciones con las que te puedo ayudar:</Title>
 
           <ul>
             <li>Cervicalgias</li>
@@ -182,7 +195,7 @@ const IndexPage = ({
     </About>
 
     {testimonials.length ? (
-      <Testimonials id="testimonios">
+      <Testimonials id="testimonios" aria-label="Testimonios">
         <Title as="h2">
           Confianza que se traduce en trato humano, profesional y respetuoso asi como transparencia en todo momento
         </Title>
@@ -195,7 +208,7 @@ const IndexPage = ({
       </Testimonials>
     ) : null}
 
-    <Blog id="articulos">
+    <Blog id="articulos" aria-label="Artículos">
       <Title as="h2">Procedimientos quirurgicos explicados por el Dr. Saavedra</Title>
 
       <div className="blog__index">
@@ -265,7 +278,8 @@ export const query = graphql`
       edges {
         node {
           id
-          releaseDate(formatString: "MMMM d, y", locale: "es")
+          releaseDate
+          formattedReleaseDate: releaseDate(formatString: "MMMM d, y", locale: "es")
           slug {
             current
           }
@@ -320,6 +334,7 @@ IndexPage.propTypes = {
             id: PropTypes.string.isRequired,
             slug: PropTypes.shape({ current: PropTypes.string.isRequired }),
             releaseDate: PropTypes.string.isRequired,
+            formattedReleaseDate: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
             summary: PropTypes.string.isRequired,
             textContent: PropTypes.arrayOf(PropTypes.object).isRequired,

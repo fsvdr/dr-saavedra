@@ -54,21 +54,23 @@ const StyledArticle = styled.article`
 
 const Post = ({ post }) => {
   return (
-    <StyledArticle>
+    <StyledArticle aria-label={post.title}>
       <header>
         <Title as="h3">
-          <Link to={post.slug}>{post.title}</Link>
+          <Link to={post.slug} aria-label={`${post.title} artículo completo`}>
+            {post.title}
+          </Link>
         </Title>
 
         <p className="post__metadata">
-          {capitalize(post.releaseDate)}
+          <time dateTime={post.releaseDate}>{capitalize(post.formattedReleaseDate)}</time>
           <span>Lectura de {`${post.timeToRead} minuto${post.timeToRead > 1 ? 's' : ''}`}</span>
         </p>
       </header>
 
       <p>{post.summary}</p>
 
-      <Link to={post.slug} className="post__link">
+      <Link to={post.slug} className="post__link" aria-label={`${post.title} artículo completo`}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -96,6 +98,7 @@ Post.propTypes = {
     slug: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     releaseDate: PropTypes.string.isRequired,
+    formattedReleaseDate: PropTypes.string.isRequired,
     timeToRead: PropTypes.number,
     summary: PropTypes.string.isRequired,
   }).isRequired,

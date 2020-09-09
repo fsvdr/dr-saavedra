@@ -107,6 +107,7 @@ export const Office = styled.div`
     background-color: var(--color-white);
     border-radius: 8px;
     border-left: 0.8rem solid var(--color-accent);
+    margin-block-end: 1.6rem;
 
     & span {
       font-size: var(--font-size-sm);

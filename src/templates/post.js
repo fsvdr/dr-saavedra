@@ -25,11 +25,7 @@ const portableTextSerializer = {
     }) => (
       <Figure>
         <Img
-          fluid={getFluidGatsbyImage(
-            id,
-            { maxWidth: 400 },
-            { projectId: '34yh9fgc', dataset: 'production', token: process.env.SANITY_ACCESS_TOKEN }
-          )}
+          fluid={getFluidGatsbyImage(id, { maxWidth: 400 }, { projectId: '34yh9fgc', dataset: 'production' })}
           alt={alt}
         />
 
@@ -78,24 +74,29 @@ const Post = ({
         <Author>
           <Image src={portrait} fluid={false} alt="Fotografía del Dr. Saavedra" />
 
-          <div>
-            <h3>Dr. Benito Saavedra Alvarado</h3>
+          <address>
+            <p>Dr. Benito Saavedra Alvarado</p>
             <p>Médico especialista en traumatología y ortopédia</p>
-          </div>
+          </address>
         </Author>
 
         <Body as={BlockContent} blocks={content} serializers={portableTextSerializer} />
 
         <Aside>
           <p>Consulta privada en HMG Hóspital Coyoacán</p>
-          <p>
-            Horarios disponibles <Link to="/">aqui</Link>
-          </p>
+          <div aria-labelledby="link">
+            <span id="schedule" aria-hidden="true">
+              Horarios disponibles{' '}
+            </span>
+            <Link to="/" aria-label="Horarios de consulta disponibles" id="link">
+              aqui
+            </Link>
+          </div>
 
-          <h3>Otros artículos de interés</h3>
+          <h2>Otros artículos de interés</h2>
 
           {previous ? (
-            <Link to={`/${previous.slug.current}`}>
+            <Link to={`/${previous.slug.current}`} aria-label={`Leer artículo ${previous.title}`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -117,7 +118,7 @@ const Post = ({
           ) : null}
 
           {next ? (
-            <Link to={`/${next.slug.current}`}>
+            <Link to={`/${next.slug.current}`} aria-label={`Leer articulo ${next.title}`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"

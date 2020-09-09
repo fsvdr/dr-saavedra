@@ -69,12 +69,14 @@ export const Author = styled.div`
     }
   }
 
-  & > div:last-of-type {
+  & address {
     flex: 1 1 0;
+    display: block;
     margin-inline-start: 2.4rem;
 
-    & h3 {
-      font-weight: var(--font-weight-regular);
+    & p:first-of-type {
+      font-size: var(--font-size-md);
+      font-weight: var(--font-weight-medium);
     }
 
     & p {
@@ -181,7 +183,7 @@ export const Aside = styled.div`
     text-decoration-style: dotted;
   }
 
-  & h3 {
+  & h2 {
     font-weight: var(--font-weight-medium);
     margin-block-start: 4rem;
     margin-block-end: 1.6rem;

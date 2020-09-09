@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
 import useGeolocation from '../hooks/useGeolocation';
 import asyncWrap from '../utils/asyncWrap';
@@ -49,6 +49,7 @@ const mapNavigatorToAppError = (code) => {
 };
 
 const DistanceToLocation = () => {
+  const statusRef = useRef();
   const [state, dispatch] = useReducer(reducer, initialState);
   const locate = useGeolocation();
 
@@ -60,7 +61,10 @@ const DistanceToLocation = () => {
     dispatch({ type: 'REQUEST_LOCATION' });
     const [error, position] = await asyncWrap(locate());
 
-    if (error) return dispatch({ type: 'ERROR', payload: { error: mapNavigatorToAppError(error.code) } });
+    if (error) {
+      statusRef.current.focus();
+      return dispatch({ type: 'ERROR', payload: { error: mapNavigatorToAppError(error.code) } });
+    }
 
     const [e, response] = await asyncWrap(
       fetch(
@@ -68,7 +72,10 @@ const DistanceToLocation = () => {
       )
     );
 
-    if (e) return dispatch({ type: 'ERROR', payload: { error: 3 } });
+    if (e) {
+      statusRef.current.focus();
+      return dispatch({ type: 'ERROR', payload: { error: 3 } });
+    }
 
     const travel = await response.json();
     const travelMessage = `Te encuentras a aproximadamente ${(travel.time / 100).toFixed(0)} minutos (${(
@@ -76,17 +83,22 @@ const DistanceToLocation = () => {
     ).toFixed(1)} km) del consultorio`;
 
     dispatch({ type: 'SUCCESS', payload: { travel: travelMessage } });
+    statusRef.current.focus();
   };
 
   return (
     <Container>
       {!state.loading && !state.travel && !state.error ? (
-        <StyledButton onClick={handleClick} aria-label="Calcular la distancia desde mi posición actual" type="button">
+        <StyledButton
+          onClick={handleClick}
+          aria-label="Calcular distancia al consultorio desde mi posición actual"
+          type="button"
+        >
           ¿Qué tan lejos estoy?
         </StyledButton>
       ) : null}
 
-      <p role="status" aria-live="polite">
+      <p role="status" aria-live="assertive" ref={statusRef} tabIndex={0}>
         {state.loading ? (
           <>
             <svg

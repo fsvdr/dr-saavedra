@@ -43,25 +43,6 @@ const StyledTable = styled.table`
   & td s {
     color: var(--color-text-subtle);
     text-decoration-thickness: 1px;
-
-    &::before,
-    &::after {
-      clip-path: inset(100%);
-      clip: rect(1px, 1px, 1px, 1px);
-      height: 1px;
-      overflow: hidden;
-      position: absolute;
-      white-space: nowrap;
-      width: 1px;
-    }
-
-    &::before {
-      content: '[El horario de]';
-    }
-
-    &::after {
-      content: '[ya está ocupado]';
-    }
   }
 
   & p {
@@ -77,20 +58,22 @@ const getDateHeaderJSX = (day) => {
   if (isToday(day))
     return (
       <th scope="row" key={day}>
-        Hoy
+        <span aria-label="Horarios para hoy">Hoy</span>
       </th>
     );
 
   if (isTomorrow(day))
     return (
       <th scope="row" key={day}>
-        Mañana
+        <span aria-label="Horarios para mañana">Mañana</span>
       </th>
     );
 
   return (
     <th scope="row" key={day}>
-      {capitalize(format(day, 'EEE d', { locale: es }))}
+      <span aria-label={`Horarios para el ${format(day, 'EEEE d', { locale: es })}`}>
+        {capitalize(format(day, 'EEE d', { locale: es }))}
+      </span>
     </th>
   );
 };
@@ -101,20 +84,29 @@ const getTimetableJSX = ([date, hours = []]) => {
       {getDateHeaderJSX(date)}
 
       {isSunday(date) ? (
-        <td colSpan="5">
-          <p>
-            Horario abierto de <time dateTime="10:00">10:00</time> a <time dateTime="20:00">16:00</time>
-          </p>
+        <td colSpan="5" aria-labelledby="instruction start to end">
+          <span id="instruction">Horario abierto de </span>
+          <time id="start" dateTime="10:00">
+            10:00
+          </time>
+          <span id="to"> a </span>
+          <time id="end" dateTime="20:00">
+            16:00
+          </time>
         </td>
       ) : (
         hours.map(({ time, busy }) => (
           <td key={`${date}${time}`}>
             {busy ? (
               <s>
-                <time dateTime={time}>{time}</time>
+                <time dateTime={time} aria-label={`${time} (ocupado)`}>
+                  {time}
+                </time>
               </s>
             ) : (
-              <time dateTime={time}>{time}</time>
+              <time dateTime={time} aria-label={`${time}`}>
+                {time}
+              </time>
             )}
           </td>
         ))

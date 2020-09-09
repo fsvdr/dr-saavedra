@@ -69,19 +69,19 @@ const StyledFooter = styled(Section)`
 
 const Footer = () => {
   return (
-    <StyledFooter as="footer">
+    <StyledFooter as="footer" aria-label="Pie de página">
       <div className="footer__contact">
         <p>Consulta Privada en HMG Hóspital Coyoacán, Consultorio 512</p>
-        <a href="tel:5536837578">
+        <a href="tel:5536837578" aria-label="Teléfono del consultorio">
           <abbr title="Teléfono">Tel.</abbr> (55) 3683 7578
         </a>
       </div>
 
       <div>
-        <Title as="h3">Dr. Benito Saavedra Alvarado</Title>
+        <Title as="p">Dr. Benito Saavedra Alvarado</Title>
         <p>Cédula Profesional 987510</p>
 
-        <nav>
+        <nav aria-label="Redes sociales">
           <ul>
             <li>
               <a href="https://www.linkedin.com/in/benito-saavedra-alvarado-5b9b59181">
