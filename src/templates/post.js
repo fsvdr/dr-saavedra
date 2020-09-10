@@ -86,7 +86,7 @@ const Post = ({
         <Body as={BlockContent} blocks={content} serializers={portableTextSerializer} />
 
         <Aside>
-          <p>Consulta privada en HMG Hóspital Coyoacán</p>
+          <p>Consulta privada en HMG Hospital Coyoacán</p>
           <div aria-labelledby="link">
             <span id="schedule" aria-hidden="true">
               Horarios disponibles{' '}

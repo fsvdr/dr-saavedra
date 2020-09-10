@@ -37,7 +37,7 @@ const IndexPage = ({
     <SEO />
     <Hero aria-label="Principal">
       <Title>
-        Médico especialista en traumatología y ortopédia. Cirugía de rodilla, artroscopía y remplazos articulares.
+        Médico especialista en traumatología y ortopedia. Cirugía de rodilla, artroscopia y reemplazos articulares.
       </Title>
 
       <Portrait>
@@ -115,7 +115,7 @@ const IndexPage = ({
 
             <OfficeAvailability />
 
-            <small>¿Buscas otro horario? ¡Lláma, quizá podamos hacer un espacio!</small>
+            <small>¿Buscas otro horario? ¡Llama, quizá podamos hacer un espacio!</small>
           </div>
         </OfficeHours>
       </Office>
@@ -178,7 +178,7 @@ const IndexPage = ({
             <li>Desgaste o Artrosis de rodilla</li>
             <li>Enfermedades de la columna vertebral</li>
             <li>Enfermedades del mango rotador en hombro</li>
-            <li>Espolón calcaneo</li>
+            <li>Espolón calcáneo</li>
             <li>Fracturas y luxaciones de hombro, codo, muñeca,</li>
             <li>cadera,rodilla, tobillo y pie</li>
             <li>Lesiones de ligamentos de rodilla</li>
@@ -209,7 +209,7 @@ const IndexPage = ({
     ) : null}
 
     <Blog id="articulos" aria-label="Artículos">
-      <Title as="h2">Procedimientos quirurgicos explicados por el Dr. Saavedra</Title>
+      <Title as="h2">Procedimientos quirúrgicos explicados por el Dr. Saavedra</Title>
 
       <div className="blog__index">
         {posts.map(({ node: post }) => (
