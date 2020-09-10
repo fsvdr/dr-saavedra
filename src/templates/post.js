@@ -53,7 +53,7 @@ const Post = ({
         title={`${title} . Dr. Benito Saavedra Alvarado`}
         description={summary}
         canonical={`/${slug.current}`}
-        image={`/.netlify/functions/share-thumbnail?${thumbnailParams.toString()}`}
+        image={`/.netlify/functions/blog-post-thumbnail?${thumbnailParams.toString()}`}
         imageAlt={`Lee: ${title}`}
         og={{
           type: 'article',
