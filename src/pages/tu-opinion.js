@@ -18,6 +18,9 @@ const TuOpinionPage = () => {
 
     setIsLoading(true);
 
+    // const body = new FormData(event.target);
+    // fetch('/', { method: 'POST', body }).then((response) => console.log('[RESPONSE]', response));
+
     setTimeout(() => {
       setIsLoading(false);
       setSuccess(true);
@@ -33,7 +36,7 @@ const TuOpinionPage = () => {
       <Container as="div">
         <Title>¿Qué tal te fue en tu consulta? ¡Compártenos tu opinión!</Title>
 
-        <Form onSubmit={handleFormSubmit}>
+        <Form name="review" data-netlify="true" onSubmit={handleFormSubmit}>
           <Rating>
             <legend>Califica tu visita</legend>
             {[5, 4, 3, 2, 1].map((rate) => (
@@ -70,11 +73,11 @@ const TuOpinionPage = () => {
             ))}
           </Rating>
 
-          <label htmlFor="name">¿Cuál es tu nombre?</label>
-          <input type="text" name="name" required id="name" disabled={isLoading || success} />
+          <label htmlFor="author">¿Cuál es tu nombre?</label>
+          <input type="text" name="author" required id="author" disabled={isLoading || success} />
 
-          <label htmlFor="review">¿Cómo describirías el trato del Dr. Saavedra?</label>
-          <textarea maxLength="280" required id="review" disabled={isLoading || success}></textarea>
+          <label htmlFor="content">¿Cómo describirías el trato del Dr. Saavedra?</label>
+          <textarea name="content" maxLength="280" required id="content" disabled={isLoading || success}></textarea>
 
           <AgreeField>
             <input type="checkbox" name="agrees" value="true" disabled={isLoading || success} />

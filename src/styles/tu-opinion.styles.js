@@ -22,8 +22,7 @@ export const Form = styled.form`
     background-color: transparent;
     border: 2px solid var(--color-black);
     border-radius: 0.4rem;
-    padding-inline-start: 0.8rem;
-    padding-inline-end: 0.8rem;
+    padding: 0.8rem;
     margin-block-end: 2.4rem;
     transition: border-color 0.3s;
 
