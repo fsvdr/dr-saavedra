@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import { Title } from '../styles/section';
 import Image from '../components/image';
+import useFOITStrategy from '../hooks/useFOITStrategy';
 
 const Container = styled.div`
   display: flex;
@@ -47,6 +48,7 @@ const Logo = styled.div`
 `;
 
 const ThumbnailPage = ({ location }) => {
+  useFOITStrategy();
   const images = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { eq: "favicon.png" }) {
