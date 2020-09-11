@@ -33,9 +33,16 @@ export default {
       rows: 5,
       validation: (Rule) => Rule.required().min(5).max(140),
     },
+    {
+      title: 'Acepta términos',
+      name: 'agrees',
+      type: 'boolean',
+      validation: (Rule) => Rule.required(),
+    },
   ],
   initialValue: {
     approved: false,
     submissionDate: new Date().toISOString(),
+    agrees: false,
   },
 };
