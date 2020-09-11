@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 // FOIT (Flash of Invisible Text)
 const useFOITStrategy = () => {
   useEffect(() => {
-    Promise.allSettled([
+    Promise.all([
       '400 Greycliff CF',
       'italic 400 Greycliff CF',
       '500 Greycliff CF',
@@ -12,7 +12,6 @@ const useFOITStrategy = () => {
       '600 Greycliff CF',
       'italic 600 Greycliff CF',
     ]).then(() => {
-      console.log('ready');
       document.body.classList.add('has-custom-font');
     });
   }, []);
