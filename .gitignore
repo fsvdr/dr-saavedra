@@ -73,3 +73,6 @@ yarn-error.log
 
 # Sanity Studio distribution
 studio/dist
+
+# VSCode
+.vscode
