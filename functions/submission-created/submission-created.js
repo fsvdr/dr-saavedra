@@ -17,14 +17,14 @@ exports.handler = async ({ body }) => {
   const client = sanityClient({
     projectId: '34yh9fgc',
     dataset: 'production',
-    token: process.env.SANITY_ACCESS_TOKEN,
-    useCdn: true,
+    token: process.env.SANITY_CLIENT_ACCESS_TOKEN,
   });
 
   const doc = {
     _type: 'testimonial',
     rating,
     author,
+    submissionDate: new Date().toISOString(),
     content,
     agrees,
   };
