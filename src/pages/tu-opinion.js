@@ -18,14 +18,24 @@ const TuOpinionPage = () => {
 
     setIsLoading(true);
 
-    // const body = new FormData(event.target);
-    // fetch('/', { method: 'POST', body }).then((response) => console.log('[RESPONSE]', response));
+    const formData = new FormData(event.target);
+    formData.append('form-name', 'review');
 
-    setTimeout(() => {
-      setIsLoading(false);
-      setSuccess(true);
-      if (statusRef.current) statusRef.current.focus();
-    }, 1000);
+    const body = new URLSearchParams(formData).toString();
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body,
+    })
+      .then(() => {
+        setIsLoading(false);
+        setSuccess(true);
+        if (statusRef.current) statusRef.current.focus();
+      })
+      .catch(() => {
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -36,7 +46,7 @@ const TuOpinionPage = () => {
       <Container as="div">
         <Title>¿Qué tal te fue en tu consulta? ¡Compártenos tu opinión!</Title>
 
-        <Form name="review" data-netlify="true" onSubmit={handleFormSubmit}>
+        <Form name="review" method="POST" data-netlify="true" onSubmit={handleFormSubmit}>
           <Rating>
             <legend>Califica tu visita</legend>
             {[5, 4, 3, 2, 1].map((rate) => (
@@ -94,7 +104,9 @@ const TuOpinionPage = () => {
                   ¡Muchas gracias por tus comentarios!
                 </span>
 
-                <Link to="action">Ir a la página principal</Link>
+                <Link to="/" id="action">
+                  Ir a la página principal
+                </Link>
               </span>
             ) : null}
           </p>
