@@ -40,6 +40,7 @@ export const Form = styled.form`
   & p:last-child {
     font-weight: var(--font-weight-demi-bold);
     margin-block-end: 0;
+    outline: none;
 
     & > span {
       margin-block-start: 4rem;

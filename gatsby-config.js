@@ -126,7 +126,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        exclude: ['/thumbnail'],
+        exclude: ['/thumbnail', '/tu-opinion'],
       },
     },
   ],

@@ -19,7 +19,7 @@ const TuOpinionPage = () => {
     setIsLoading(true);
 
     const formData = new FormData(event.target);
-    formData.append('form-name', 'review');
+    formData.append('form-name', 'testimonial');
 
     const body = new URLSearchParams(formData).toString();
 
@@ -46,7 +46,7 @@ const TuOpinionPage = () => {
       <Container as="div">
         <Title>¿Qué tal te fue en tu consulta? ¡Compártenos tu opinión!</Title>
 
-        <Form name="review" method="POST" data-netlify="true" onSubmit={handleFormSubmit}>
+        <Form name="testimonial" method="POST" data-netlify="true" onSubmit={handleFormSubmit}>
           <Rating>
             <legend>Califica tu visita</legend>
             {[5, 4, 3, 2, 1].map((rate) => (
