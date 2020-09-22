@@ -31,7 +31,7 @@ export default {
       name: 'content',
       type: 'text',
       rows: 5,
-      validation: (Rule) => Rule.required().min(5).max(140),
+      validation: (Rule) => Rule.required().min(5).max(200),
     },
     {
       title: 'Acepta términos',

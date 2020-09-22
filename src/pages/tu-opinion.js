@@ -87,7 +87,7 @@ const TuOpinionPage = () => {
           <input type="text" name="author" required id="author" disabled={isLoading || success} />
 
           <label htmlFor="content">¿Cómo describirías el trato del Dr. Saavedra?</label>
-          <textarea name="content" maxLength="280" required id="content" disabled={isLoading || success}></textarea>
+          <textarea name="content" maxLength="200" required id="content" disabled={isLoading || success}></textarea>
 
           <AgreeField>
             <input type="checkbox" name="agrees" value="true" disabled={isLoading || success} />
