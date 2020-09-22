@@ -162,7 +162,7 @@ export const OfficeHours = styled(OfficeDetail)`
 
     & small {
       display: block;
-      margin-block-start: 20rem;
+      margin-block-start: 24rem;
     }
   }
 
@@ -297,6 +297,12 @@ export const About = styled(Section)`
     & ul {
       column-count: 2;
       column-gap: 3.2rem;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    & .about__conditions ul {
+      column-count: 1;
     }
   }
 

@@ -59,7 +59,7 @@ Star.defaultProps = {
 
 const Testimonial = ({ testimonial: { rating, content, author, submissionDate } }) => {
   return (
-    <Container>
+    <Container aria-label={`Testimonio de ${author}`}>
       <Rating aria-label={`${author} calificó su consulta con ${rating} de 5 estrellas`}>
         <Star active={rating >= 1} />
         <Star active={rating >= 2} />

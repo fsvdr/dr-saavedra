@@ -69,6 +69,17 @@ const StyledList = styled.ul`
     stroke: var(--color-accent);
   }
 
+  @media screen and (max-width: 320px) {
+    & a {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    & .icon--offset-fix {
+      margin-block-start: 0;
+    }
+  }
+
   @media screen and (min-width: 768px) {
     padding-inline-start: 2.4rem;
     padding-inline-end: 2.4rem;
