@@ -273,7 +273,7 @@ export const query = graphql`
         node {
           id
           rating
-          submissionDate(formatString: "MMMM d, y", locale: "es")
+          submissionDate(formatString: "MMMM D, y", locale: "es")
           author
           content
         }
@@ -288,7 +288,7 @@ export const query = graphql`
         node {
           id
           releaseDate
-          formattedReleaseDate: releaseDate(formatString: "MMMM d, y", locale: "es")
+          formattedReleaseDate: releaseDate(formatString: "MMMM D, y", locale: "es")
           slug {
             current
           }

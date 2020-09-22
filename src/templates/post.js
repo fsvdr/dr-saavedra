@@ -163,7 +163,7 @@ export const query = graphql`
       title
       tags
       rawReleaseDate: releaseDate
-      releaseDate(formatString: "MMMM d, y", locale: "es")
+      releaseDate(formatString: "MMMM D, y", locale: "es")
       summary
       content: _rawContent(resolveReferences: { maxDepth: 10 })
       textContent: content {
