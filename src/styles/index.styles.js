@@ -380,21 +380,23 @@ export const Testimonials = styled(Section)`
   }
 
   @media screen and (min-width: 768px) {
+    margin-block-end: 0;
+
     & ${Title} {
-      margin-block-end: 8rem;
+      margin-block-end: 10rem;
     }
 
     & .testimonials__wrapper {
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: auto auto auto;
-      grid-row-gap: 4rem;
+      grid-template-rows: auto auto auto auto auto auto auto;
+      grid-row-gap: 6rem;
       grid-column-gap: 4rem;
 
       & article {
         grid-column-start: span 2;
       }
 
-      & article:nth-child(3) {
+      & article:nth-child(3n + 1) {
         grid-column-start: 2;
         grid-column-end: 4;
       }

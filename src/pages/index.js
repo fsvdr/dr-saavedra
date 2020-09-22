@@ -179,8 +179,7 @@ const IndexPage = ({
             <li>Enfermedades de la columna vertebral</li>
             <li>Enfermedades del mango rotador en hombro</li>
             <li>Espolón calcáneo</li>
-            <li>Fracturas y luxaciones de hombro, codo, muñeca,</li>
-            <li>cadera,rodilla, tobillo y pie</li>
+            <li>Fracturas y luxaciones de hombro, codo, muñeca, cadera,rodilla, tobillo y pie</li>
             <li>Lesiones de ligamentos de rodilla</li>
             <li>Lesiones de meniscos</li>
             <li>Lumbalgias </li>
@@ -268,7 +267,7 @@ export const query = graphql`
         }
       }
     }
-    allSanityTestimonial(limit: 5, filter: { approved: { eq: true } }, sort: { fields: submissionDate, order: DESC }) {
+    allSanityTestimonial(limit: 10, filter: { approved: { eq: true } }, sort: { fields: submissionDate, order: DESC }) {
       edges {
         node {
           id
