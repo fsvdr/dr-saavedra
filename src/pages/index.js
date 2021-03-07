@@ -37,7 +37,8 @@ const IndexPage = ({
     <SEO />
     <Hero aria-label="Principal">
       <Title>
-        Médico especialista en traumatología y ortopedia. Cirugía de rodilla, artroscopia y reemplazos articulares.
+        Médico especialista en traumatología <wbr />y ortopedia. <wbr />
+        Cirugía de rodilla, artroscopia y reemplazos articulares.
       </Title>
 
       <Portrait>

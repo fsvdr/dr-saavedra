@@ -33,8 +33,8 @@ export const Hero = styled(Section)`
   @media screen and (min-width: 1024px) {
     align-items: flex-start;
     grid-template-areas:
-      'portrait title'
-      'portrait office-info';
+      'title portrait'
+      'office-info portrait';
     justify-items: flex-start;
     grid-row-gap: 4rem;
   }

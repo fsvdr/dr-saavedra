@@ -74,7 +74,7 @@ SEO.propTypes = {
 };
 
 SEO.defaultProps = {
-  lang: 'en',
+  lang: 'es',
   canonical: '',
   title: '',
   description: '',

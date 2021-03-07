@@ -70,10 +70,10 @@ const Testimonial = ({ testimonial: { rating, content, author, submissionDate } 
 
       <p className="testimonial__content">{content}</p>
 
-      <p className="testimonial__author">
+      <div className="testimonial__author">
         <address>— {author}</address>
         <time>{capitalize(submissionDate)}</time>
-      </p>
+      </div>
     </Container>
   );
 };

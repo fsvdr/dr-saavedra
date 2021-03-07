@@ -1,8 +1,8 @@
 :root {
   --color-black: #000000;
   --color-white: #ffffff;
-  --color-green: #069b7a;
-  --color-sand: #f6f3f0;
+  --color-green: #329f87;
+  --color-sand: #f7f1ea;
   --color-grey: #93918f;
 
   --color-background: var(--color-sand);
