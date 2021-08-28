@@ -73,8 +73,8 @@ const Footer = () => {
     <StyledFooter as="footer" aria-label="Pie de página">
       <div className="footer__contact">
         <p>Consulta Privada en HMG Hospital Coyoacán, Consultorio 512</p>
-        <a href="tel:5536837578" aria-label="Teléfono del consultorio">
-          <abbr title="Teléfono">Tel.</abbr> (55) 3683 7578
+        <a href="tel:5513227579" aria-label="Teléfono del consultorio">
+          <abbr title="Teléfono">Tel.</abbr> (55) 1322 7579
         </a>
       </div>
 
