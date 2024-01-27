@@ -93,32 +93,6 @@ const IndexPage = ({
             <DistanceToLocation />
           </div>
         </OfficeAddress>
-
-        <OfficeHours>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="icon"
-            focusable="false"
-            aria-hidden="true"
-          >
-            <circle cx="12" cy="12" r="10"></circle>
-            <polyline points="12 6 12 12 16 14"></polyline>
-          </svg>
-
-          <div>
-            <p>Horarios de consulta flexibles. Disponibles de Lunes a Domingo</p>
-
-            <OfficeAvailability />
-
-            <small>¿Buscas otro horario? ¡Llama, quizá podamos hacer un espacio!</small>
-          </div>
-        </OfficeHours>
       </Office>
     </Hero>
 
