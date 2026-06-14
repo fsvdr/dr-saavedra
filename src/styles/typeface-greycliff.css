@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'Greycliff CF';
-  src: url('https://102e81b89588dae95fe3fe66184c1b24.r2.cloudflarestorage.com/dr-saavedra/fonts/greycliff-cf-v2.0/GreycliffCF-Regular.eot'); /* IE9 Compat Modes */
-  src: url('https://102e81b89588dae95fe3fe66184c1b24.r2.cloudflarestorage.com/dr-saavedra/fonts/greycliff-cf-v2.0/GreycliffCF-Regular.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */ url('https://102e81b89588dae95fe3fe66184c1b24.r2.cloudflarestorage.com/dr-saavedra/fonts/greycliff-cf-v2.0/GreycliffCF-Regular.woff') format('woff');
+  src: url('https://pub-dba0a7ed9ee84bcaa39a9591a0baf63a.r2.dev/fonts/greycliff-cf-v2.0/GreycliffCF-Regular.eot'); /* IE9 Compat Modes */
+  src: url('https://pub-dba0a7ed9ee84bcaa39a9591a0baf63a.r2.dev/fonts/greycliff-cf-v2.0/GreycliffCF-Regular.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('https://pub-dba0a7ed9ee84bcaa39a9591a0baf63a.r2.dev/fonts/greycliff-cf-v2.0/GreycliffCF-Regular.woff') format('woff');
   font-style: normal;
   font-weight: 400;
   text-rendering: optimizeLegibility;
@@ -10,9 +10,9 @@
 
 @font-face {
   font-family: 'Greycliff CF';
-  src: url('https://102e81b89588dae95fe3fe66184c1b24.r2.cloudflarestorage.com/dr-saavedra/fonts/greycliff-cf-v2.0/GreycliffCF-RegularOblique.eot'); /* IE9 Compat Modes */
-  src: url('https://102e81b89588dae95fe3fe66184c1b24.r2.cloudflarestorage.com/dr-saavedra/fonts/greycliff-cf-v2.0/GreycliffCF-RegularOblique.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */ url('https://102e81b89588dae95fe3fe66184c1b24.r2.cloudflarestorage.com/dr-saavedra/fonts/greycliff-cf-v2.0/GreycliffCF-RegularOblique.woff') format('woff');
+  src: url('https://pub-dba0a7ed9ee84bcaa39a9591a0baf63a.r2.dev/fonts/greycliff-cf-v2.0/GreycliffCF-RegularOblique.eot'); /* IE9 Compat Modes */
+  src: url('https://pub-dba0a7ed9ee84bcaa39a9591a0baf63a.r2.dev/fonts/greycliff-cf-v2.0/GreycliffCF-RegularOblique.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('https://pub-dba0a7ed9ee84bcaa39a9591a0baf63a.r2.dev/fonts/greycliff-cf-v2.0/GreycliffCF-RegularOblique.woff') format('woff');
   font-style: italic;
   font-weight: 400;
   text-rendering: optimizeLegibility;
@@ -20,9 +20,9 @@
 
 @font-face {
   font-family: 'Greycliff CF';
-  src: url('https://102e81b89588dae95fe3fe66184c1b24.r2.cloudflarestorage.com/dr-saavedra/fonts/greycliff-cf-v2.0/GreycliffCF-Medium.eot'); /* IE9 Compat Modes */
-  src: url('https://102e81b89588dae95fe3fe66184c1b24.r2.cloudflarestorage.com/dr-saavedra/fonts/greycliff-cf-v2.0/GreycliffCF-Medium.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */ url('https://102e81b89588dae95fe3fe66184c1b24.r2.cloudflarestorage.com/dr-saavedra/fonts/greycliff-cf-v2.0/GreycliffCF-Medium.woff') format('woff');
+  src: url('https://pub-dba0a7ed9ee84bcaa39a9591a0baf63a.r2.dev/fonts/greycliff-cf-v2.0/GreycliffCF-Medium.eot'); /* IE9 Compat Modes */
+  src: url('https://pub-dba0a7ed9ee84bcaa39a9591a0baf63a.r2.dev/fonts/greycliff-cf-v2.0/GreycliffCF-Medium.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('https://pub-dba0a7ed9ee84bcaa39a9591a0baf63a.r2.dev/fonts/greycliff-cf-v2.0/GreycliffCF-Medium.woff') format('woff');
   font-style: normal;
   font-weight: 500;
   text-rendering: optimizeLegibility;
@@ -30,9 +30,9 @@
 
 @font-face {
   font-family: 'Greycliff CF';
-  src: url('https://102e81b89588dae95fe3fe66184c1b24.r2.cloudflarestorage.com/dr-saavedra/fonts/greycliff-cf-v2.0/GreycliffCF-MediumOblique.eot'); /* IE9 Compat Modes */
-  src: url('https://102e81b89588dae95fe3fe66184c1b24.r2.cloudflarestorage.com/dr-saavedra/fonts/greycliff-cf-v2.0/GreycliffCF-MediumOblique.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */ url('https://102e81b89588dae95fe3fe66184c1b24.r2.cloudflarestorage.com/dr-saavedra/fonts/greycliff-cf-v2.0/GreycliffCF-MediumOblique.woff') format('woff');
+  src: url('https://pub-dba0a7ed9ee84bcaa39a9591a0baf63a.r2.dev/fonts/greycliff-cf-v2.0/GreycliffCF-MediumOblique.eot'); /* IE9 Compat Modes */
+  src: url('https://pub-dba0a7ed9ee84bcaa39a9591a0baf63a.r2.dev/fonts/greycliff-cf-v2.0/GreycliffCF-MediumOblique.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('https://pub-dba0a7ed9ee84bcaa39a9591a0baf63a.r2.dev/fonts/greycliff-cf-v2.0/GreycliffCF-MediumOblique.woff') format('woff');
   font-style: italic;
   font-weight: 500;
   text-rendering: optimizeLegibility;
@@ -40,9 +40,9 @@
 
 @font-face {
   font-family: 'Greycliff CF';
-  src: url('https://102e81b89588dae95fe3fe66184c1b24.r2.cloudflarestorage.com/dr-saavedra/fonts/greycliff-cf-v2.0/GreycliffCF-DemiBold.eot'); /* IE9 Compat Modes */
-  src: url('https://102e81b89588dae95fe3fe66184c1b24.r2.cloudflarestorage.com/dr-saavedra/fonts/greycliff-cf-v2.0/GreycliffCF-DemiBold.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */ url('https://102e81b89588dae95fe3fe66184c1b24.r2.cloudflarestorage.com/dr-saavedra/fonts/greycliff-cf-v2.0/GreycliffCF-DemiBold.woff') format('woff');
+  src: url('https://pub-dba0a7ed9ee84bcaa39a9591a0baf63a.r2.dev/fonts/greycliff-cf-v2.0/GreycliffCF-DemiBold.eot'); /* IE9 Compat Modes */
+  src: url('https://pub-dba0a7ed9ee84bcaa39a9591a0baf63a.r2.dev/fonts/greycliff-cf-v2.0/GreycliffCF-DemiBold.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('https://pub-dba0a7ed9ee84bcaa39a9591a0baf63a.r2.dev/fonts/greycliff-cf-v2.0/GreycliffCF-DemiBold.woff') format('woff');
   font-style: normal;
   font-weight: 600;
   text-rendering: optimizeLegibility;
@@ -50,9 +50,9 @@
 
 @font-face {
   font-family: 'Greycliff CF';
-  src: url('https://102e81b89588dae95fe3fe66184c1b24.r2.cloudflarestorage.com/dr-saavedra/fonts/greycliff-cf-v2.0/GreycliffCF-DemiBoldOblique.eot'); /* IE9 Compat Modes */
-  src: url('https://102e81b89588dae95fe3fe66184c1b24.r2.cloudflarestorage.com/dr-saavedra/fonts/greycliff-cf-v2.0/GreycliffCF-DemiBoldOblique.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */ url('https://102e81b89588dae95fe3fe66184c1b24.r2.cloudflarestorage.com/dr-saavedra/fonts/greycliff-cf-v2.0/GreycliffCF-DemiBoldOblique.woff') format('woff');
+  src: url('https://pub-dba0a7ed9ee84bcaa39a9591a0baf63a.r2.dev/fonts/greycliff-cf-v2.0/GreycliffCF-DemiBoldOblique.eot'); /* IE9 Compat Modes */
+  src: url('https://pub-dba0a7ed9ee84bcaa39a9591a0baf63a.r2.dev/fonts/greycliff-cf-v2.0/GreycliffCF-DemiBoldOblique.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('https://pub-dba0a7ed9ee84bcaa39a9591a0baf63a.r2.dev/fonts/greycliff-cf-v2.0/GreycliffCF-DemiBoldOblique.woff') format('woff');
   font-style: italic;
   font-weight: 600;
   text-rendering: optimizeLegibility;
