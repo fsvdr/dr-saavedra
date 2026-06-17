@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "dr-saavedra",
+  "compatibility_date": "2025-06-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true
+  }
+  // The @astrojs/cloudflare adapter generates the Worker entry and wires the
+  // built static assets automatically during `astro build`.
+  //
+  // Secrets (set with `wrangler secret put <NAME>` or in the dashboard):
+  //   MAPBOX_ACCESS_TOKEN  — Mapbox token for the "¿Qué tan lejos estoy?" distance endpoint
+  //   SANITY_WRITE_TOKEN   — Sanity token with create permission for testimonial submissions
+}

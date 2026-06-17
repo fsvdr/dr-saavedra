@@ -1,0 +1,73 @@
+---
+import { formatDate } from '../lib/format';
+import type { Testimonial } from '../lib/sanity';
+
+interface Props {
+  testimonial: Testimonial;
+}
+
+const { testimonial } = Astro.props;
+const { rating, content, author, submissionDate } = testimonial;
+const stars = [1, 2, 3, 4, 5];
+---
+
+<article class="testimonial" aria-label={`Testimonio de ${author}`}>
+  <div class="testimonial__rating" aria-label={`${author} calificó su consulta con ${rating} de 5 estrellas`}>
+    {
+      stars.map((star) => (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill={rating >= star ? 'var(--color-accent)' : 'none'}
+          stroke={rating >= star ? 'var(--color-accent)' : 'currentColor'}
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon"
+          focusable="false"
+          aria-hidden="true"
+        >
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+        </svg>
+      ))
+    }
+  </div>
+
+  <p class="testimonial__content">{content}</p>
+
+  <div class="testimonial__author">
+    <address>— {author}</address>
+    <time>{formatDate(submissionDate)}</time>
+  </div>
+</article>
+
+<style>
+  .testimonial {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: min(100%, 50rem);
+    text-align: center;
+  }
+
+  .testimonial__rating {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-block-end: 2rem;
+  }
+
+  .testimonial__content {
+    margin-block-end: 0.8rem;
+  }
+
+  .testimonial__author {
+    font-size: var(--font-size-sm);
+    margin-block-end: 0.8rem;
+  }
+
+  .testimonial__author time {
+    display: block;
+  }
+</style>
