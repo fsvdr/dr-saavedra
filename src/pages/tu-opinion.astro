@@ -1,0 +1,241 @@
+---
+import Title from '../components/Title.astro';
+import Layout from '../layouts/Layout.astro';
+
+const ratings = [5, 4, 3, 2, 1];
+const defaultRating = 4;
+---
+
+<Layout title="¡Comparte tu opinión! — Dr. Benito Saavedra Alvarado" canonical="/tu-opinion">
+  <div class="section opinion">
+    <Title>¿Qué tal te fue en tu consulta? ¡Compártenos tu opinión!</Title>
+
+    <form class="opinion__form" data-opinion-form>
+      <fieldset class="opinion__rating">
+        <legend>Califica tu visita</legend>
+        {
+          ratings.map((rate) => (
+            <>
+              <input
+                type="radio"
+                name="rating"
+                value={rate}
+                required
+                id={`rate-${rate}`}
+                class="sr-only"
+                checked={rate === defaultRating}
+              />
+              <label for={`rate-${rate}`} aria-label={`${rate} de 5 estrellas`} data-rate={rate}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon--lg" focusable="false" aria-hidden="true">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+              </label>
+            </>
+          ))
+        }
+      </fieldset>
+
+      <label for="author">¿Cuál es tu nombre?</label>
+      <input type="text" name="author" required id="author" />
+
+      <label for="content">¿Cómo describirías el trato del Dr. Saavedra?</label>
+      <textarea name="content" maxlength="200" required id="content"></textarea>
+
+      <label class="opinion__agree">
+        <input type="checkbox" name="agrees" value="true" />
+        <span>Estoy de acuerdo en que mi nombre y opinión puedan ser publicados en este sitio web</span>
+      </label>
+
+      <button type="submit" class="opinion__submit" data-opinion-submit>¡Enviar mi opinión!</button>
+
+      <p role="status" aria-live="assertive" tabindex={0} data-opinion-status></p>
+    </form>
+  </div>
+</Layout>
+
+<style>
+  .opinion {
+    text-align: center;
+  }
+
+  .opinion__form {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding-block-start: 4rem;
+  }
+
+  .opinion__form label {
+    margin-block-end: 0.8em;
+  }
+
+  .opinion__form input,
+  .opinion__form textarea {
+    inline-size: min(90%, 40rem);
+    font-weight: var(--font-weight-medium);
+    background-color: transparent;
+    border: 2px solid var(--color-black);
+    border-radius: 0.4rem;
+    padding: 0.8rem;
+    margin-block-end: 2.4rem;
+    transition: border-color 0.3s;
+  }
+
+  .opinion__form input:hover,
+  .opinion__form input:focus,
+  .opinion__form textarea:hover,
+  .opinion__form textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+
+  .opinion__form textarea {
+    min-height: 12rem;
+  }
+
+  .opinion__form > p:last-child {
+    font-weight: var(--font-weight-demi-bold);
+    margin-block-end: 0;
+    outline: none;
+  }
+
+  .opinion__form > p:last-child .success-message {
+    display: block;
+    margin-block-start: 4rem;
+  }
+
+  .opinion__form > p:last-child a {
+    display: inline-block;
+    font-weight: var(--font-weight-medium);
+    margin-block-start: 2rem;
+    border-bottom: 0.2rem solid var(--color-accent);
+  }
+
+  .opinion__rating {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    inline-size: 100%;
+    margin-block-end: 6rem;
+  }
+
+  .opinion__rating legend {
+    position: absolute;
+    top: 100%;
+    margin: 0 auto;
+    font-style: italic;
+    font-size: var(--font-size-sm);
+  }
+
+  .opinion__rating label {
+    cursor: pointer;
+    margin: 0;
+  }
+
+  .opinion__rating svg.icon {
+    transition: none;
+  }
+
+  .opinion__rating label[for='rate-5'] { order: 5; }
+  .opinion__rating label[for='rate-4'] { order: 4; }
+  .opinion__rating label[for='rate-3'] { order: 3; }
+  .opinion__rating label[for='rate-2'] { order: 2; }
+  .opinion__rating label[for='rate-1'] { order: 1; }
+
+  .opinion__rating label:hover svg,
+  .opinion__rating label:hover ~ label svg {
+    stroke: var(--color-accent);
+  }
+
+  .opinion__agree {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    inline-size: min(90%, 40rem);
+    font-size: var(--font-size-sm);
+    text-align: left;
+  }
+
+  .opinion__agree input {
+    inline-size: auto;
+    margin-inline-end: 1.6rem;
+  }
+
+  .opinion__submit {
+    font-weight: var(--font-weight-demi-bold);
+    padding: 0.2rem;
+    border-bottom: 2px solid var(--color-accent);
+    margin-block-start: 4rem;
+    transition: border-color 0.3s;
+  }
+</style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-opinion-form]');
+  const submit = form?.querySelector<HTMLButtonElement>('[data-opinion-submit]');
+  const status = form?.querySelector<HTMLParagraphElement>('[data-opinion-status]');
+
+  const paintStars = (rating: number) => {
+    form?.querySelectorAll<HTMLLabelElement>('[data-rate]').forEach((label) => {
+      const rate = Number(label.dataset.rate);
+      const svg = label.querySelector('svg');
+      if (!svg) return;
+      const active = rate <= rating;
+      svg.setAttribute('fill', active ? 'var(--color-accent)' : 'none');
+      svg.setAttribute('stroke', active ? 'var(--color-accent)' : 'currentColor');
+    });
+  };
+
+  if (form && submit && status) {
+    const checked = form.querySelector<HTMLInputElement>('input[name="rating"]:checked');
+    paintStars(checked ? Number(checked.value) : 0);
+
+    form.querySelectorAll<HTMLInputElement>('input[name="rating"]').forEach((input) => {
+      input.addEventListener('change', () => paintStars(Number(input.value)));
+    });
+
+    const setDisabled = (disabled: boolean) => {
+      form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('input, textarea').forEach((el) => {
+        el.disabled = disabled;
+      });
+    };
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      submit.hidden = true;
+      setDisabled(true);
+      status.textContent = 'Enviando…';
+      status.focus();
+
+      const data = new FormData(form);
+      const payload = {
+        rating: Number(data.get('rating')),
+        author: String(data.get('author') ?? ''),
+        content: String(data.get('content') ?? ''),
+        agrees: data.get('agrees') === 'true',
+      };
+
+      try {
+        const response = await fetch('/api/testimonial', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) throw new Error('request failed');
+
+        status.innerHTML =
+          '<span class="success-message">¡Muchas gracias por tus comentarios!</span><a href="/">Ir a la página principal</a>';
+      } catch {
+        submit.hidden = false;
+        setDisabled(false);
+        status.textContent = 'No pudimos enviar tu opinión en este momento, por favor intenta más tarde.';
+      } finally {
+        status.focus();
+      }
+    });
+  }
+</script>

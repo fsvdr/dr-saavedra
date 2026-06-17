@@ -1,0 +1,9 @@
+# Copy to `.dev.vars` for local development (`astro dev` reads these through the
+# Cloudflare adapter's platform proxy). In production set them with
+# `wrangler secret put <NAME>` or in the Cloudflare dashboard.
+
+# Mapbox token used by the "¿Qué tan lejos estoy?" distance endpoint
+MAPBOX_ACCESS_TOKEN=
+
+# Sanity token with create permission, used to publish testimonial submissions
+SANITY_WRITE_TOKEN=

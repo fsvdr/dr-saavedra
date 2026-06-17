@@ -1,0 +1,78 @@
+---
+// "¿Qué tan lejos estoy?" — asks for the visitor's location and calls the
+// /api/distance Worker endpoint (Mapbox) to estimate travel time to the office.
+---
+
+<div class="distance" data-distance hidden>
+  <button type="button" data-distance-button aria-label="Calcular distancia al consultorio desde mi posición actual">
+    ¿Qué tan lejos estoy?
+  </button>
+
+  <p class="distance__status" role="status" aria-live="assertive" tabindex={0} data-distance-status></p>
+</div>
+
+<style>
+  .distance p {
+    font-size: var(--font-size-xs);
+    padding: 0.2rem 0;
+    margin-block-end: 0;
+  }
+
+  .distance button {
+    font-weight: var(--font-weight-demi-bold);
+    padding: 0.2rem 0;
+    border-bottom: 0.2rem solid var(--color-accent);
+    border-radius: 0;
+  }
+
+  .distance__status:empty {
+    display: none;
+  }
+</style>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-distance]');
+  const button = root?.querySelector<HTMLButtonElement>('[data-distance-button]');
+  const status = root?.querySelector<HTMLParagraphElement>('[data-distance-status]');
+
+  // Only reveal the feature when geolocation is actually available.
+  if (root && button && status && 'geolocation' in navigator) {
+    root.hidden = false;
+
+    const errorFor = (code: number): string => {
+      if (code === 1)
+        return 'Necesitamos tu permiso para obtener tu ubicación actual, por favor intenta recargar la página';
+      if (code === 2) return 'No pudimos obtener tu ubicación en estos momentos, por favor intenta más tarde';
+      return 'Lo sentimos, no pudimos calcular la distancia en estos momentos, por favor intenta más tarde';
+    };
+
+    const getPosition = () =>
+      new Promise<GeolocationPosition>((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+      });
+
+    button.addEventListener('click', async () => {
+      button.hidden = true;
+      status.textContent = 'Calculando distancia…';
+      status.focus();
+
+      try {
+        const position = await getPosition();
+        const { latitude, longitude } = position.coords;
+        const response = await fetch(`/api/distance?latitude=${latitude}&longitude=${longitude}`);
+
+        if (!response.ok) throw new Error('request failed');
+
+        const travel = (await response.json()) as { distance: number; time: number };
+        const minutes = (travel.time / 100).toFixed(0);
+        const km = (travel.distance / 1000).toFixed(1);
+        status.textContent = `Te encuentras a aproximadamente ${minutes} minutos (${km} km) del consultorio`;
+      } catch (error) {
+        const code = (error as GeolocationPositionError)?.code ?? 3;
+        status.textContent = errorFor(code);
+      } finally {
+        status.focus();
+      }
+    });
+  }
+</script>

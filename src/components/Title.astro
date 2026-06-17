@@ -1,0 +1,13 @@
+---
+interface Props {
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'p';
+  class?: string;
+  id?: string;
+  [key: string]: unknown;
+}
+
+const { as = 'h1', class: className, ...rest } = Astro.props;
+const Tag = as;
+---
+
+<Tag class:list={['title', className]} {...rest}><slot /></Tag>

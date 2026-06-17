@@ -1,0 +1,300 @@
+---
+import { Image } from 'astro:assets';
+import Title from '../components/Title.astro';
+import portrait from '../images/portrait.png';
+import Layout from '../layouts/Layout.astro';
+import { capitalize, formatDate, readingTime } from '../lib/format';
+import { portableTextToHtml } from '../lib/portableText';
+import { type BlogPost, getAllPosts } from '../lib/sanity';
+
+export async function getStaticPaths() {
+  const posts = await getAllPosts();
+
+  return posts.map((post, index) => ({
+    params: { slug: post.slug },
+    props: {
+      post,
+      previous: posts[index - 1] ?? null,
+      next: posts[index + 1] ?? null,
+    },
+  }));
+}
+
+interface Props {
+  post: BlogPost;
+  previous: BlogPost | null;
+  next: BlogPost | null;
+}
+
+const { post, previous, next } = Astro.props;
+const minutes = readingTime(post.plainText ?? '');
+const body = portableTextToHtml(post.content);
+---
+
+<Layout
+  title={`${post.title} . Dr. Benito Saavedra Alvarado`}
+  description={post.summary}
+  canonical={`/${post.slug}`}
+  image={`/og/${post.slug}.png`}
+  imageAlt={`Lee: ${post.title}`}
+  og={{ type: 'article', publishedTime: post.releaseDate, section: 'Artículo Médico', tags: post.tags }}
+>
+  <article class="article">
+    <header class="article__header">
+      <Title>{post.title}</Title>
+      <p>
+        <time datetime={post.releaseDate}>{capitalize(formatDate(post.releaseDate))}</time>
+        <span>Lectura de {minutes} minuto{minutes > 1 ? 's' : ''}</span>
+      </p>
+    </header>
+
+    <div class="article__author">
+      <Image src={portrait} width={50} height={50} alt="Fotografía del Dr. Saavedra" />
+
+      <address>
+        <p>Dr. Benito Saavedra Alvarado</p>
+        <p>Médico especialista en traumatología y ortopédia</p>
+      </address>
+    </div>
+
+    <div class="article__body" set:html={body} />
+
+    <aside class="article__aside">
+      <p>Consulta privada en HMG Hospital Coyoacán</p>
+      <div aria-labelledby="link">
+        <span id="schedule" aria-hidden="true">Horarios disponibles </span>
+        <a href="/" aria-label="Horarios de consulta disponibles" id="link">aqui</a>
+      </div>
+
+      <h2>Otros artículos de interés</h2>
+
+      {
+        previous && (
+          <a href={`/${previous.slug}`} aria-label={`Leer artículo ${previous.title}`}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" focusable="false" aria-hidden="true">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+            </svg>
+            {previous.title}
+          </a>
+        )
+      }
+
+      {
+        next && (
+          <a href={`/${next.slug}`} aria-label={`Leer articulo ${next.title}`}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" focusable="false" aria-hidden="true">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+            </svg>
+            {next.title}
+          </a>
+        )
+      }
+    </aside>
+  </article>
+</Layout>
+
+<style>
+  .article {
+    --inline-inset: calc(env(safe-area-inset-left) + 1.6rem);
+    padding-block-start: 6rem;
+  }
+
+  .article__header {
+    grid-area: header;
+    padding-inline-start: var(--inline-inset);
+    padding-inline-end: var(--inline-inset);
+    margin-block-end: 2.4rem;
+  }
+
+  .article__header span {
+    margin-inline-start: 1.6rem;
+  }
+
+  .article__author {
+    grid-area: author;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-inline-start: var(--inline-inset);
+    padding-inline-end: var(--inline-inset);
+    margin-block-end: 2rem;
+  }
+
+  .article__author :global(img) {
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+
+  .article__author address {
+    flex: 1 1 0;
+    display: block;
+    margin-inline-start: 2.4rem;
+  }
+
+  .article__author address p:first-of-type {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .article__author address p {
+    font-size: var(--font-size-sm);
+  }
+
+  .article__body {
+    grid-area: body;
+    inline-size: 100%;
+    font-weight: var(--font-weight-regular);
+    background-color: var(--color-white);
+    padding-inline-start: var(--inline-inset);
+    padding-inline-end: var(--inline-inset);
+    padding-block-start: 4rem;
+    padding-block-end: 4rem;
+    margin-block-end: 4rem;
+  }
+
+  .article__body :global(h2) {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
+    margin-block-end: 2rem;
+  }
+
+  .article__body :global(h2:not(:first-of-type)) {
+    margin-block-start: 8rem;
+  }
+
+  .article__body :global(ul),
+  .article__body :global(ol) {
+    list-style-position: outside;
+    padding-inline-start: 1.6rem;
+  }
+
+  .article__body :global(li) {
+    margin-block-end: 0.8rem;
+  }
+
+  .article__body :global(p) {
+    max-width: none;
+  }
+
+  .article__body :global(.post-figure) {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-block-start: 8rem;
+    margin-block-end: 8rem;
+  }
+
+  .article__body :global(.post-figure img) {
+    inline-size: min(90%, 400px);
+    border: 1.6rem solid var(--color-background);
+    border-radius: 0.8rem;
+    background-color: var(--color-background);
+    margin-block-end: 1.6rem;
+  }
+
+  .article__body :global(.post-figure figcaption) {
+    font-style: italic;
+    font-size: var(--font-size-sm);
+  }
+
+  .article__aside {
+    grid-area: aside;
+    padding-inline-start: var(--inline-inset);
+    padding-inline-end: var(--inline-inset);
+    margin-block-end: 6rem;
+  }
+
+  .article__aside p:first-of-type {
+    margin-block-end: 0.8rem;
+  }
+
+  .article__aside p a {
+    font-weight: var(--font-weight-demi-bold);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+  }
+
+  .article__aside h2 {
+    font-weight: var(--font-weight-medium);
+    margin-block-start: 4rem;
+    margin-block-end: 1.6rem;
+  }
+
+  .article__aside > a {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    font-weight: var(--font-weight-demi-bold);
+  }
+
+  .article__aside > a:hover svg {
+    color: var(--color-accent);
+  }
+
+  .article__aside svg {
+    margin-inline-end: 0.8rem;
+    transition: color 0.3s;
+  }
+
+  @media screen and (min-width: 768px) {
+    .article {
+      --inline-inset: calc(env(safe-area-inset-left) + 4vw);
+      display: grid;
+      grid-template-columns: min(calc(60% - 2rem), 800px) min(calc(40% - 2rem), 500px);
+      justify-content: space-between;
+      grid-column-gap: 4rem;
+      grid-row-gap: 2.4em;
+      grid-template-areas:
+        'header author'
+        'body aside';
+    }
+
+    .article__header {
+      margin-block-end: 0;
+      padding-inline-end: 0;
+    }
+
+    .article__author {
+      padding-inline-start: 0;
+      padding-block-start: 1.6rem;
+      margin-block-end: 0;
+    }
+
+    .article__author p {
+      margin-block-end: 0;
+    }
+
+    .article__body {
+      padding-block-start: 6rem;
+      padding-block-end: 6rem;
+    }
+
+    .article__aside {
+      padding-inline-start: 0;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .article {
+      grid-column-gap: 8rem;
+      grid-template-columns: min(calc(60% - 4rem), 900px) min(calc(40% - 4rem), 500px);
+    }
+  }
+
+  @media screen and (min-width: 1600px) {
+    .article {
+      --inline-inset: calc((100vw - 1600px) / 2 + 4vw);
+      grid-template-columns:
+        min(calc(60% - 4rem), calc(800px + var(--inline-inset)))
+        min(calc(40% - 4rem), calc(500px + var(--inline-inset)));
+    }
+
+    .article__body {
+      padding-inline-end: 4vw;
+    }
+  }
+</style>
