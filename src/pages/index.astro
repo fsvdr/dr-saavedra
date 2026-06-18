@@ -31,7 +31,7 @@ const pageCount = Math.max(1, Math.ceil(totalPosts / POSTS_PER_PAGE));
       <p aria-label="Cédula Profesional 987510">Cédula 987510</p>
 
       <div class="portrait__image">
-        <Image src={portrait} alt="" widths={[300, 400, 600]} sizes="(min-width: 768px) 40rem, 100vw" aria-hidden="true" />
+        <Image src={portrait} alt="" widths={[400, 600, 800]} sizes="(min-width: 768px) 40rem, 100vw" aria-hidden="true" />
       </div>
     </div>
 
@@ -71,15 +71,15 @@ const pageCount = Math.max(1, Math.ceil(totalPosts / POSTS_PER_PAGE));
 
     <div>
       <div class="work">
-        <Image src={unam} alt="" width={80} aria-hidden="true" />
+        <Image src={unam} alt="" width={80} densities={[1, 2]} aria-hidden="true" />
         <p>Licenciatura y especialización por parte de la UNAM</p>
       </div>
       <div class="work">
-        <Image src={imss} alt="" width={80} aria-hidden="true" />
+        <Image src={imss} alt="" width={80} densities={[1, 2]} aria-hidden="true" />
         <p>28 años de servicio en el Hospital Regional 2</p>
       </div>
       <div class="work">
-        <Image src={issste} alt="" width={80} aria-hidden="true" />
+        <Image src={issste} alt="" width={80} densities={[1, 2]} aria-hidden="true" />
         <p>28 años de servicio en el Hospital General Ignacio Zaragoza</p>
       </div>
     </div>
