@@ -1,3 +1,4 @@
+import { getSecret } from 'astro:env/server';
 import type { APIContext } from 'astro';
 import { ImageResponse } from 'workers-og';
 import { SANITY_QUERY_URL } from '../../lib/sanityConfig';
@@ -29,7 +30,11 @@ export async function GET({ params }: APIContext): Promise<Response> {
   try {
     const query = '*[_type == "blogPost" && slug.current == $slug][0]{title}';
     const params = new URLSearchParams({ query, $slug: JSON.stringify(slug) });
-    const response = await fetch(`${SANITY_QUERY_URL}?${params.toString()}`);
+    // The dataset is private; authenticate the read so the CDN returns content.
+    const token = getSecret('SANITY_READ_TOKEN');
+    const response = await fetch(`${SANITY_QUERY_URL}?${params.toString()}`, {
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+    });
     if (response.ok) {
       const { result } = (await response.json()) as { result?: { title?: string } | null };
       if (result?.title) title = result.title;

@@ -1,13 +1,18 @@
+import { getSecret } from 'astro:env/server';
 import { createClient } from '@sanity/client';
 import { SANITY_API_VERSION, SANITY_DATASET, SANITY_PROJECT_ID } from './sanityConfig';
 
 export { SANITY_DATASET, SANITY_PROJECT_ID } from './sanityConfig';
 
+// The `production` dataset is private, so build-time content reads need a
+// Viewer token. With a token the CDN is bypassed (useCdn: false) to fetch the
+// latest published content at build time.
 const sanityClient = createClient({
   projectId: SANITY_PROJECT_ID,
   dataset: SANITY_DATASET,
   apiVersion: SANITY_API_VERSION,
-  useCdn: true,
+  token: getSecret('SANITY_READ_TOKEN'),
+  useCdn: false,
 });
 
 /**

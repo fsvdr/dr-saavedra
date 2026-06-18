@@ -17,6 +17,9 @@ export default defineConfig({
       MAPBOX_ACCESS_TOKEN: envField.string({ context: 'server', access: 'secret', optional: true }),
       // Sanity token with create permission for testimonial submissions.
       SANITY_WRITE_TOKEN: envField.string({ context: 'server', access: 'secret', optional: true }),
+      // Sanity Viewer token to read the private `production` dataset (build-time
+      // content fetches + on-demand OG image titles).
+      SANITY_READ_TOKEN: envField.string({ context: 'server', access: 'secret', optional: true }),
     },
   },
   integrations: [
