@@ -1,9 +1,29 @@
-# Sanity Clean Content Studio
+# Dr. Saavedra — Sanity Studio
 
-Congratulations, you have now installed the Sanity Content Studio, an open source real-time content editing environment connected to the Sanity backend.
+Content Studio for the [drsaavedra.mx](https://drsaavedra.mx) site. Manages blog
+posts (`blogPost`) and patient testimonials (`testimonial`).
 
-Now you can do the following things:
+- Project ID: `34yh9fgc`
+- Dataset: `production`
+- Sanity Studio **v6** (config-as-code, Vite).
 
-- [Read “getting started” in the docs](https://www.sanity.io/docs/introduction/getting-started?utm_source=readme)
-- [Join the community Slack](https://slack.sanity.io/?utm_source=readme)
-- [Extend and build plugins](https://www.sanity.io/docs/content-studio/extending?utm_source=readme)
+## Commands
+
+```sh
+bun install
+bun run dev      # local studio at http://localhost:3333
+bun run build    # production build → dist/
+bun run deploy   # deploy to <project>.sanity.studio
+bun run check    # tsc type check
+```
+
+## Schemas
+
+| Type              | Purpose                                                |
+| ----------------- | ------------------------------------------------------ |
+| `blogPost`        | Medical articles (Portable Text + inline images)       |
+| `testimonial`     | Patient reviews (shown on the site once `approved`)     |
+| `inlinePostImage` | Image block embedded inside an article's content       |
+
+Testimonials submitted through the site's `/tu-opinion` form are created here with
+`approved: false` and must be approved before they appear on the site.
