@@ -149,6 +149,10 @@ video {
   max-width: 100%;
 }
 
+img {
+  height: auto;
+}
+
 html {
   box-sizing: border-box;
   width: 100%;
