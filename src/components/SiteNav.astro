@@ -11,7 +11,7 @@ const { showInternalLinks = true } = Astro.props;
 
 <nav class="site-nav" aria-label="Navegación principal">
   <a class="site-nav__logo" href="/" aria-label="Inicio">
-    <Image src={favicon} alt="" width={24} height={24} aria-hidden="true" />
+    <Image src={favicon} alt="" width={24} height={24} densities={[1, 2, 3]} aria-hidden="true" />
     Dr. Saavedra
   </a>
 
