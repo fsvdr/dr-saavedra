@@ -24,6 +24,7 @@
     "@portabletext/to-html": "^5.0.2",
     "@sanity/client": "^7.23.0",
     "astro": "^6.4.8",
+    "posthog-js": "1.422.5",
     "workers-og": "^0.0.27"
   },
   "devDependencies": {

@@ -227,6 +227,7 @@ const defaultRating = 4;
 
         if (!response.ok) throw new Error('request failed');
 
+        window.posthog?.capture('testimonial_submitted');
         status.innerHTML =
           '<span class="success-message">¡Muchas gracias por tus comentarios!</span><a href="/">Ir a la página principal</a>';
       } catch {

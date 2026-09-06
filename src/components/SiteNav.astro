@@ -67,7 +67,7 @@ const { showInternalLinks = true } = Astro.props;
     </li>
   </ul>
 
-  <a class="site-nav__cta" href="tel:5513227579">
+  <a class="site-nav__cta" href="tel:5513227579" data-appointment-contact="primary_navigation">
     <address aria-label="Teléfono del consultorio">
       <span class="title">Agenda tu cita</span>
       <span>
@@ -79,6 +79,17 @@ const { showInternalLinks = true } = Astro.props;
     </address>
   </a>
 </nav>
+
+<script>
+  const appointmentLink = document.querySelector<HTMLAnchorElement>(
+    '[data-appointment-contact="primary_navigation"]',
+  );
+  appointmentLink?.addEventListener('click', () => {
+    window.posthog?.capture('appointment_contact_initiated', {
+      placement: appointmentLink.dataset.appointmentContact,
+    });
+  });
+</script>
 
 <style>
   .site-nav {

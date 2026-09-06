@@ -1,5 +1,6 @@
 ---
 import Footer from '../components/Footer.astro';
+import PostHog from '../components/posthog.astro';
 import Seo, { type OpenGraph } from '../components/Seo.astro';
 import SiteNav from '../components/SiteNav.astro';
 import '../styles/global.css';
@@ -34,6 +35,7 @@ const { title, description, canonical, image, imageAlt, og, isHome = false } = A
     />
 
     <Seo {title} {description} {canonical} {image} {imageAlt} {og} />
+    <PostHog />
 
     <script is:inline defer data-domain="drsaavedra.mx" src="https://plausible.io/js/script.js"></script>
     <script is:inline src="https://cdn.usefathom.com/script.js" data-spa="auto" data-site="JGUBFEOA" defer></script>

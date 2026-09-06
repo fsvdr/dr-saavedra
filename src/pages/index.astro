@@ -39,7 +39,7 @@ const pageCount = Math.max(1, Math.ceil(totalPosts / POSTS_PER_PAGE));
       <div class="office__card" aria-labelledby="office-location">
         <span>Consulta Privada</span>
         <address aria-label="Consulta privada">
-          <a href="https://goo.gl/maps/WAgbfa7Pdip47SVK6" target="_blank" rel="noopener noreferrer" aria-label="Ubicación del consultorio en Google Maps">
+          <a href="https://goo.gl/maps/WAgbfa7Pdip47SVK6" target="_blank" rel="noopener noreferrer" aria-label="Ubicación del consultorio en Google Maps" data-office-location-link>
             HMG Hospital Coyoacán, Consultorio 512
           </a>
         </address>
@@ -170,6 +170,12 @@ const pageCount = Math.max(1, Math.ceil(totalPosts / POSTS_PER_PAGE));
     </div>
   </section>
 </Layout>
+
+<script>
+  document.querySelector<HTMLAnchorElement>('[data-office-location-link]')?.addEventListener('click', () => {
+    window.posthog?.capture('office_location_opened');
+  });
+</script>
 
 <style>
   /* Hero */

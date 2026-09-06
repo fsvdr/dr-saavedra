@@ -5,7 +5,7 @@ const year = new Date().getFullYear();
 <footer class="section footer" aria-label="Pie de página">
   <div class="footer__contact">
     <p>Consulta Privada en HMG Hospital Coyoacán, Consultorio 512</p>
-    <a href="tel:5513227579" aria-label="Teléfono del consultorio">
+    <a href="tel:5513227579" aria-label="Teléfono del consultorio" data-appointment-contact="footer">
       <abbr title="Teléfono">Tel.</abbr> (55) 1322 7579
     </a>
   </div>
@@ -40,6 +40,15 @@ const year = new Date().getFullYear();
     <small>&copy; Dr. Benito Saavedra Alvarado 2019 - {year}</small>
   </div>
 </footer>
+
+<script>
+  const appointmentLink = document.querySelector<HTMLAnchorElement>('[data-appointment-contact="footer"]');
+  appointmentLink?.addEventListener('click', () => {
+    window.posthog?.capture('appointment_contact_initiated', {
+      placement: appointmentLink.dataset.appointmentContact,
+    });
+  });
+</script>
 
 <style>
   .footer {

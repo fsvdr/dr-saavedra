@@ -64,6 +64,7 @@
         if (!response.ok) throw new Error('request failed');
 
         const travel = (await response.json()) as { distance: number; time: number };
+        window.posthog?.capture('distance_calculated');
         const minutes = (travel.time / 100).toFixed(0);
         const km = (travel.distance / 1000).toFixed(1);
         status.textContent = `Te encuentras a aproximadamente ${minutes} minutos (${km} km) del consultorio`;

@@ -15,7 +15,7 @@ const href = `/${post.slug}`;
 <article class="post-card" aria-label={post.title}>
   <header>
     <Title as="h3">
-      <a href={href} aria-label={`${post.title} artículo completo`}>{post.title}</a>
+      <a href={href} aria-label={`${post.title} artículo completo`} data-article-link="title" data-post-slug={post.slug}>{post.title}</a>
     </Title>
 
     <p class="post-card__metadata">
@@ -26,7 +26,7 @@ const href = `/${post.slug}`;
 
   <p>{post.summary}</p>
 
-  <a href={href} class="post-card__link" aria-label={`${post.title} artículo completo`}>
+  <a href={href} class="post-card__link" aria-label={`${post.title} artículo completo`} data-article-link="cta" data-post-slug={post.slug}>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" focusable="false" aria-hidden="true">
       <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
       <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
@@ -34,6 +34,17 @@ const href = `/${post.slug}`;
     <span>Leer artículo completo</span>
   </a>
 </article>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('[data-article-link]').forEach((link) => {
+    link.addEventListener('click', () => {
+      window.posthog?.capture('article_opened', {
+        post_slug: link.dataset.postSlug,
+        source: link.dataset.articleLink,
+      });
+    });
+  });
+</script>
 
 <style>
   .post-card {
